@@ -1,1 +1,2 @@
-config 
+// imports
+require ('./config/mongoose.config')
