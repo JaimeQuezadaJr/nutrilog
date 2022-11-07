@@ -13,3 +13,16 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+// cookie & jwt
+// app.use(cors()); //if without cookie-parse
+app.use(cookieParser());
+app.use(cors({ origin: 'http://localhost:3000', credentials: true}));
+
+// routes for login & registration
+const userRoutes = require('./routes/user.routes');
+userRoutes(app);
+
+//.. future routes
+
+
+app.listen(port, () => console.log(`Listening on port: ${port}`));
