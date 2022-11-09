@@ -47,3 +47,13 @@ const login = async (req,res) => {
         }
     }
 };
+
+const logout = (req, res) => {
+    try {
+        const user = jwt.verify(req.cookies.userToken, SECRET);
+        const currentUser = await User.findOne({ _id: user._id });
+        res.json(currentUser);
+    } catch (error) {
+        res.status(401).json({ error });
+    }
+};
