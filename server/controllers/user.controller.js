@@ -72,3 +72,11 @@ const findAllUsers = (req, res) => {
             res.status(400).json({ message: 'Something went wrong', error: err })
         })
 }
+
+module.exports = {
+    register,
+    login,
+    logout,
+    getLoggedInUser,
+    findAllUsers
+};
