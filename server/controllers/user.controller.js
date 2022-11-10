@@ -49,6 +49,11 @@ const login = async (req,res) => {
 };
 
 const logout = (req, res) => {
+    res.clearCookie('userToken');
+    res.json({ successMessage: 'User logged out' });
+};
+
+const getLoggedInUser = async (req, res) => {
     try {
         const user = jwt.verify(req.cookies.userToken, SECRET);
         const currentUser = await User.findOne({ _id: user._id });
