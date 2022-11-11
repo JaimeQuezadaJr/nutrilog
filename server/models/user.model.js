@@ -4,29 +4,37 @@ const bcrypt = require('bcrypt');
 const UserSchema = mongoose.Schema(
     {
         firstName: {
-        type: String,
-        required: [true, 'First Name is required'],
+            type: String,
+            required: [true, 'First Name is required'],
     },
         lastName: {
-        type: String,
-        required: [true, 'Last Name is required'],
+            type: String,
+            required: [true, 'Last Name is required'],
     },
         age: {
-        type: Number,
-        required: [true, 'Age is required'],
+            type: Number,
+            required: [true, 'Age is required for accurate nutritional recommendations '],
     },
+        sex: {
+            type: String,
+            required: [true, 'Sex is required for accurate nutritional recommendations'],
+            enum: [
+                'Male',
+                'Female',
+            ],
+        },
         email: {
-        type: String,
-        required: [true, 'Email is required'],
-        validate: {
-            validator: val => /^([\w-\.]+@([\w-]+\.)+[\w-]+)?$/.test(val),
-            message: "Please enter a valid email"
-          }
+            type: String,
+            required: [true, 'Email is required'],
+            validate: {
+                validator: val => /^([\w-\.]+@([\w-]+\.)+[\w-]+)?$/.test(val),
+                message: "Please enter a valid email"
+                } 
     },
         password: {
-        type: String,
-        required: [true, 'Password is required'],
-        minlength: [8, "Password must be 8 characters or longer"]
+            type: String,
+            required: [true, 'Password is required'],
+            minlength: [8, "Password must be 8 characters or longer"]
     },
     },
     { timestamps: true }, 
