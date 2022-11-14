@@ -4,6 +4,7 @@ import axios from 'axios'
 
 const Home = () => {
     const [food, setFood] = useState([])
+    const[foodQuery, setFoodQuery] = useState('')
     const onSubmitHandler = (e) => {
         // e.preventdefault();
         const params = {
@@ -33,7 +34,7 @@ const Home = () => {
         <form onSubmit = {onSubmitHandler}>
             <p>
                 <label htmlFor='foodSearch'>Food Search</label>
-                <input type='text' value={food} onChange = {(e) => setFood(e.target.value)}/>
+                <input type='text' value={foodQuery} onChange = {(e) => setFood(e.target.value)}/>
             </p>
             <input type="button" value="Create" onClick={onSubmitHandler}/>
         </form>
