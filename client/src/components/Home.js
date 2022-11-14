@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 const Home = () => {
-    const [food, setFood] = useState("")
+    const [food, setFood] = useState([])
     const onSubmitHandler = (e) => {
         // e.preventdefault();
         const params = {
@@ -18,6 +18,7 @@ const Home = () => {
             axios.get(`https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(params.api_key)}&query=${encodeURIComponent(params.query)}&dataType=${encodeURIComponent(params.dataType)}&pageSize=${encodeURIComponent(params.pagesize)}`)
             .then(res => {
                 console.log(res.data.foods)
+                setFood(res.data.foods)
             })
             .catch((err) => {
                 console.log('Something went wrong', err)
@@ -36,6 +37,11 @@ const Home = () => {
             </p>
             <input type="button" value="Create" onClick={onSubmitHandler}/>
         </form>
+        {food.map((foods, index)=>
+        <div key={index}>
+            <p>{foods.description}</p>
+        </div>
+        )}
     </div>
   )
 }
