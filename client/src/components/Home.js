@@ -6,7 +6,7 @@ const Home = () => {
     const [food, setFood] = useState([])
     const[foodQuery, setFoodQuery] = useState("")
     const onSubmitHandler = (e) => {
-        // e.preventdefault();
+        e.preventDefault();
         console.log(foodQuery)
         const params = {
             api_key: 'ma4EHu5hkEyGjQ5cwZeB9BjYd9iMg6XxzzmXqkMV',
@@ -38,7 +38,7 @@ const Home = () => {
                 <label htmlFor='foodQuery'>Food Search</label>
                 <input type='text' value={foodQuery} onChange = {(e) => setFoodQuery(e.target.value)}/>
             </p>
-            <input type="button" value="Create" onClick={onSubmitHandler}/>
+            <input type="submit" value="Search"/>
         </form>
         {food.map((foods, index)=>
         <div key={index}>
