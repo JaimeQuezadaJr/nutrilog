@@ -20,6 +20,7 @@ const Home = () => {
             axios.get(`https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(params.api_key)}&query=${encodeURIComponent(params.query)}&dataType=${encodeURIComponent(params.dataType)}&pageSize=${encodeURIComponent(params.pagesize)}`)
             .then(res => {
                 console.log(res.data.foods)
+                console.log(res.data.foods[0].foodNutrients)
                 setFood(res.data.foods)
                 setFoodQuery("")
             })
