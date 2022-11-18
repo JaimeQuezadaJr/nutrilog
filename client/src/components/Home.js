@@ -40,6 +40,9 @@ const Home = () => {
         setNutrients(food[foodId].foodNutrients)
         console.log(food[foodId].foodNutrients)
     }
+    const portionHandler = () => {
+        console.log()
+    }
     
     
   return (
