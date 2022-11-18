@@ -5,7 +5,7 @@ import axios from 'axios'
 const Home = () => {
     const [food, setFood] = useState([])
     const[foodQuery, setFoodQuery] = useState("")
-    const [foodIndex, setFoodIndex] = useState(0)
+    const [foodIndex, setFoodIndex] = useState(false)
     const [nutrients, setNutrients] = useState([])
     const foodHandler = (e) => {
         e.preventDefault();
@@ -25,6 +25,7 @@ const Home = () => {
                 // setFoodNutrients(res.data.foods[0].foodNutrients)
                 setFoodQuery("")
                 setNutrients([])
+                setFoodIndex(false)
                 console.log(res.data)
                 console.log(res.data.foods)
                 console.log(res.data.foods[0].foodNutrients)
@@ -38,10 +39,11 @@ const Home = () => {
     const nutrientHandler = (foodId) => {
         console.log(foodId)
         setNutrients(food[foodId].foodNutrients)
+        setFoodIndex(true)
         console.log(food[foodId].foodNutrients)
     }
     const portionHandler = () => {
-        console.log()
+        console.log("hello")
     }
     
     
@@ -60,6 +62,7 @@ const Home = () => {
             <button onClick = {(e) => {nutrientHandler(index)}}>{foods.description}{index}</button>
         </div>
         )}
+        {foodIndex === true ? (portionHandler()) : (null)}
         {nutrients.map((foodNutrients, index) =>
             <div key = {index}>
                 <p>{foodNutrients.nutrientName}: {foodNutrients.value} {foodNutrients.unitName}</p>
