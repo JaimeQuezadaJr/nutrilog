@@ -24,6 +24,7 @@ const Home = () => {
                 setFood(res.data.foods)
                 // setFoodNutrients(res.data.foods[0].foodNutrients)
                 setFoodQuery("")
+                setNutrients([])
                 console.log(res.data)
                 console.log(res.data.foods)
                 console.log(res.data.foods[0].foodNutrients)
