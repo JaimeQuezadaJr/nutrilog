@@ -29,8 +29,6 @@ const Home = () => {
                 console.log(res.data)
                 console.log(res.data.foods)
                 console.log(res.data.foods[0].foodNutrients)
-                console.log(res.data.foods[1].foodNutrients)
-                console.log(res.data.foods[2].foodNutrients)
             })
             .catch((err) => {
                 console.log('Something went wrong', err)
