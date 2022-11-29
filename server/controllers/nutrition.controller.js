@@ -34,4 +34,14 @@ module.exports = {
       res.status(400).json({ message: 'something went wrong in find all nutrition by user', error: err });
     });
   },
+  findOneNutrition: (req, res) => {
+    Nutrition.findOne({ _id: req.params.id }) 
+      .then((nutrition) => {
+        res.json(nutrition);
+      })
+      .catch((err) => {
+        console.log('ERROR IN Get one nutrition', err);
+        res.status(400).json({ message: 'something went wrong in find one nutrition', error: err });
+      });
+  },
 };
