@@ -44,4 +44,17 @@ module.exports = {
         res.status(400).json({ message: 'something went wrong in find one nutrition', error: err });
       });
   },
+  createNutrition: (req, res) => {
+    const user = jwt.verify(req.cookies.userToken, SECRET);
+    Nutrition.create({ ...req.body, createdBy: user._id }) 
+      .then((newNutrition) => {
+        res.status(201).json(newNutrition);
+      })
+      .catch((err) => {
+        console.log('ERROR IN create nutrition', err);
+        res
+          .status(400)
+          .json({ message: 'something went wrong in create nutrition', errors: err.errors });
+      });
+  },
 };
