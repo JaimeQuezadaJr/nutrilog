@@ -57,4 +57,14 @@ module.exports = {
           .json({ message: 'something went wrong in create nutrition', errors: err.errors });
       });
   },
+  updateNutrition: (req, res) => {
+    Nutrition.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, runValidators: true })
+      .then((nutrition) => {
+        res.json(nutrition);
+      })
+      .catch((err) => {
+        console.log('ERROR IN update nutrition', err);
+        res.status(400).json({ message: 'something went wrong in update nutrition', error: err });
+      });
+  },
 };
