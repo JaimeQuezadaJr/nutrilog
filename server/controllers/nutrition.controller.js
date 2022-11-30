@@ -67,4 +67,14 @@ module.exports = {
         res.status(400).json({ message: 'something went wrong in update nutrition', error: err });
       });
   },
+  deleteNutrition: (req, res) => {
+    Nutrition.deleteOne({ _id: req.params.id })
+      .then((nutrition) => {
+        res.json(nutrition);
+      })
+      .catch((err) => {
+        console.log('ERROR IN delete nutrition', err);
+        res.status(400).json({ message: 'something went wrong in delete nutrition', error: err });
+      });
+  },
 };
