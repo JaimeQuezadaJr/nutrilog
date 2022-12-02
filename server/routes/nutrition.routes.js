@@ -1,5 +1,5 @@
 const NutritionController = require('../controllers/nutrition.controller');
-const { authenticate } = require('../config/jwt.config'); //TODO include if implement JWT
+const { authenticate } = require('../config/jwt.config');
 
 module.exports = (app) => { 
     app.get('/api/nutrition', NutritionController.findAllNutritions);
