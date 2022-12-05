@@ -23,6 +23,7 @@ const userRoutes = require('./routes/user.routes');
 userRoutes(app);
 
 //.. future routes
+require('./routes/nutrition.routes')(app);
 
 
 app.listen(port, () => console.log(`Listening on port: ${port}`));
