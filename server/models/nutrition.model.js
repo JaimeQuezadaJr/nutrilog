@@ -2,10 +2,14 @@ const mongoose = require('mongoose');
 
 const NutritionSchema = mongoose.Schema(
     {
-        description: {
+        foodDescription: {
             type: String,
             required: [true, 'Goal is required'],
             minLength: [12, 'Goal description should be more than 12 characters long']
+        },
+        foodName: {
+            type: String,
+            required: [true, 'Please add food name'],
         },
         completedBy: {
             type: Date,
