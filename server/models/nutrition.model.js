@@ -23,6 +23,18 @@ const NutritionSchema = mongoose.Schema(
             type: Number,
             required: [true, 'Please enter total fat amount']
         },
+        cholesterol: {
+            type: Number,
+            required: [true, 'Please enter total cholesterol amount']
+        },
+        sodium: {
+            type: Number,
+            required: [true, 'Please enter total sodium amount']
+        },
+        totalCarbohydrates: {
+            type: Number,
+            required: [true, 'Please enter total carbohydrates']
+        },
         completedBy: {
             type: Date,
             required: [true, 'Please add goal completion date'],
