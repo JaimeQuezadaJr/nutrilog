@@ -31,6 +31,10 @@ const NutritionSchema = mongoose.Schema(
             type: Number,
             required: [true, 'Please enter total sodium amount']
         },
+        fiber: {
+            type: Number,
+            required: [true, 'Please enter total fiber amount']
+        },
         totalCarbohydrates: {
             type: Number,
             required: [true, 'Please enter total carbohydrates']
