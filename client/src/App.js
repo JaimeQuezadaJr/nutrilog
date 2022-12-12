@@ -14,6 +14,7 @@ function App() {
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
         <Routes>
           <Route path={'/'} element={<Home/>} />
+          <Route path={'/login'} element={<UserLogin setLoggedIn={setLoggedIn} />} />
           <Route path={'/about'} element={<About setLoggedIn={setLoggedIn} />} />
         </Routes>
       </BrowserRouter>
