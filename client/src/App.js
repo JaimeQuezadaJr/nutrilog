@@ -2,6 +2,9 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Header from './components/Header';
+import UserLogin from './components/UserLogin';
+import UserRegistration from './components/UserRegistration';
+import About from './components/About';
 import { useState } from 'react';
 
 function App() {
