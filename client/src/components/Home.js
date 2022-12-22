@@ -46,7 +46,7 @@ const Home = () => {
     
   return (
     <div>
-        <h1>Home</h1>
+        <h1>dietlog</h1>
         <form onSubmit = {foodHandler}>
             <p>
                 <label htmlFor='foodQuery'>Food Search</label>
