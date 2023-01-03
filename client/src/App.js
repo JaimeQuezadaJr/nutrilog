@@ -20,6 +20,7 @@ function App() {
           <Route path={'/login'} element={<UserLogin setLoggedIn={setLoggedIn} />} />
           <Route path={'/register'} element={<UserRegistration setLoggedIn={setLoggedIn} />}/>
           <Route path={'/dashboard/'} element={<GoalDashboard setLoggedIn={setLoggedIn} />} />
+          <Route path={'/goal/add/:category'} element={<GoalAdd setLoggedIn={setLoggedIn} />} />
           <Route path={'/about'} element={<About setLoggedIn={setLoggedIn} />} />
         </Routes>
       </BrowserRouter>
