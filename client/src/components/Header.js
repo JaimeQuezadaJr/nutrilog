@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button'
 import Nav from 'react-bootstrap/Nav';
 import styles from './Header.module.css';
 
+
 const Header = ({loggedIn, setLoggedIn}) => {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
