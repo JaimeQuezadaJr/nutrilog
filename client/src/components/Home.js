@@ -59,7 +59,7 @@ const Home = () => {
             <button onClick = {(e) => {nutrientHandler(index)}}>{foods.description}{index}</button>
         </div>
         )}
-        {foodIndex === true ? <button>hello</button> : (null)}
+        {foodIndex === true ? <button onClick = {(e) => {portionHandler}}>Portion</button> : (null)}
         {nutrients.map((foodNutrients, index) =>
             <div key = {index}>
                 <p>{foodNutrients.nutrientName}: {foodNutrients.value} {foodNutrients.unitName}</p>
