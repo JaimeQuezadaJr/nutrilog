@@ -7,6 +7,8 @@ const Home = () => {
     const[foodQuery, setFoodQuery] = useState("")
     const [foodIndex, setFoodIndex] = useState(false)
     const [nutrients, setNutrients] = useState([])
+    const [nutrientValues, setNutrientValues] = useState([])
+    const [portion, setPortion] = useState(100)
     const foodHandler = (e) => {
         e.preventDefault();
         console.log(foodQuery)
@@ -34,13 +36,18 @@ const Home = () => {
     }
     const nutrientHandler = (foodId) => {
         console.log(foodId)
+        console.log([food])
         setNutrients(food[foodId].foodNutrients)
         setFoodIndex(true)
         console.log(food[foodId].foodNutrients)
     }
-    const portionHandler = () => {
+    const portionHandler = (e) => {
+        e.preventDefault();
         console.log("hello")
         console.log(foodIndex)
+        console.log(portion)
+        console.log(nutrients.value)
+        setNutrients(food[3].foodNutrients)
     }
     
     
@@ -59,7 +66,20 @@ const Home = () => {
             <button onClick = {(e) => {nutrientHandler(index)}}>{foods.description}{index}</button>
         </div>
         )}
-        {foodIndex === true ? <button onClick = {(e) => {portionHandler}}>Portion</button> : (null)}
+        {foodIndex === true ? 
+        // <button onClick = {(e) => {portionHandler()}}>Portion</button>
+        //  <select>
+        //     <option>Select Portion Size</option>
+        //     <option>200G</option>
+        //  </select>
+        <form onSubmit = {portionHandler}>
+            <p>
+                <label htmlFor='portion'>Portion</label>
+                <input type='text' value={portion} onChange = {(e) => setPortion(e.target.value)}/>G
+            </p>
+            <input type="submit" value="Search"/>
+        </form>
+         : (null)}
         {nutrients.map((foodNutrients, index) =>
             <div key = {index}>
                 <p>{foodNutrients.nutrientName}: {foodNutrients.value} {foodNutrients.unitName}</p>
