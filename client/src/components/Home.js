@@ -45,9 +45,10 @@ const Home = () => {
         e.preventDefault();
         console.log("hello")
         console.log(foodIndex)
-        console.log(portion)
-        console.log(nutrients.value)
-        setNutrients(food[3].foodNutrients)
+        const realPortion = portion/100
+        console.log(realPortion)
+        console.log(nutrients[0].value)
+        console.log([nutrients])
     }
     
     
@@ -75,14 +76,14 @@ const Home = () => {
         <form onSubmit = {portionHandler}>
             <p>
                 <label htmlFor='portion'>Portion</label>
-                <input type='text' value={portion} onChange = {(e) => setPortion(e.target.value)}/>G
+                <input type='text' value={portion} onChange = {(e) => setPortion(e.target.value)}/>g
             </p>
             <input type="submit" value="Search"/>
         </form>
          : (null)}
         {nutrients.map((foodNutrients, index) =>
             <div key = {index}>
-                <p>{foodNutrients.nutrientName}: {foodNutrients.value} {foodNutrients.unitName}</p>
+                <p>{foodNutrients.nutrientName}: {((portion/100)*foodNutrients.value).toFixed(2)} {(foodNutrients.unitName).toLowerCase()}</p>
             </div>
             )}
         
