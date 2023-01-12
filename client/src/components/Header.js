@@ -38,7 +38,7 @@ const Header = ({loggedIn, setLoggedIn}) => {
   
     return (
       <>
-      <Navbar bg="primary" variant='dark' expand='sm' className='fixed-top'>
+      <Navbar bg="success" variant='dark' expand='sm' className='fixed-top'>
         <Container>
           <Navbar.Brand as={Link} to="/"><img
                 alt=""

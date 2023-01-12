@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/esm/Button';
+import Container from 'react-bootstrap/esm/Container';
 
 
 const Home = ({loggedIn, setLoggedIn}) => {
@@ -54,14 +57,17 @@ const Home = ({loggedIn, setLoggedIn}) => {
     
   return (
     <div>
-        <h1 className='mt-5'>dietlog</h1>
-        <form onSubmit = {foodHandler}>
-            <p>
-                <label htmlFor='foodQuery'>Food Search</label>
-                <input type='text' value={foodQuery} onChange = {(e) => setFoodQuery(e.target.value)}/>
-            </p>
-            <input type="submit" value="Search"/>
-        </form>
+        <Form className='form' onSubmit = {foodHandler}>
+            <Container className='mt-5'>
+                <Form.Group className='mb-3 col-md-4'>
+                    <Form.Label>Food Search</Form.Label>
+                    <Form.Control type='text' value={foodQuery} onChange = {(e) => setFoodQuery(e.target.value)}></Form.Control>
+                </Form.Group>
+                <Button variant="primary" type="submit">Search</Button>
+            </Container>
+        
+        
+        </Form>
         {food.map((foods, index)=>
         <div key={foods.fdcId}>
             <button onClick = {(e) => {nutrientHandler(index)}}>{foods.description}{index}</button>
