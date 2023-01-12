@@ -12,7 +12,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
   return (
-    <div>
+    <div className='App'>
       <BrowserRouter>
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
         <Routes>

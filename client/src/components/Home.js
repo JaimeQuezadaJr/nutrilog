@@ -54,7 +54,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
     
   return (
     <div>
-        <h1>dietlog</h1>
+        <h1 className='mt-5'>dietlog</h1>
         <form onSubmit = {foodHandler}>
             <p>
                 <label htmlFor='foodQuery'>Food Search</label>
