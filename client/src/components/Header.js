@@ -42,7 +42,7 @@ const Header = ({loggedIn, setLoggedIn}) => {
         <Container>
           <Navbar.Brand as={Link} to="/"><img
                 alt=""
-                src="/zoomed-logo.png"
+                src="/logo192.png"
                 width="30"
                 height="30"
                 className="d-inline-block align-top rounded-3"

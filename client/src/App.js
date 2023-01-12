@@ -12,11 +12,11 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
   return (
-    <div className='App'>
+    <div>
       <BrowserRouter>
-      {/* <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn}/> */}
+      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
         <Routes>
-          <Route path={'/'} element={<Home/>} />
+          <Route path={'/'} element={<Home loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
           {/* <Route path={'/login'} element={<UserLogin setLoggedIn={setLoggedIn} />} />
           <Route path={'/register'} element={<UserRegistration setLoggedIn={setLoggedIn} />}/>
           <Route path={'/about'} element={<About setLoggedIn={setLoggedIn} />} />

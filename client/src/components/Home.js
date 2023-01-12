@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 
-const Home = () => {
+const Home = ({loggedIn, setLoggedIn}) => {
     const [food, setFood] = useState([])
     const[foodQuery, setFoodQuery] = useState("")
     const [foodIndex, setFoodIndex] = useState(false)
