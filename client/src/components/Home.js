@@ -3,6 +3,7 @@ import axios from 'axios'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/esm/Button';
 import Container from 'react-bootstrap/esm/Container';
+import Card from 'react-bootstrap/Card';
 
 
 const Home = ({loggedIn, setLoggedIn}) => {
@@ -29,6 +30,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
                 setFoodQuery("")
                 setNutrients([])
                 setFoodIndex(false)
+                setPortion(100)
                 console.log(res.data)
                 console.log(res.data.foods)
                 console.log(res.data.foods[0].foodNutrients)
@@ -38,6 +40,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
             })
     }
     const nutrientHandler = (foodId) => {
+        console.log(food.description)
         console.log(foodId)
         console.log([food])
         setNutrients(food[foodId].foodNutrients)
@@ -63,13 +66,13 @@ const Home = ({loggedIn, setLoggedIn}) => {
                     <Form.Label>Food Search</Form.Label>
                     <Form.Control type='text' value={foodQuery} onChange = {(e) => setFoodQuery(e.target.value)}></Form.Control>
                 </Form.Group>
-                <Button type="submit" className='mb-3 search'>Search</Button>
+                <Button type="submit" variant='outline-primary' className='mb-3 search'>Search</Button>
             </Container>
         </Form>
         <Container>
             {food.map((foods, index)=>
             <div key={foods.fdcId}>
-                <Button variant='success' className='mb-2' size='sm' onClick = {(e) => {nutrientHandler(index)}}>{foods.description}</Button>
+                <Button variant="outline-success" className='mb-2' size='sm' onClick = {(e) => {nutrientHandler(index)}}>{foods.description}</Button>
             </div>
             )}
             {foodIndex === true ? 
@@ -87,12 +90,22 @@ const Home = ({loggedIn, setLoggedIn}) => {
 
             </Form>
             : (null)}
-            {nutrients.map((foodNutrients, index) =>
-                <div key = {index}>
-                    <p>{foodNutrients.nutrientName}: {((portion/100)*foodNutrients.value).toFixed(2)} {(foodNutrients.unitName).toLowerCase()}</p>
-                </div>
-                )}
-        
+            {foodIndex ===true ?
+            <Card
+            bg='success'
+            text='light'
+            style={{ width: '20rem', outerHeight:'20' }}
+            className="mb-2">
+                <Card.Header>Nutrition Facts</Card.Header>
+                <Card.Body>
+                    
+                    {nutrients.map((foodNutrients, index) =>
+                        <p className='mb-0' key = {index}>{foodNutrients.nutrientName}: {((portion/100)*foodNutrients.value).toFixed(2)} {(foodNutrients.unitName).toLowerCase()}</p>
+                    )}
+                    
+                </Card.Body>
+            </Card>
+            :null}
         </Container>
     </div>
   )

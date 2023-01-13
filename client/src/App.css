@@ -15,3 +15,6 @@
 .btn:focus {
   outline: none !important;
 } */
+p {
+  font-size: small;
+}
