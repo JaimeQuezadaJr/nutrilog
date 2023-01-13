@@ -63,37 +63,37 @@ const Home = ({loggedIn, setLoggedIn}) => {
                     <Form.Label>Food Search</Form.Label>
                     <Form.Control type='text' value={foodQuery} onChange = {(e) => setFoodQuery(e.target.value)}></Form.Control>
                 </Form.Group>
-                <Button variant="primary" type="submit">Search</Button>
+                <Button type="submit" className='mb-3 search'>Search</Button>
             </Container>
-        
-        
         </Form>
-        {food.map((foods, index)=>
-        <div key={foods.fdcId}>
-            <button onClick = {(e) => {nutrientHandler(index)}}>{foods.description}{index}</button>
-        </div>
-        )}
-        {foodIndex === true ? 
-        // <button onClick = {(e) => {portionHandler()}}>Portion</button>
-        //  <select>
-        //     <option>Select Portion Size</option>
-        //     <option>200G</option>
-        //  </select>
-        <form onSubmit = {portionHandler}>
-            <p>
-                <label htmlFor='portion'>Portion</label>
-                <input type='text' value={portion} onChange = {(e) => setPortion(e.target.value)}/>g
-            </p>
-            <input type="submit" value="Search"/>
-        </form>
-         : (null)}
-        {nutrients.map((foodNutrients, index) =>
-            <div key = {index}>
-                <p>{foodNutrients.nutrientName}: {((portion/100)*foodNutrients.value).toFixed(2)} {(foodNutrients.unitName).toLowerCase()}</p>
+        <Container>
+            {food.map((foods, index)=>
+            <div key={foods.fdcId}>
+                <Button variant='success' className='mb-2' size='sm' onClick = {(e) => {nutrientHandler(index)}}>{foods.description}</Button>
             </div>
             )}
+            {foodIndex === true ? 
+            // <button onClick = {(e) => {portionHandler()}}>Portion</button>
+            //  <select>
+            //     <option>Select Portion Size</option>
+            //     <option>200G</option>
+            //  </select>
+            <Form onSubmit = {portionHandler}>
+                <Form.Group className='mb-3 col-md-2'>
+                    <Form.Label>Portion Size (g)</Form.Label>
+                    <Form.Control type='text' value={portion} onChange = {(e) => setPortion(e.target.value)}></Form.Control>
+                </Form.Group>
+                
+
+            </Form>
+            : (null)}
+            {nutrients.map((foodNutrients, index) =>
+                <div key = {index}>
+                    <p>{foodNutrients.nutrientName}: {((portion/100)*foodNutrients.value).toFixed(2)} {(foodNutrients.unitName).toLowerCase()}</p>
+                </div>
+                )}
         
-        
+        </Container>
     </div>
   )
 }
