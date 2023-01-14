@@ -67,11 +67,11 @@ const Home = ({loggedIn, setLoggedIn}) => {
             <Row>
                 <Col>
             <Form className='form' onSubmit = {foodHandler}>
-                <Form.Group className='mb-3 col-md-4'>
+                <Form.Group className='mb-3 col-md-6'>
                     <Form.Label>Food Search</Form.Label>
                     <Form.Control type='text' value={foodQuery} onChange = {(e) => setFoodQuery(e.target.value)}></Form.Control>
                 </Form.Group>
-                <Button type="submit" variant='outline-primary' className='mb-3 search'>Search</Button>
+                <Button type="submit" variant='outline-primary' className='mb-3'>Search</Button>
             </Form>
         
             {food.map((foods, index)=>
