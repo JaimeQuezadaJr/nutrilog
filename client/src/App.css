@@ -25,3 +25,6 @@ p {
   max-height: 400px;
   overflow-y: auto;
 }
+.nutrientName {
+  font-weight: 600;
+}

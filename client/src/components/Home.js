@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/esm/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
+import { Link } from 'react-router-dom';
 
 
 const Home = ({loggedIn, setLoggedIn}) => {
@@ -91,12 +92,12 @@ const Home = ({loggedIn, setLoggedIn}) => {
                     <Form onSubmit = {portionHandler}>
                 <Form.Group>
                     <Form.Label className='portion'>Portion Size (g)</Form.Label>
-                    <Form.Control type='text' value={portion} onChange = {(e) => setPortion(e.target.value)}></Form.Control>
+                    <Form.Control type='text' value={portion} onChange = {(e) => setPortion(e.target.value)} style={{ width: '5rem'}} className='portion'></Form.Control>
                 </Form.Group>
             </Form>
                     </Card.Title>
                     {nutrients.map((foodNutrients, index) =>
-                        <p className='mb-0' key = {index}>{foodNutrients.nutrientName}: {((portion/100)*foodNutrients.value).toFixed(2)} {(foodNutrients.unitName).toLowerCase()}</p>
+                        <p className='mb-0' key = {index}><span className='nutrientName'>{foodNutrients.nutrientName}</span>: {((portion/100)*foodNutrients.value).toFixed(2)} {(foodNutrients.unitName).toLowerCase()}</p>
                     )}
                     
                 </Card.Body>
