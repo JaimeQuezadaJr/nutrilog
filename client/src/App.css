@@ -1,6 +1,9 @@
 .App {
   text-align: center;
 }
+.portion {
+  font-size: small;
+}
 
 .form {
   margin-top: 80px;
@@ -17,4 +20,8 @@
 } */
 p {
   font-size: small;
+}
+.scroll {
+  max-height: 400px;
+  overflow-y: auto;
 }

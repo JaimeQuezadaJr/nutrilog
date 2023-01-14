@@ -4,6 +4,8 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/esm/Button';
 import Container from 'react-bootstrap/esm/Container';
 import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col'
 
 
 const Home = ({loggedIn, setLoggedIn}) => {
@@ -60,45 +62,39 @@ const Home = ({loggedIn, setLoggedIn}) => {
     
   return (
     <div>
-        <Form className='form' onSubmit = {foodHandler}>
-            <Container className='mt-5'>
+        <Container className=''>
+            <Row>
+                <Col>
+            <Form className='form' onSubmit = {foodHandler}>
                 <Form.Group className='mb-3 col-md-4'>
                     <Form.Label>Food Search</Form.Label>
                     <Form.Control type='text' value={foodQuery} onChange = {(e) => setFoodQuery(e.target.value)}></Form.Control>
                 </Form.Group>
                 <Button type="submit" variant='outline-primary' className='mb-3 search'>Search</Button>
-            </Container>
-        </Form>
-        <Container>
+            </Form>
+        
             {food.map((foods, index)=>
             <div key={foods.fdcId}>
                 <Button variant="outline-success" className='mb-2' size='sm' onClick = {(e) => {nutrientHandler(index)}}>{foods.description}</Button>
             </div>
             )}
-            {foodIndex === true ? 
-            // <button onClick = {(e) => {portionHandler()}}>Portion</button>
-            //  <select>
-            //     <option>Select Portion Size</option>
-            //     <option>200G</option>
-            //  </select>
-            <Form onSubmit = {portionHandler}>
-                <Form.Group className='mb-3 col-md-2'>
-                    <Form.Label>Portion Size (g)</Form.Label>
-                    <Form.Control type='text' value={portion} onChange = {(e) => setPortion(e.target.value)}></Form.Control>
-                </Form.Group>
-                
-
-            </Form>
-            : (null)}
+            </Col>
+            <Col className='form'>
             {foodIndex ===true ?
             <Card
-            bg='success'
-            text='light'
-            style={{ width: '20rem', outerHeight:'20' }}
+            border='success'
+            style={{ width: '20rem'}}
             className="mb-2">
                 <Card.Header>Nutrition Facts</Card.Header>
-                <Card.Body>
-                    
+                <Card.Body className='scroll'>
+                    <Card.Title>
+                    <Form onSubmit = {portionHandler}>
+                <Form.Group>
+                    <Form.Label className='portion'>Portion Size (g)</Form.Label>
+                    <Form.Control type='text' value={portion} onChange = {(e) => setPortion(e.target.value)}></Form.Control>
+                </Form.Group>
+            </Form>
+                    </Card.Title>
                     {nutrients.map((foodNutrients, index) =>
                         <p className='mb-0' key = {index}>{foodNutrients.nutrientName}: {((portion/100)*foodNutrients.value).toFixed(2)} {(foodNutrients.unitName).toLowerCase()}</p>
                     )}
@@ -106,6 +102,8 @@ const Home = ({loggedIn, setLoggedIn}) => {
                 </Card.Body>
             </Card>
             :null}
+            </Col>
+            </Row>
         </Container>
     </div>
   )
