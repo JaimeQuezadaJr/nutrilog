@@ -71,7 +71,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
                     <Form.Label>Food Search</Form.Label>
                     <Form.Control type='text' value={foodQuery} onChange = {(e) => setFoodQuery(e.target.value)}></Form.Control>
                 </Form.Group>
-                <Button type="submit" variant='outline-primary' className='mb-3'>Search</Button>
+                <Button type="submit" variant='outline-success' className='mb-3'>Search</Button>
             </Form>
         
             {food.map((foods, index)=>
