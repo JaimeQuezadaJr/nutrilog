@@ -14,7 +14,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
     const[foodQuery, setFoodQuery] = useState("")
     const [foodIndex, setFoodIndex] = useState(false)
     const [nutrients, setNutrients] = useState([])
-    const [nutrientValues, setNutrientValues] = useState([])
+    const [foodSearch, setFoodSearch] = useState(false)
     const [portion, setPortion] = useState(100)
     const foodHandler = (e) => {
         e.preventDefault();
@@ -33,6 +33,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
                 setFoodQuery("")
                 setNutrients([])
                 setFoodIndex(false)
+                setFoodSearch(true)
                 setPortion(100)
                 console.log(res.data)
                 console.log(res.data.foods)
@@ -63,22 +64,37 @@ const Home = ({loggedIn, setLoggedIn}) => {
     
   return (
     <div>
-        <Container className=''>
+        <Container>
             <Row>
                 <Col>
-            <Form className='form' onSubmit = {foodHandler}>
-                <Form.Group className='mb-3 col-md-6'>
-                    <Form.Label>Food Search</Form.Label>
-                    <Form.Control type='text' value={foodQuery} onChange = {(e) => setFoodQuery(e.target.value)}></Form.Control>
-                </Form.Group>
-                <Button type="submit" variant='outline-success' className='mb-3'>Search</Button>
-            </Form>
-        
-            {food.map((foods, index)=>
-            <div key={foods.fdcId}>
-                <Button variant="outline-success" className='mb-2' size='sm' onClick = {(e) => {nutrientHandler(index)}}>{foods.description}</Button>
-            </div>
-            )}
+                    <Card className='form' border="primary" style={{ width: '20rem' }}>
+                        <Card.Header><span className='nutrientName'>Food Search</span></Card.Header>
+                        <Card.Body>
+                        <Card.Text>Search the nutrition facts for some of your favorite foods!</Card.Text>
+                        <Card.Text>
+                        <Form onSubmit = {foodHandler}>
+                        <Form.Group className='mb-3 col-sm-6'>
+                            <Form.Control type='text' value={foodQuery} onChange = {(e) => setFoodQuery(e.target.value)}></Form.Control>
+                        </Form.Group>
+                        <Button type="submit" variant='outline-success' className='mb-3'>Search</Button>
+                    </Form>
+                        </Card.Text>
+                        </Card.Body>
+                    </Card>
+                    {foodSearch === true ? 
+                    <Card border="primary" style={{ width: '20rem' }}>
+                        <Card.Header>Header</Card.Header>
+                        <Card.Body>
+                        <Card.Title>Primary Card Title</Card.Title>
+                        <Card.Text>
+                        {food.map((foods, index)=>
+                            <div key={foods.fdcId}>
+                                <Button variant="outline-success" className='mb-2' size='sm' onClick = {(e) => {nutrientHandler(index)}}>{foods.description}</Button>
+                            </div>
+                    )}
+                        </Card.Text>
+                        </Card.Body>
+                    </Card> :null}
             </Col>
             <Col className='form'>
             {foodIndex ===true ?
