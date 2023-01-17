@@ -42,8 +42,7 @@ p {
 .main {
   color: white;
   font-weight: 900;
-  text-align: center;
 }
-.cardSearch {
-  
-}
+/* .cardSearch {
+  opacity: 0.5;
+} */

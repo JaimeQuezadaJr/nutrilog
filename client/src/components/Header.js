@@ -60,6 +60,7 @@ const Header = ({loggedIn, setLoggedIn}) => {
                   <Nav.Link as={Link} to="/about">About</Nav.Link>
                   <Nav.Link as={Link} to="/login">Login</Nav.Link>
                   <Nav.Link as={Link} to="/register">Register</Nav.Link>
+                  <Nav.Link as={Link} to="/register">Search</Nav.Link>
                 </Nav>
             )}
           

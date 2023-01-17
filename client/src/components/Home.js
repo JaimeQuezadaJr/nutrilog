@@ -68,19 +68,34 @@ const Home = ({loggedIn, setLoggedIn}) => {
     <div>
         <Container>
             <Row>
-                <Col sm=''></Col>
-                <Col sm=''></Col>
-                <Col sm='auto' className='form' >
+                
+                <Col sm={{ span: 4, offset: 6 }} className='form' >
                         <Card.Body className='main'>
-                        <Card.Title className='header'>Track your nutrition!</Card.Title>
+                        <Card.Title className='header'>Healthy Nutrition Diet</Card.Title>
                         </Card.Body>
                     
                 </Col>
             </Row>
+            
             <Row>
-                <Col></Col>
-                <Col>
-                    <Card border="primary" style={{ width: '16rem', height:'14rem'}} className='cardSearch'>
+                <Col sm={{ span: 4, offset: 6 }} >
+                <Card border="light" style={{ width: '18rem' }} >
+        <Card.Header>Track</Card.Header>
+        <Card.Body>
+          <Card.Title>Log your nutrition</Card.Title>
+          <Card.Text>
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </Card.Text>
+          <Card.Link href="#">Login</Card.Link>
+        <Card.Link href="#">Register</Card.Link>
+        </Card.Body>
+      </Card>
+                </Col>
+            </Row>
+            <Row>
+                <Col sm={{ span: 4, offset: 6 }} className='form'>
+                    <div className=''>
                         <Card.Header><span className='nutrientName'>Food Search</span></Card.Header>
                         <Card.Body>
                         <Card.Text>Search the nutrition facts for some of your favorite foods!</Card.Text>
@@ -100,7 +115,8 @@ const Home = ({loggedIn, setLoggedIn}) => {
                     </div>
                         </Card.Text>
                         </Card.Body>
-                    </Card>
+                        </div>
+                    
             </Col>
             {/* <Col className='form'>
             {foodIndex ===true ?
