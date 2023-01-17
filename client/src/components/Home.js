@@ -68,17 +68,28 @@ const Home = ({loggedIn, setLoggedIn}) => {
     <div>
         <Container>
             <Row>
-                <Col className='form'>
-                    <Card border="primary" style={{ width: '20rem' }}>
+                <Col sm=''></Col>
+                <Col sm=''></Col>
+                <Col sm='auto' className='form' >
+                        <Card.Body className='main'>
+                        <Card.Title className='header'>Track your nutrition!</Card.Title>
+                        </Card.Body>
+                    
+                </Col>
+            </Row>
+            <Row>
+                <Col></Col>
+                <Col>
+                    <Card border="primary" style={{ width: '16rem', height:'14rem'}} className='cardSearch'>
                         <Card.Header><span className='nutrientName'>Food Search</span></Card.Header>
                         <Card.Body>
                         <Card.Text>Search the nutrition facts for some of your favorite foods!</Card.Text>
                         <Card.Text>
                         <Form onSubmit = {foodHandler}>
-                        <Form.Group className='mb-3 col-sm-6'>
+                        <Form.Group className='mb-3 col-sm-8'>
                             <Form.Control type='text' value={foodQuery} onChange = {(e) => setFoodQuery(e.target.value)}></Form.Control>
                         </Form.Group>
-                        <Button type="submit" variant='outline-success' className='mb-3'>Search</Button>
+                        <Button type="submit" variant='outline-primary' className='mb-3'>Search</Button>
                     </Form>
                     <div className='foodScroll'>
                     {food.map((foods, index)=>
@@ -91,7 +102,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
                         </Card.Body>
                     </Card>
             </Col>
-            <Col className='form'>
+            {/* <Col className='form'>
             {foodIndex ===true ?
             <Card
             border='success'
@@ -115,7 +126,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
                 </Card.Body>
             </Card>
             :null}
-            </Col>
+            </Col> */}
             </Row>
         </Container>
     </div>

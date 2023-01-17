@@ -33,3 +33,17 @@ p {
   max-height: 307px;
   overflow-y: auto;
 }
+.header {
+  font-size: 4rem;
+  font-weight: 900;
+  
+}
+
+.main {
+  color: white;
+  font-weight: 900;
+  text-align: center;
+}
+.cardSearch {
+  
+}
