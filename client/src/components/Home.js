@@ -15,6 +15,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
     const [foodIndex, setFoodIndex] = useState(false)
     const [nutrients, setNutrients] = useState([])
     const [foodSearch, setFoodSearch] = useState(false)
+    const [foodName, setFoodName] = useState('')
     const [portion, setPortion] = useState(100)
     const foodHandler = (e) => {
         e.preventDefault();
@@ -24,7 +25,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
             api_key: 'ma4EHu5hkEyGjQ5cwZeB9BjYd9iMg6XxzzmXqkMV',
             query: `${foodQuery}`,
             dataType: ['Survey (FNDDS)'],
-            pagesize: 10,
+            pagesize: 100,
         }
     
             axios.get(`https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(params.api_key)}&query=${encodeURIComponent(params.query)}&dataType=${encodeURIComponent(params.dataType)}&pageSize=${encodeURIComponent(params.pagesize)}`)
@@ -47,6 +48,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
         console.log(food.description)
         console.log(foodId)
         console.log([food])
+        setFoodName(food[foodId].description)
         setNutrients(food[foodId].foodNutrients)
         setFoodIndex(true)
         console.log(food[foodId].foodNutrients)
@@ -66,8 +68,8 @@ const Home = ({loggedIn, setLoggedIn}) => {
     <div>
         <Container>
             <Row>
-                <Col>
-                    <Card className='form' border="primary" style={{ width: '20rem' }}>
+                <Col className='form'>
+                    <Card border="primary" style={{ width: '20rem' }}>
                         <Card.Header><span className='nutrientName'>Food Search</span></Card.Header>
                         <Card.Body>
                         <Card.Text>Search the nutrition facts for some of your favorite foods!</Card.Text>
@@ -78,32 +80,25 @@ const Home = ({loggedIn, setLoggedIn}) => {
                         </Form.Group>
                         <Button type="submit" variant='outline-success' className='mb-3'>Search</Button>
                     </Form>
-                        </Card.Text>
-                        </Card.Body>
-                    </Card>
-                    {foodSearch === true ? 
-                    <Card border="primary" style={{ width: '20rem' }}>
-                        <Card.Header>Header</Card.Header>
-                        <Card.Body>
-                        <Card.Title>Primary Card Title</Card.Title>
-                        <Card.Text>
-                        {food.map((foods, index)=>
-                            <div key={foods.fdcId}>
+                    <div className='foodScroll'>
+                    {food.map((foods, index)=>
+                            <div key={foods.fdcId} >
                                 <Button variant="outline-success" className='mb-2' size='sm' onClick = {(e) => {nutrientHandler(index)}}>{foods.description}</Button>
                             </div>
                     )}
+                    </div>
                         </Card.Text>
                         </Card.Body>
-                    </Card> :null}
+                    </Card>
             </Col>
             <Col className='form'>
             {foodIndex ===true ?
             <Card
             border='success'
             style={{ width: '20rem'}}
-            className="mb-2">
-                <Card.Header>Nutrition Facts</Card.Header>
-                <Card.Body className='scroll'>
+            className="">
+                <Card.Header className='nutrientName'>Nutrition Facts: {foodName}</Card.Header>
+                <Card.Body>
                     <Card.Title>
                     <Form onSubmit = {portionHandler}>
                 <Form.Group>
@@ -112,10 +107,11 @@ const Home = ({loggedIn, setLoggedIn}) => {
                 </Form.Group>
             </Form>
                     </Card.Title>
+                    <div className='scroll'>
                     {nutrients.map((foodNutrients, index) =>
                         <p className='mb-0' key = {index}><span className='nutrientName'>{foodNutrients.nutrientName}</span>: {((portion/100)*foodNutrients.value).toFixed(2)} {(foodNutrients.unitName).toLowerCase()}</p>
                     )}
-                    
+                    </div>
                 </Card.Body>
             </Card>
             :null}

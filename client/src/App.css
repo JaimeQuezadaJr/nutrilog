@@ -7,6 +7,7 @@
 
 .form {
   margin-top: 80px;
+  margin-bottom: 20px;
 }
 /* .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
   background-color: #8064A2 !important;
@@ -27,4 +28,8 @@ p {
 }
 .nutrientName {
   font-weight: 600;
+}
+.foodScroll {
+  max-height: 307px;
+  overflow-y: auto;
 }
