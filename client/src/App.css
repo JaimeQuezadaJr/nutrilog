@@ -41,8 +41,9 @@ p {
 
 .main {
   color: white;
+  font-size: 2rem;
   font-weight: 900;
 }
-/* .cardSearch {
-  opacity: 0.5;
-} */
+.submain {
+  font-size: 1rem;
+}

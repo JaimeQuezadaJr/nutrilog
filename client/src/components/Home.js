@@ -5,8 +5,9 @@ import Button from 'react-bootstrap/esm/Button';
 import Container from 'react-bootstrap/esm/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col'
+import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom';
+
 
 
 const Home = ({loggedIn, setLoggedIn}) => {
@@ -78,33 +79,33 @@ const Home = ({loggedIn, setLoggedIn}) => {
             </Row>
             
             <Row>
-                <Col sm={{ span: 4, offset: 6 }} >
-                <Card border="light" style={{ width: '18rem' }} >
-        <Card.Header>Track</Card.Header>
-        <Card.Body>
-          <Card.Title>Log your nutrition</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-          <Card.Link href="#">Login</Card.Link>
-        <Card.Link href="#">Register</Card.Link>
-        </Card.Body>
-      </Card>
+                <Col sm={{ span: 4, offset: 6 }} className='mb-3' >
+                    <Card border="light" style={{ width: '18rem' }} >
+                        <Card.Header>Nutrition Base</Card.Header>
+                        <Card.Body>
+                        <Card.Title>Log your nutrition <img className='rounded' src='/Buffer-Progress-Bar.jpg' alt="blueCircle" width={30} height={30} /></Card.Title>
+                        <Card.Text>
+                            Quick and easy way to view nutrition facts of your favorite foods and be able to track your diet accordingly to achieve your healthy nutrition goals.
+                        </Card.Text>
+                        
+                        <Button size='sm' variant="outline-primary" className=''>Login</Button>
+                        <Button size='sm' variant="outline-primary" className='m-2'>Register</Button>
+                        </Card.Body>
+                    </Card>
                 </Col>
             </Row>
             <Row>
-                <Col sm={{ span: 4, offset: 6 }} className='form'>
-                    <div className=''>
-                        <Card.Header><span className='nutrientName'>Food Search</span></Card.Header>
+                <Col sm={{ span: 4, offset: 6 }} className='mt-2'>
+                    <div className='main'>
+                        <Card.Header><span className='nutrientName'>Try it out!</span></Card.Header>
                         <Card.Body>
-                        <Card.Text>Search the nutrition facts for some of your favorite foods!</Card.Text>
+                        <Card.Text className='submain'>Search the nutrition facts for some of your favorite foods!</Card.Text>
                         <Card.Text>
                         <Form onSubmit = {foodHandler}>
                         <Form.Group className='mb-3 col-sm-8'>
                             <Form.Control type='text' value={foodQuery} onChange = {(e) => setFoodQuery(e.target.value)}></Form.Control>
                         </Form.Group>
-                        <Button type="submit" variant='outline-primary' className='mb-3'>Search</Button>
+                        <Button size='sm' type="submit" variant='outline-primary' className='mb-3'>Search</Button>
                     </Form>
                     <div className='foodScroll'>
                     {food.map((foods, index)=>
