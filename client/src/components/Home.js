@@ -69,7 +69,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
     <div>
         <Container>
             <Row>
-                
+            
                 <Col sm={{ span: 4, offset: 6 }} className='form' >
                         <Card.Body className='main'>
                         <Card.Title className='header'>Healthy Nutrition Diet</Card.Title>
@@ -83,7 +83,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
                     <Card border="light" style={{ width: '18rem' }} >
                         <Card.Header>Nutrition Base</Card.Header>
                         <Card.Body>
-                        <Card.Title>Log your nutrition <img className='rounded' src='/Buffer-Progress-Bar.jpg' alt="blueCircle" width={30} height={30} /></Card.Title>
+                        <Card.Title className='card-top'>Log your nutrition <img className='rounded' src='/Buffer-Progress-Bar.jpg' alt="blueCircle" width={30} height={30} /></Card.Title>
                         <Card.Text>
                             Quick and easy way to view nutrition facts of your favorite foods and be able to track your diet accordingly to achieve your healthy nutrition goals.
                         </Card.Text>

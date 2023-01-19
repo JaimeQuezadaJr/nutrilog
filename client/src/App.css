@@ -36,6 +36,7 @@ p {
 .header {
   font-size: 4rem;
   font-weight: 900;
+  width: 300px;
   
 }
 
@@ -46,4 +47,8 @@ p {
 }
 .submain {
   font-size: 1rem;
+}
+
+.card-top {
+  color: #eadde6;
 }
