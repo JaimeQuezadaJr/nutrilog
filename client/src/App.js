@@ -6,6 +6,7 @@ import UserLogin from './components/UserLogin';
 import UserRegistration from './components/UserRegistration';
 import About from './components/About';
 import { useState } from 'react';
+import NutritionSearch from './components/NutritionSearch';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
         <Routes>
           <Route path={'/'} element={<Home loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
+          <Route path={'/nutrition'} element={<NutritionSearch loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
           {/* <Route path={'/login'} element={<UserLogin setLoggedIn={setLoggedIn} />} />
           <Route path={'/register'} element={<UserRegistration setLoggedIn={setLoggedIn} />}/>
           <Route path={'/about'} element={<About setLoggedIn={setLoggedIn} />} />

@@ -6,11 +6,15 @@ import Container from 'react-bootstrap/esm/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 
 
 const Home = ({loggedIn, setLoggedIn}) => {
+    const navigate = useNavigate();
+    const [btnLink, setBtnLink] = useState([]);
+    const [quote, setQuote] = useState([]);
     const [food, setFood] = useState([])
     const[foodQuery, setFoodQuery] = useState("")
     const [foodIndex, setFoodIndex] = useState(false)
@@ -18,6 +22,21 @@ const Home = ({loggedIn, setLoggedIn}) => {
     const [foodSearch, setFoodSearch] = useState(false)
     const [foodName, setFoodName] = useState('')
     const [portion, setPortion] = useState(100)
+
+    useEffect(() => {
+        axios
+        .get('http://localhost:8000/api/current-user', { withCredentials: true })
+        .then((res) => {
+          setLoggedIn(true);
+          setBtnLink(['/dashboard', 'Start Tracking']);
+        })
+        .catch((err) => {
+          setLoggedIn(false);
+          setBtnLink(['/login', 'Get Started']);
+          console.log(err)
+        });
+      },[loggedIn])
+      
     const foodHandler = (e) => {
         e.preventDefault();
         console.log(foodQuery)
@@ -66,7 +85,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
     
     
   return (
-    <div style={{backgroundImage:'url(/orange.webp)', backgroundRepeat:'no-repeat', backgroundAttachment:'fixed', backgroundSize:'cover', backgroundPosition:'relative', minHeight:'100vh'}}>
+    <div className='home-background'>
         <Container>
             <Row>
             
@@ -83,7 +102,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
                     <Card border="light" style={{ width: '18rem' }} >
                         <Card.Header>Nutrition Base</Card.Header>
                         <Card.Body>
-                        <Card.Title className='card-top'>Log your nutrition <img className='rounded' src='/Buffer-Progress-Bar.jpg' alt="blueCircle" width={30} height={30} /></Card.Title>
+                        <Card.Title>Log your nutrition <img className='rounded' src='/Buffer-Progress-Bar.jpg' alt="blueCircle" width={30} height={30} /></Card.Title>
                         <Card.Text>
                             Quick and easy way to view nutrition facts of your favorite foods and be able to track your diet accordingly to achieve your healthy nutrition goals.
                         </Card.Text>
@@ -101,49 +120,13 @@ const Home = ({loggedIn, setLoggedIn}) => {
                         <Card.Body>
                         <Card.Text className='submain'>Search the nutrition facts for some of your favorite foods!</Card.Text>
                         <Card.Text>
-                        <Form onSubmit = {foodHandler}>
-                        <Form.Group className='mb-3 col-sm-8'>
-                            <Form.Control type='text' value={foodQuery} onChange = {(e) => setFoodQuery(e.target.value)}></Form.Control>
-                        </Form.Group>
-                        <Button size='sm' type="submit" variant='outline-primary' className='mb-3'>Search</Button>
-                    </Form>
-                    <div className='foodScroll'>
-                    {food.map((foods, index)=>
-                            <div key={foods.fdcId} >
-                                <Button variant="outline-success" className='mb-2' size='sm' onClick = {(e) => {nutrientHandler(index)}}>{foods.description}</Button>
-                            </div>
-                    )}
-                    </div>
+                            <Button size='sm' type="submit" variant='outline-primary' className='page-bottom'>Search</Button>
                         </Card.Text>
                         </Card.Body>
                         </div>
                     
             </Col>
-            {/* <Col className='form'>
-            {foodIndex ===true ?
-            <Card
-            border='success'
-            style={{ width: '20rem'}}
-            className="">
-                <Card.Header className='nutrientName'>Nutrition Facts: {foodName}</Card.Header>
-                <Card.Body>
-                    <Card.Title>
-                    <Form onSubmit = {portionHandler}>
-                <Form.Group>
-                    <Form.Label className='portion'>Portion Size (g)</Form.Label>
-                    <Form.Control type='text' value={portion} onChange = {(e) => setPortion(e.target.value)} style={{ width: '5rem'}} className='portion'></Form.Control>
-                </Form.Group>
-            </Form>
-                    </Card.Title>
-                    <div className='scroll'>
-                    {nutrients.map((foodNutrients, index) =>
-                        <p className='mb-0' key = {index}><span className='nutrientName'>{foodNutrients.nutrientName}</span>: {((portion/100)*foodNutrients.value).toFixed(2)} {(foodNutrients.unitName).toLowerCase()}</p>
-                    )}
-                    </div>
-                </Card.Body>
-            </Card>
-            :null}
-            </Col> */}
+            
             </Row>
         </Container>
     </div>
