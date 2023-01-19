@@ -7,20 +7,19 @@
 
 .form {
   margin-top: 80px;
-  margin-bottom: 20px;
 }
 p {
   font-size: small;
 }
 .scroll {
-  max-height: 400px;
+  max-height: 450px;
   overflow-y: auto;
 }
 .nutrientName {
   font-weight: 600;
 }
 .foodScroll {
-  max-height: 307px;
+  max-height: 300px;
   overflow-y: auto;
 }
 .header {

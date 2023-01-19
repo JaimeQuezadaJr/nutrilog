@@ -67,7 +67,11 @@ const NutritionSearch = () => {
     <div className='home-background'>
         <Container>
             <Row>
-                <Col className='mb-3 form' >
+                <Col className='form'>
+                </Col>
+            </Row>
+            <Row className=''>
+                <Col className='mb-3' >
                     <Card border="light" style={{ width: '20rem' }} >
                         <Card.Header>Nutrition Base</Card.Header>
                         <Card.Body>
@@ -94,12 +98,12 @@ const NutritionSearch = () => {
                         </Card.Body>
                     </Card>
                 </Col>
-                <Col >
+                <Col className='page-bottom' >
             {foodIndex ===true ?
             <Card
             border='light'
             style={{ width: '20rem'}}
-            className="form">
+            className="">
                 <Card.Header className='nutrientName'>Nutrition Facts: {foodName}</Card.Header>
                 <Card.Body>
                     <Card.Title>

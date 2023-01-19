@@ -120,7 +120,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
                         <Card.Body>
                         <Card.Text className='submain'>Search the nutrition facts for some of your favorite foods!</Card.Text>
                         <Card.Text>
-                            <Button size='sm' type="submit" variant='outline-primary' className='page-bottom'>Search</Button>
+                            <Button size='sm' type="submit" variant='outline-primary' className='page-bottom' onClick={() => navigate('/nutrition')}>Search</Button>
                         </Card.Text>
                         </Card.Body>
                         </div>
