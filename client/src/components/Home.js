@@ -66,7 +66,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
     
     
   return (
-    <div style={{backgroundImage:'url(/orange.webp)', backgroundRepeat:'no-repeat', backgroundAttachment:'fixed', backgroundSize:'cover', position:'relative', height:'100vh'}}>
+    <div style={{backgroundImage:'url(/orange.webp)', backgroundRepeat:'no-repeat', backgroundAttachment:'fixed', backgroundSize:'cover', backgroundPosition:'relative', minHeight:'100vh'}}>
         <Container>
             <Row>
             
