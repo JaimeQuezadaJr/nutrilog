@@ -70,7 +70,7 @@ const UserRegistration = ({ setLoggedIn }) => {
   
             <Form.Group className="mb-3 col-md-4" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" name='password' placeholder="Password" value={user.password} onChange={handleChange} />
+              <Form.Control type="password" name='password' placeholder="Enter Password" value={user.password} onChange={handleChange} />
               {errors.password && <Form.Text className='text-danger'>{errors.password.message}</Form.Text>}
             </Form.Group>
             <Form.Group className="mb-3 col-md-4" controlId="formBasicConfirmPassword">

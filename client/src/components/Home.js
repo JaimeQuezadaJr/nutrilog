@@ -104,7 +104,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
                         <Card.Body>
                         <Card.Title>Log your nutrition <img className='rounded' src='/Buffer-Progress-Bar.jpg' alt="blueCircle" width={30} height={30} /></Card.Title>
                         <Card.Text>
-                            Quick and easy way to view nutrition facts of your favorite foods and be able to track your diet accordingly to achieve your healthy nutrition goals.
+                            Quick and easy way to view nutrition facts of your favorite foods and be able to track your diet with your own personal nutrition data base.
                         </Card.Text>
                         
                         <Button size='sm' variant="outline-primary" onClick={() => navigate('/login')}>Login</Button>

@@ -42,11 +42,11 @@ const Header = ({loggedIn, setLoggedIn}) => {
         <Container>
           <Navbar.Brand as={Link} to="/"><img
                 alt=""
-                src="/logo192.png"
+                src="/nutribase-icon.png"
                 width="30"
                 height="30"
-                className="d-inline-block align-top rounded-3"
-              />{' '}dietlog</Navbar.Brand>
+                className="d-inline-block align-top"
+              />{' '}nutribase</Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             {user ? (
