@@ -7,6 +7,7 @@ import UserRegistration from './components/UserRegistration';
 import About from './components/About';
 import { useState } from 'react';
 import NutritionSearch from './components/NutritionSearch';
+import GoalDashboard from './components/GoalDashboard';
 
 function App() {
 
@@ -21,9 +22,9 @@ function App() {
           <Route path={'/nutrition'} element={<NutritionSearch loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
           <Route path={'/login'} element={<UserLogin setLoggedIn={setLoggedIn} />} />
           <Route path={'/register'} element={<UserRegistration setLoggedIn={setLoggedIn} />}/>
-          {/* <Route path={'/about'} element={<About setLoggedIn={setLoggedIn} />} />
-          <Route path={'/dashboard/'} element={<GoalDashboard setLoggedIn={setLoggedIn} />} />
-          <Route path={'/goal/add/:category'} element={<GoalAdd setLoggedIn={setLoggedIn} />} />
+          <Route path={'/about'} element={<About setLoggedIn={setLoggedIn} />} />
+          <Route path={'/dashboard'} element={<GoalDashboard setLoggedIn={setLoggedIn} />} />
+          {/* <Route path={'/goal/add/:category'} element={<GoalAdd setLoggedIn={setLoggedIn} />} />
           <Route path={'/goal/edit/:category/:id'} element={<GoalUpdate setLoggedIn={setLoggedIn} />} /> */}
         </Routes>
       </BrowserRouter>

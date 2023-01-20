@@ -78,7 +78,7 @@ const UserRegistration = ({ setLoggedIn }) => {
               <Form.Control type="password" name='confirmPassword' placeholder="Must Match Password" value={user.confirmPassword} onChange={handleChange} />
               {errors.confirmPassword && <Form.Text className='text-danger'>{errors.confirmPassword.message}</Form.Text>}
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button size='sm' variant="outline-primary" type="submit">
               Register
             </Button>
             </Form>

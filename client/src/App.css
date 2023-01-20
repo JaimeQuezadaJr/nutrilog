@@ -53,3 +53,12 @@ p {
 .page-bottom {
   margin-bottom: 40px;
 }
+
+.background-dashboard {
+  background-color:#ecdae5;
+  background-repeat:no-repeat; 
+  background-attachment:fixed; 
+  background-size:cover; 
+  position: relative;
+  min-height:100vh;
+}
