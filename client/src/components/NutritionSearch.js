@@ -8,6 +8,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 const NutritionSearch = () => {
     const [food, setFood] = useState([])
@@ -15,6 +17,7 @@ const NutritionSearch = () => {
     const [foodIndex, setFoodIndex] = useState(false)
     const [nutrients, setNutrients] = useState([])
     const [foodSearch, setFoodSearch] = useState(false)
+    const [foodMeasure, setFoodMeasure] = useState([])
     const [foodName, setFoodName] = useState('')
     const [portion, setPortion] = useState(100)
 
@@ -49,6 +52,7 @@ const NutritionSearch = () => {
         console.log(food.description)
         console.log(foodId)
         console.log([food])
+        setFoodMeasure(food[foodId].foodMeasures)
         setFoodName(food[foodId].description)
         setNutrients(food[foodId].foodNutrients)
         setFoodIndex(true)
@@ -90,7 +94,7 @@ const NutritionSearch = () => {
                     <div className='foodScroll'>
                     {food.map((foods, index)=>
                             <div key={foods.fdcId} >
-                                <Button variant="outline-dark" className='mb-2' size='sm' onClick = {(e) => {nutrientHandler(index)}}>{foods.description}</Button>
+                                <Button variant="outline-success" className='m-1' size='sm' onClick = {(e) => {nutrientHandler(index)}}>{foods.description}</Button>
                             </div>
                     )}
                     </div>
@@ -114,7 +118,12 @@ const NutritionSearch = () => {
                 </Form.Group>
             </Form>
                     </Card.Title>
-                    <div className='scroll'>
+                    <DropdownButton size='sm' variant='outline-primary' id="dropdown-basic-button" title="Portion Size">
+                    {foodMeasure.map((foodMeasures, index) =>
+                        <Dropdown.Item className='mb-0' key = {index} onClick ={() => {setPortion(foodMeasures.gramWeight)}}><span className='nutrientName'>{foodMeasures.disseminationText}</span>: {foodMeasures.gramWeight}g </Dropdown.Item>
+                    )}
+                    </DropdownButton>
+                    <div className='scroll mt-3'>
                     {nutrients.map((foodNutrients, index) =>
                         <p className='mb-0' key = {index}><span className='nutrientName'>{foodNutrients.nutrientName}</span>: {((portion/100)*foodNutrients.value).toFixed(2)} {(foodNutrients.unitName).toLowerCase()}</p>
                     )}
