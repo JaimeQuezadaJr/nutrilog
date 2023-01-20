@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import Card from 'react-bootstrap/Card';
 
@@ -33,9 +35,11 @@ const UserLogin = ({ setLoggedIn }) => {
         .catch((err) => setErrors(err.response));
     };
     return (
-      <>
-        <Form onSubmit={handleSubmit} className="form"> 
+      <div className='background-image'>
+        
           <Container>
+            <Row>
+          <Form onSubmit={handleSubmit} className="form"> 
             <Form.Group className="mb-3 col-md-4" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control type="email" name="email" placeholder="Enter email" value={user.email} onChange={handleChange} required />
@@ -49,12 +53,14 @@ const UserLogin = ({ setLoggedIn }) => {
               <Form.Control type="password" name="password" placeholder="Password" value={user.password} onChange={handleChange} required/>
               {errors.data && <Form.Text className='text-danger'>{errors.data.error}</Form.Text>}
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button size='sm' variant="outline-primary" type="submit">
               Login
             </Button>
+            </Form>
+            </Row>
           </Container>
-        </Form>
-        </>
+        
+        </div>
     );
   };
   

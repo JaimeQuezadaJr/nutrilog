@@ -85,7 +85,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
     
     
   return (
-    <div className='home-background'>
+    <div className='background-image'>
         <Container>
             <Row>
             
@@ -107,8 +107,8 @@ const Home = ({loggedIn, setLoggedIn}) => {
                             Quick and easy way to view nutrition facts of your favorite foods and be able to track your diet accordingly to achieve your healthy nutrition goals.
                         </Card.Text>
                         
-                        <Button size='sm' variant="outline-primary" className=''>Login</Button>
-                        <Button size='sm' variant="outline-primary" className='m-2'>Register</Button>
+                        <Button size='sm' variant="outline-primary" onClick={() => navigate('/login')}>Login</Button>
+                        <Button size='sm' variant="outline-primary" className='m-2' onClick={() => navigate('/register')}>Register</Button>
                         </Card.Body>
                     </Card>
                 </Col>

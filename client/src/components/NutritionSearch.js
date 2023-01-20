@@ -64,7 +64,7 @@ const NutritionSearch = () => {
         console.log([nutrients])
     }
   return (
-    <div className='home-background'>
+    <div className='background-image'>
         <Container>
             <Row>
                 <Col className='form'>

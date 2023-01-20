@@ -42,7 +42,7 @@ p {
   color: #eadde6;
 }
 
-.home-background {
+.background-image {
   background-image:url('/public/orange.webp'); 
   background-repeat:no-repeat; 
   background-attachment:fixed; 

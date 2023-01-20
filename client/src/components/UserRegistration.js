@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const UserRegistration = ({ setLoggedIn }) => {
     const navigate = useNavigate();
@@ -35,8 +37,10 @@ const UserRegistration = ({ setLoggedIn }) => {
     };
   
     return (
-      <Form onSubmit={handleSubmit} className='form mb-5'>
+      <div className='background-image'>
           <Container>
+            <Row>
+            <Form onSubmit={handleSubmit} className='form mb-5'>
             <Form.Group className="mb-3 col-md-4" controlId="firstName">
                 <Form.Label>First Name</Form.Label>
                 <Form.Control type="text" name='firstName' placeholder="Enter first name" value={user.firstName} onChange={handleChange} required />
@@ -77,8 +81,11 @@ const UserRegistration = ({ setLoggedIn }) => {
             <Button variant="primary" type="submit">
               Register
             </Button>
+            </Form>
+            </Row>
           </Container>
-        </Form>
+          </div>
+        
     );
   };
   
