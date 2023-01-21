@@ -120,7 +120,7 @@ const NutritionSearch = () => {
                     </Card.Title>
                     <DropdownButton size='sm' variant='outline-primary' id="dropdown-basic-button" title="Portion Size">
                     {foodMeasure.map((foodMeasures, index) =>
-                        <Dropdown.Item className='mb-0' key = {index} onClick ={() => {setPortion(foodMeasures.gramWeight)}}><span className='nutrientName'>{foodMeasures.disseminationText}</span>: {foodMeasures.gramWeight}g </Dropdown.Item>
+                        <Dropdown.Item className='mb-0' key = {index} onClick ={() => {setPortion(foodMeasures.gramWeight)}}><span className='nutrientName'>{foodMeasures.disseminationText}</span>: {foodMeasures.gramWeight} g</Dropdown.Item>
                     )}
                     </DropdownButton>
                     <div className='scroll mt-3'>
