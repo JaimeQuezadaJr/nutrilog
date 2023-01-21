@@ -56,24 +56,55 @@ const GoalDashboard = ({setLoggedIn}) => {
             <Card>
               <Card.Header>Welcome Lisa</Card.Header>
                 <Card.Body>
+                  <Card.Title>Nutrition</Card.Title>
+                  <Card.Text>
+                    With supporting text below as a natural lead-in to additional content.
+                  </Card.Text>
+                  <div className="mb-3">
+                    <ProgressBar variant="danger" now={30} label='Protein' />
+                    <ProgressBar variant="warning" now={50} label='Total Fat' />
+                    <ProgressBar variant="info" now={60} label='Carbohydates' />
+                    <ProgressBar variant="primary" now={70} label='Sodium' />
+                    <ProgressBar variant="dark" now={60} label='Sugar' />
+                    <ProgressBar variant="success" now={80} label='Fiber' />
+                  </div>
+                  <Button size="sm" variant="outline-primary" className="me-2">Daily</Button>
+                  <Button size="sm" variant="outline-primary" className="me-2">Weekly</Button>
+                  <Button size="sm" variant="outline-primary">Monthly</Button>
+                </Card.Body>
+            </Card>
+          </Col>
+          </Row>
+          <Row>
+            <Col className="mt-3">
+            <Card>
+              <Card.Header>Nutrition</Card.Header>
+                <Card.Body>
                   <Card.Title>Special title treatment</Card.Title>
                   <Card.Text>
                     With supporting text below as a natural lead-in to additional content.
                   </Card.Text>
-                  <div>
-                    <ProgressBar variant="success" now={20} label='Protein' />
-                    <ProgressBar variant="info" now={50} label='Total Fat' />
-                    <ProgressBar variant="warning" now={60} label='Carbohydates' />
-                    <ProgressBar variant="primary" now={70} label='Sodium' />
-                    <ProgressBar variant="dark" now={60} label='Sugar' />
-                    <ProgressBar variant="danger" now={80} label='Fiber' />
-                  </div>
                   <Button size="sm" variant="outline-primary">Go somewhere</Button>
                 </Card.Body>
             </Card>
-          </Col>
+            </Col>
+          </Row>
+          <Row>
+            <Col className="mt-3">
+              <Card>
+                <Card.Header>Nutrition</Card.Header>
+                  <Card.Body>
+                    <Card.Title>Special title treatment</Card.Title>
+                    <Card.Text>
+                      With supporting text below as a natural lead-in to additional content.
+                    </Card.Text>
+                    <Button size="sm" variant="outline-primary">Go somewhere</Button>
+                  </Card.Body>
+              </Card>
+              </Col>
+          </Row>
 
-        </Row>
+        
       </Container>
       </div>
     )
