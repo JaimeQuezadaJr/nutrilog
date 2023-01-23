@@ -119,7 +119,7 @@ const NutritionSearch = () => {
                     <Form onSubmit = {portionHandler}>
                 <Form.Group>
                     <Form.Label className='portion'>Portion Size (g)</Form.Label>
-                    <Form.Control type='text' value={portion} onChange = {(e) => [setPortion(e.target.value), setFoodPercent(e.target.value)]} style={{ width: '5rem'}} className='portion'></Form.Control>
+                    <Form.Control type='text' value={portion} onChange = {(e) => (setPortion(e.target.value))} style={{ width: '5rem'}} className='portion'></Form.Control>
                 </Form.Group>
             </Form>
                     </Card.Title>
@@ -130,10 +130,17 @@ const NutritionSearch = () => {
                     </DropdownButton>
                     <div className='scroll mt-3'>
                     {nutrients.map((foodNutrients, index) =>
+               
                     <div key = {index}>
+                        
                         <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>: {((portion/100)*foodNutrients.value).toFixed(2)} {(foodNutrients.unitName).toLowerCase()}</p>
-                        <ProgressBar variant="primary" now={((foodNutrients.value)).toFixed(2)}  label={foodNutrients.nutrientName} />
+                        <ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(100/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(100/portion)).toFixed(2)} %`}/>
+                        
+                        
+                        
                         </div>
+                  
+                    
                     )}
                     </div>
                 </Card.Body>
@@ -169,5 +176,17 @@ const NutritionSearch = () => {
                     </div>
                         </Card.Text>
                         </Card.Body>
-                        </div> */}
+                        </div> 
+
+
+                        <div key = {index}>
+                        {foodNutrients.unitName === 'MG' ?
+                        <>
+                        <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>: {((portion/100)*foodNutrients.value).toFixed(2)} {(foodNutrients.unitName).toLowerCase()}</p>
+                        <ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(.1/portion)).toFixed(2)}  label={foodNutrients.nutrientName} />
+                        
+                        </>
+                        :null}
+                        </div>*/
+                    }
 export default NutritionSearch;
