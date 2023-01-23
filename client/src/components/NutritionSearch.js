@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Spinner from 'react-bootstrap/Spinner';
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
 
 const NutritionSearch = () => {
@@ -18,7 +19,7 @@ const NutritionSearch = () => {
     const[foodQuery, setFoodQuery] = useState("")
     const [foodIndex, setFoodIndex] = useState(false)
     const [nutrients, setNutrients] = useState([])
-    const [foodSearch, setFoodSearch] = useState(false)
+    const [foodPercent, setFoodPercent] = useState(100)
     const [foodMeasure, setFoodMeasure] = useState([])
     const [foodName, setFoodName] = useState('')
     const [portion, setPortion] = useState(100)
@@ -40,7 +41,7 @@ const NutritionSearch = () => {
                 setFoodQuery("")
                 setNutrients([])
                 setFoodIndex(false)
-                setFoodSearch(true)
+                
                 setPortion(100)
                 console.log(res.data)
                 console.log(res.data.foods)
@@ -64,10 +65,10 @@ const NutritionSearch = () => {
         e.preventDefault();
         console.log("hello")
         console.log(foodIndex)
-        const realPortion = portion/100
-        console.log(realPortion)
+        console.log(portion)
         console.log(nutrients[0].value)
         console.log([nutrients])
+        console.log(foodPercent)
     }
   return (
     <div className='background-image'>
@@ -78,7 +79,7 @@ const NutritionSearch = () => {
             </Row>
             <Row className=''>
                 <Col className='mb-3' >
-                    <Card border="light" style={{ width: '20rem' }} >
+                    <Card border="light" >
                         <Card.Header>Nutrition Base</Card.Header>
                         <Card.Body>
                         <Card.Title>View Nutrition <img className='rounded' src='/Buffer-Progress-Bar.jpg' alt="blueCircle" width={30} height={30} /></Card.Title>
@@ -87,7 +88,7 @@ const NutritionSearch = () => {
                         </Card.Text>
                         <Card.Text>
                         <Form onSubmit = {foodHandler}>
-                        <Form.Group className='mb-3 col-sm-8'>
+                        <Form.Group className='mb-3 col-sm-2'>
                             <Form.Label>Food Search</Form.Label>
                             <Form.Control type='text' value={foodQuery} onChange = {(e) => setFoodQuery(e.target.value)}></Form.Control>
                         </Form.Group>
@@ -95,20 +96,22 @@ const NutritionSearch = () => {
                     </Form>
                     <div className='foodScroll'>
                     {food.map((foods, index)=>
-                            <div key={foods.fdcId} >
-                                <Button variant="outline-success" className='m-1' size='sm' onClick = {(e) => {nutrientHandler(index)}}>{foods.description}</Button>
-                            </div>
+                            
+                                <Button key={foods.fdcId} variant="outline-success" className='m-1' size='sm' onClick = {(e) => {nutrientHandler(index)}}>{foods.description}</Button>
+                            
                     )}
                     </div>
                         </Card.Text>
                         </Card.Body>
                     </Card>
                 </Col>
+                </Row>
+                <Row>
                 <Col className='page-bottom' >
             {foodIndex ===true ?
             <Card
             border='light'
-            style={{ width: '20rem'}}
+            
             className="">
                 <Card.Header className='nutrientName'>Nutrition Facts: {foodName}</Card.Header>
                 <Card.Body>
@@ -116,7 +119,7 @@ const NutritionSearch = () => {
                     <Form onSubmit = {portionHandler}>
                 <Form.Group>
                     <Form.Label className='portion'>Portion Size (g)</Form.Label>
-                    <Form.Control type='text' value={portion} onChange = {(e) => setPortion(e.target.value)} style={{ width: '5rem'}} className='portion'></Form.Control>
+                    <Form.Control type='text' value={portion} onChange = {(e) => [setPortion(e.target.value), setFoodPercent(e.target.value)]} style={{ width: '5rem'}} className='portion'></Form.Control>
                 </Form.Group>
             </Form>
                     </Card.Title>
@@ -127,7 +130,10 @@ const NutritionSearch = () => {
                     </DropdownButton>
                     <div className='scroll mt-3'>
                     {nutrients.map((foodNutrients, index) =>
-                        <p className='mb-0' key = {index}><span className='nutrientName'>{foodNutrients.nutrientName}</span>: {((portion/100)*foodNutrients.value).toFixed(2)} {(foodNutrients.unitName).toLowerCase()}</p>
+                    <div key = {index}>
+                        <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>: {((portion/100)*foodNutrients.value).toFixed(2)} {(foodNutrients.unitName).toLowerCase()}</p>
+                        <ProgressBar variant="primary" now={((foodNutrients.value)).toFixed(2)}  label={foodNutrients.nutrientName} />
+                        </div>
                     )}
                     </div>
                 </Card.Body>

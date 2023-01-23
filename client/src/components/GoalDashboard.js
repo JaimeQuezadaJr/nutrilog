@@ -67,6 +67,7 @@ const GoalDashboard = ({setLoggedIn}) => {
                     <ProgressBar variant="primary" now={70} label='Sodium' />
                     <ProgressBar variant="dark" now={60} label='Sugar' />
                     <ProgressBar variant="success" now={80} label='Fiber' />
+                    <ProgressBar variant="primary" now={90} label='Calories' />
                   </div>
                   <Button size="sm" variant="outline-primary" className="me-2">Daily</Button>
                   <Button size="sm" variant="outline-primary" className="me-2">Weekly</Button>
@@ -80,17 +81,17 @@ const GoalDashboard = ({setLoggedIn}) => {
             <Card>
               <Card.Header>Nutrition</Card.Header>
                 <Card.Body>
-                  <Card.Title>Special title treatment</Card.Title>
+                  <Card.Title>Add food</Card.Title>
                   <Card.Text>
-                    With supporting text below as a natural lead-in to additional content.
+                    Record the food you have consumed to keep track of your nutrition
                   </Card.Text>
-                  <Button size="sm" variant="outline-primary">Go somewhere</Button>
+                  <Button size="sm" variant="outline-primary">Add</Button>
                 </Card.Body>
             </Card>
             </Col>
           </Row>
           <Row>
-            <Col className="mt-3">
+            <Col className="mt-3 page-bottom">
               <Card>
                 <Card.Header>Nutrition</Card.Header>
                   <Card.Body>
