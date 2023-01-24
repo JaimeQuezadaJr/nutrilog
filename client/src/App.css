@@ -8,6 +8,9 @@
 .form {
   margin-top: 80px;
 }
+.negative-form {
+  margin-top: -60px;
+}
 p {
   font-size: small;
 }

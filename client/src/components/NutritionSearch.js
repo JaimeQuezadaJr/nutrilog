@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/esm/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
@@ -15,6 +15,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 
 
 const NutritionSearch = () => {
+    const navigate = useNavigate();
     const [food, setFood] = useState([])
     const[foodQuery, setFoodQuery] = useState("")
     const [foodIndex, setFoodIndex] = useState(false)
@@ -70,8 +71,12 @@ const NutritionSearch = () => {
         console.log([nutrients])
         console.log(foodPercent)
     }
+    const add = () => {
+        
+        window.location.reload(false)
+    }
   return (
-    <div className='background-image'>
+    <div>
         <Container>
             <Row>
                 <Col className='form'>
@@ -128,6 +133,7 @@ const NutritionSearch = () => {
                         <Dropdown.Item className='mb-0' key = {index} onClick ={() => {setPortion(foodMeasures.gramWeight)}}><span className='nutrientName'>{foodMeasures.disseminationText}</span>: {foodMeasures.gramWeight} g</Dropdown.Item>
                     )}
                     </DropdownButton>
+                    <Button size='sm' type="submit" variant='outline-primary' className='mt-2' onClick={add}>Add</Button>
                     <div className='scroll mt-3'>
                     {nutrients.map((foodNutrients, index) =>
                

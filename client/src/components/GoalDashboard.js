@@ -10,6 +10,8 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import NutritionSearch from "./NutritionSearch";
+
 
 
 const GoalDashboard = ({setLoggedIn}) => {
@@ -49,15 +51,19 @@ const GoalDashboard = ({setLoggedIn}) => {
     // }, [category]);
     
     return (
-      <div className="background-dashboard">
+      <div>
       <Container>
         <Row>
           <Col className="form">
             <Card>
-              <Card.Header>Welcome Lisa</Card.Header>
+              <Card.Header>Welcome Lisa <span className="">01/24/2023</span></Card.Header>
                 <Card.Body>
-  
-                  
+                  <ButtonGroup size="sm" className="mb-2">
+                    <Button variant='outline-primary' active>Daily</Button>
+                    <Button variant='outline-primary'>Weekly</Button>
+                    <Button variant='outline-primary'>Monthly</Button>
+                  </ButtonGroup>
+                            
                   <div className="mb-2">
                     <Card.Text className="mb-1 nutrientName">Calories</Card.Text>
                     <ProgressBar variant="primary" now={30} label='Calories' />
@@ -99,44 +105,18 @@ const GoalDashboard = ({setLoggedIn}) => {
                     <ProgressBar variant="danger" now={20} label='Vitamin K' />
                     <ProgressBar variant="warning" now={90} label='Folate' />
                   </div>
-                  <Button size="sm" variant="outline-primary" className="me-2">Daily</Button>
-                  <Button size="sm" variant="outline-primary" className="me-2">Weekly</Button>
-                  <Button size="sm" variant="outline-primary">Monthly</Button>
+                  <Button size="sm" variant="outline-primary" className="me-2">Update</Button>
+                  <Button size="sm" variant="outline-primary" className="me-2">Delete</Button>
+                  
                 </Card.Body>
             </Card>
           </Col>
           </Row>
-          <Row>
-            <Col className="mt-3">
-            <Card>
-              <Card.Header>Nutrition</Card.Header>
-                <Card.Body>
-                  <Card.Title>Add food</Card.Title>
-                  <Card.Text>
-                    Record the food you have consumed to keep track of your nutrition
-                  </Card.Text>
-                  <Button size="sm" variant="outline-primary">Add</Button>
-                </Card.Body>
-            </Card>
-            </Col>
-          </Row>
-          <Row>
-            <Col className="mt-3 page-bottom">
-              <Card>
-                <Card.Header>Nutrition</Card.Header>
-                  <Card.Body>
-                    <Card.Title>Special title treatment</Card.Title>
-                    <Card.Text>
-                      With supporting text below as a natural lead-in to additional content.
-                    </Card.Text>
-                    <Button size="sm" variant="outline-primary">Go somewhere</Button>
-                  </Card.Body>
-              </Card>
-              </Col>
-          </Row>
-
-        
       </Container>
+      <Row className="negative-form">
+      <NutritionSearch></NutritionSearch>
+      </Row>
+      
       </div>
     )
   }

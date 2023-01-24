@@ -85,7 +85,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
     
     
   return (
-    <div className='background-image'>
+    <div>
         <Container>
             <Row>
             
