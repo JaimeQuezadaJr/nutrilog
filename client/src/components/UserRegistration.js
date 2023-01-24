@@ -13,7 +13,7 @@ const UserRegistration = ({ setLoggedIn }) => {
     const [user, setUser] = useState({
       firstName: '',
       lastName: '',
-      age: null,
+      age: 0,
       email: '',
       password: '',
       confirmPassword: '',

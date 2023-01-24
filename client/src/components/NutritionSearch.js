@@ -86,10 +86,10 @@ const NutritionSearch = () => {
                         <Card.Text>
                             Access quick nutrition facts about your favorite foods to better understand your diet.
                         </Card.Text>
-                        <Card.Text>
+                        
                         <Form onSubmit = {foodHandler}>
                         <Form.Group className='mb-3 col-sm-2'>
-                            <Form.Label>Food Search</Form.Label>
+                            
                             <Form.Control type='text' value={foodQuery} onChange = {(e) => setFoodQuery(e.target.value)}></Form.Control>
                         </Form.Group>
                         <Button size='sm' type="submit" variant='outline-primary' className='mb-3'>Search</Button>
@@ -101,7 +101,7 @@ const NutritionSearch = () => {
                             
                     )}
                     </div>
-                        </Card.Text>
+                        
                         </Card.Body>
                     </Card>
                 </Col>

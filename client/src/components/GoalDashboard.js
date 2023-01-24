@@ -56,18 +56,48 @@ const GoalDashboard = ({setLoggedIn}) => {
             <Card>
               <Card.Header>Welcome Lisa</Card.Header>
                 <Card.Body>
-                  <Card.Title>Nutrition</Card.Title>
-                  <Card.Text>
-                    With supporting text below as a natural lead-in to additional content.
-                  </Card.Text>
-                  <div className="mb-3">
+  
+                  
+                  <div className="mb-2">
+                    <Card.Text className="mb-1 nutrientName">Calories</Card.Text>
+                    <ProgressBar variant="primary" now={30} label='Calories' />
+                  </div>
+                  <div className="mb-2">
+                    <Card.Text className="mb-1 nutrientName">Macronutrients</Card.Text>
                     <ProgressBar variant="danger" now={30} label='Protein' />
                     <ProgressBar variant="warning" now={50} label='Total Fat' />
                     <ProgressBar variant="info" now={60} label='Carbohydates' />
                     <ProgressBar variant="primary" now={70} label='Sodium' />
-                    <ProgressBar variant="dark" now={60} label='Sugar' />
-                    <ProgressBar variant="success" now={80} label='Fiber' />
-                    <ProgressBar variant="primary" now={90} label='Calories' />
+                    <ProgressBar variant="success" now={80} label='Dietary Fiber' />
+                    <ProgressBar variant="danger" now={90} label='Linoleic acid' />
+                    <ProgressBar variant="warning" now={20} label='Linolenic acid' />
+                  </div>
+                  <div className="mb-2">
+                  <Card.Text className="mb-1 nutrientName">Minerals</Card.Text>
+                    <ProgressBar variant="danger" now={30} label='Calcium' />
+                    <ProgressBar variant="warning" now={50} label='Iron' />
+                    <ProgressBar variant="info" now={60} label='Magnesium' />
+                    <ProgressBar variant="primary" now={70} label='Phosphorus' />
+                    <ProgressBar variant="success" now={60} label='Potassium' />
+                    <ProgressBar variant="danger" now={80} label='Sodium' />
+                    <ProgressBar variant="warning" now={90} label='Zinc' />
+                    <ProgressBar variant="info" now={90} label='Copper' />
+                    <ProgressBar variant="primary" now={90} label='Selenium' />
+                  </div>
+                  <div className="mb-3">
+                  <Card.Text className="mb-1 nutrientName">Vitamins</Card.Text>
+                    <ProgressBar variant="danger" now={30} label='Vitamin A' />
+                    <ProgressBar variant="warning" now={50} label='Vitamin E' />
+                    <ProgressBar variant="info" now={60} label='Vitamin D' />
+                    <ProgressBar variant="primary" now={70} label='Vitamin C' />
+                    <ProgressBar variant="success" now={60} label='Thiamin' />
+                    <ProgressBar variant="danger" now={80} label='Riboflavin' />
+                    <ProgressBar variant="warning" now={90} label='Niacin' />
+                    <ProgressBar variant="info" now={90} label='Vitamin B-6' />
+                    <ProgressBar variant="primary" now={40} label='Vitamin B-12' />
+                    <ProgressBar variant="success" now={70} label='Choline' />
+                    <ProgressBar variant="danger" now={20} label='Vitamin K' />
+                    <ProgressBar variant="warning" now={90} label='Folate' />
                   </div>
                   <Button size="sm" variant="outline-primary" className="me-2">Daily</Button>
                   <Button size="sm" variant="outline-primary" className="me-2">Weekly</Button>
