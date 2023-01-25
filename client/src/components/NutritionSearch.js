@@ -124,7 +124,7 @@ const NutritionSearch = () => {
                     <Form onSubmit = {portionHandler}>
                 <Form.Group>
                     <Form.Label className='portion'>Portion Size (g)</Form.Label>
-                    <Form.Control type='text' value={portion} onChange = {(e) => (setPortion(e.target.value))} style={{ width: '5rem'}} className='portion'></Form.Control>
+                    <Form.Control type='text' value={portion} onChange = {(e) => (setPortion(e.target.value))} style={{width: '5rem'}} className='portion'></Form.Control>
                 </Form.Group>
             </Form>
                     </Card.Title>

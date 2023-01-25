@@ -105,8 +105,8 @@ const GoalDashboard = ({setLoggedIn}) => {
                     <ProgressBar variant="danger" now={20} label='Vitamin K' />
                     <ProgressBar variant="warning" now={90} label='Folate' />
                   </div>
-                  <Button size="sm" variant="outline-primary" className="me-2">Update</Button>
-                  <Button size="sm" variant="outline-primary" className="me-2">Delete</Button>
+                  <Button size="sm" variant="outline-primary" className="me-2">Update Nutrition</Button>
+                  <Button size="sm" variant="outline-primary" className="me-2">Delete Foods</Button>
                   
                 </Card.Body>
             </Card>
