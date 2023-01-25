@@ -135,6 +135,7 @@ const NutritionSearch = () => {
                     </DropdownButton>
                     <Button size='sm' type="submit" variant='outline-primary' className='mt-2' onClick={add}>Add</Button>
                     <div className='scroll mt-3'>
+                    <Form>
                     {nutrients.map((foodNutrients, index) =>
                
                     <div key = {index}>
@@ -148,6 +149,7 @@ const NutritionSearch = () => {
                   
                     
                     )}
+                    </Form>
                     </div>
                 </Card.Body>
             </Card>
