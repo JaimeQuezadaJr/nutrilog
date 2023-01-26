@@ -14,6 +14,7 @@ const UserRegistration = ({ setLoggedIn }) => {
       firstName: '',
       lastName: '',
       age: 0,
+      gender:'',
       email: '',
       password: '',
       confirmPassword: '',
@@ -55,6 +56,15 @@ const UserRegistration = ({ setLoggedIn }) => {
                 <Form.Label>Age</Form.Label>
                 <Form.Control type="number" name='age' placeholder="Enter age" value={user.age} onChange={handleChange} required />
                 {errors.age && <Form.Text className='text-danger'>{errors.age.message}</Form.Text>}
+              </Form.Group>
+              <Form.Group className="mb-3 col-md-4" controlId="gender">
+                <Form.Label>Gender</Form.Label>
+                <Form.Select type="string" name='gender' placeholder="Enter gender" value={user.gender} onChange={handleChange} required>
+                  <option>Select Gender</option>
+                  <option value='Male'>Male</option>
+                  <option value='Female'>Female</option>
+                  </Form.Select>
+                {errors.age && <Form.Text className='text-danger'>{errors.gender.message}</Form.Text>}
               </Form.Group>
               <Form.Group className="mb-3 col-md-4" controlId="formBasicEmail">
                 <Form.Label>Email</Form.Label>
