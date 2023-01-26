@@ -2,52 +2,124 @@ const mongoose = require('mongoose');
 
 const NutritionSchema = mongoose.Schema(
     {
-        foodDescription: {
-            type: String,
-            required: [true, 'Goal is required'],
-            minLength: [12, 'Goal description should be more than 12 characters long']
-        },
         foodName: {
             type: String,
-            required: [true, 'Please add food name'],
+            required: [true, 'Please enter food name'],
         },
         calories: {
             type: Number,
-            required: [true, 'Please add food calories']
+            required: [true, 'Please enter food calories']
         },
         protein: {
             type: Number,
-            required: [true, 'Please add protein amount']
+            required: [true, 'Please enter protein amount']
         },
         totalFat: {
             type: Number,
             required: [true, 'Please enter total fat amount']
         },
-        cholesterol: {
+        carbohydrates: {
             type: Number,
-            required: [true, 'Please enter total cholesterol amount']
+            required: [true, 'Please enter carbohydrates amount']
         },
-        sodium: {
-            type: Number,
-            required: [true, 'Please enter total sodium amount']
-        },
-        fiber: {
+        
+        dietaryFiber: {
             type: Number,
             required: [true, 'Please enter total fiber amount']
         },
-        totalCarbohydrates: {
+        calcium: {
             type: Number,
-            required: [true, 'Please enter total carbohydrates']
+            required: [true, 'Please enter calcium amount']
         },
-        completedBy: {
-            type: Date,
-            required: [true, 'Please add goal completion date'],
-            min: [Date.now, 'Please give yourself at least one day to complete the goal']
+        iron: {
+            type: Number,
+            required: [true, 'Please enter iron amount']
         },
-        complete: {
-            type: Boolean,
-            default: false
+        magnesium: {
+            type: Number,
+            required: [true, 'Please enter magnesium amount']
         },
+        phosphorus: {
+            type: Number,
+            required: [true, 'Please enter phosphorus amount']
+        },
+        potassium: {
+            type: Number,
+            required: [true, 'Please enter potassium amount']
+        },
+        sodium: {
+            type: Number,
+            required: [true, 'Please enter sodium amount']
+        },
+        zinc: {
+            type: Number,
+            required: [true, 'Please enter zinc amount']
+        },
+        copper: {
+            type: Number,
+            required: [true, 'Please enter copper amount']
+        },
+        selenium: {
+            type: Number,
+            required: [true, 'Please enter selenium amount']
+        },
+        vitaminA: {
+            type: Number,
+            required: [true, 'Please enter vitamin A amount']
+        },
+        vitaminE: {
+            type: Number,
+            required: [true, 'Please enter vitamin E amount']
+        },
+        vitaminD: {
+            type: Number,
+            required: [true, 'Please enter vitamin D amount']
+        },
+        vitaminC: {
+            type: Number,
+            required: [true, 'Please enter vitamin C amount']
+        },
+        thiamin: {
+            type: Number,
+            required: [true, 'Please enter thiamin amount']
+        },
+        riboflavin: {
+            type: Number,
+            required: [true, 'Please enter roboflavin amount']
+        },
+        niacin: {
+            type: Number,
+            required: [true, 'Please enter niacin amount']
+        },
+        vitaminB6: {
+            type: Number,
+            required: [true, 'Please enter vitamin B-6 amount']
+        },
+        vitaminB12: {
+            type: Number,
+            required: [true, 'Please enter vitamin B-12 amount']
+        },
+        choline: {
+            type: Number,
+            required: [true, 'Please enter choline amount']
+        },
+        vitaminK: {
+            type: Number,
+            required: [true, 'Please enter vitamin K amount']
+        },
+        folate: {
+            type: Number,
+            required: [true, 'Please enter folate amount']
+        },
+        // completedBy: {
+        //     type: Date,
+        //     required: [true, 'Please add goal completion date'],
+        //     min: [Date.now, 'Please give yourself at least one day to complete the goal']
+        // },
+        // complete: {
+        //     type: Boolean,
+        //     default: false
+        // },
         createdBy: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User'

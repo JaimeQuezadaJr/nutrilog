@@ -73,10 +73,9 @@ const GoalDashboard = ({setLoggedIn}) => {
                     <ProgressBar variant="danger" now={30} label='Protein' />
                     <ProgressBar variant="warning" now={50} label='Total Fat' />
                     <ProgressBar variant="info" now={60} label='Carbohydates' />
-                    <ProgressBar variant="primary" now={70} label='Sodium' />
-                    <ProgressBar variant="success" now={80} label='Dietary Fiber' />
-                    <ProgressBar variant="danger" now={90} label='Linoleic acid' />
-                    <ProgressBar variant="warning" now={20} label='Linolenic acid' />
+                    <ProgressBar variant="primary" now={80} label='Dietary Fiber' />
+                    {/* <ProgressBar variant="success" now={90} label='Linoleic acid' />
+                    <ProgressBar variant="danger" now={20} label='Linolenic acid' /> */}
                   </div>
                   <div className="mb-2">
                   <Card.Text className="mb-1 nutrientName">Minerals</Card.Text>
