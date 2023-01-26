@@ -12,6 +12,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Spinner from 'react-bootstrap/Spinner';
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 
 const NutritionSearch = () => {
@@ -139,11 +140,27 @@ const NutritionSearch = () => {
                     {nutrients.map((foodNutrients, index) =>
                
                     <div key = {index}>
-                        
-                        <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>: {((portion/100)*foodNutrients.value).toFixed(2)} {(foodNutrients.unitName).toLowerCase()}</p>
+                       
+                       {foodNutrients.unitName === 'G'?
+                       <>
+                        <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
                         <ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(100/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(100/portion)).toFixed(2)} %`}/>
-                        
-                        
+                        </>
+                        :foodNutrients.unitName === 'MG'?
+                        <>
+                        <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
+                        <ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(.1/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(.1/portion)).toFixed(2)} %`}/>
+                        </>
+                    :foodNutrients.unitName === 'UG'?
+                    <>
+                        <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
+                        <ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(.0001/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(.0001/portion)).toFixed(2)} %`}/>
+                        </>
+                    :<>
+                    <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
+                    <ProgressBar variant="primary" now={0}/>
+                    </>
+                    }
                         
                         </div>
                   
@@ -195,6 +212,16 @@ const NutritionSearch = () => {
                         
                         </>
                         :null}
-                        </div>*/
+                        </div>
+                        
+                        
+                        <InputGroup size="sm" className="mb-3">
+                            <InputGroup.Text id="inputGroup-sizing-sm">{foodNutrients.nutrientName}</InputGroup.Text>
+                            <Form.Control
+                            aria-label="Small"
+                            aria-describedby="inputGroup-sizing-sm"
+                            type='number' value={((portion/100)*foodNutrients.value).toFixed(2)}
+                            />
+                        </InputGroup>*/
                     }
 export default NutritionSearch;
