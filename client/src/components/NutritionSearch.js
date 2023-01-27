@@ -15,16 +15,30 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 import InputGroup from 'react-bootstrap/InputGroup';
 
 
-const NutritionSearch = () => {
+const NutritionSearch = ({setLoggedIn}) => {
     const navigate = useNavigate();
+    const [btnLink, setBtnLink] = useState([]);
     const [food, setFood] = useState([])
     const[foodQuery, setFoodQuery] = useState("")
     const [foodIndex, setFoodIndex] = useState(false)
     const [nutrients, setNutrients] = useState([])
-    const [foodPercent, setFoodPercent] = useState(100)
     const [foodMeasure, setFoodMeasure] = useState([])
     const [foodName, setFoodName] = useState('')
     const [portion, setPortion] = useState(100)
+
+    useEffect(() => {
+        axios
+        .get('http://localhost:8000/api/current-user', { withCredentials: true })
+        .then((res) => {
+          setLoggedIn(true);
+          setBtnLink(['/dashboard', 'Start Tracking']);
+        })
+        .catch((err) => {
+          setBtnLink(['/login', 'Get Started']);
+          console.log(err)
+        });
+    
+      },[])
 
     const foodHandler = (e) => {
         e.preventDefault();
@@ -70,7 +84,7 @@ const NutritionSearch = () => {
         console.log(portion)
         console.log(nutrients[0].value)
         console.log([nutrients])
-        console.log(foodPercent)
+        
     }
     const add = () => {
         
@@ -134,7 +148,7 @@ const NutritionSearch = () => {
                         <Dropdown.Item className='mb-0' key = {index} onClick ={() => {setPortion(foodMeasures.gramWeight)}}><span className='nutrientName'>{foodMeasures.disseminationText}</span>: {foodMeasures.gramWeight} g</Dropdown.Item>
                     )}
                     </DropdownButton>
-                    <Button size='sm' type="submit" variant='outline-primary' className='mt-2' onClick={add}>Add</Button>
+                    <Button size='sm' type="submit" variant='outline-primary' className='mt-2' onClick={()=> navigate(btnLink[0])}>{btnLink[1]}</Button>
                     <div className='scroll mt-3'>
                     <Form>
                     {nutrients.map((foodNutrients, index) =>

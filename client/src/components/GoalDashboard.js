@@ -17,38 +17,36 @@ import NutritionSearch from "./NutritionSearch";
 const GoalDashboard = ({setLoggedIn}) => {
 
     const navigate = useNavigate();
-    const [goals, setGoals] = useState([]);
+    const [nutrition, setNutrition] = useState([]);
     const [category, setCategory] = useState("Nutrition");
     const [complete, setComplete] = useState({});
     const [user, setUser] = useState("");
   
-    // useEffect(() => {
-    //   axios
-    //     .get('http://localhost:8000/api/current-user', { withCredentials: true })
-    //     .then((res) => {
-    //       console.log(res.data)
-    //       setUser(res.data.firstName);
-    //       setLoggedIn(true);
+    useEffect(() => {
+      axios
+        .get('http://localhost:8000/api/current-user', { withCredentials: true })
+        .then((res) => {
+          console.log(res.data)
+          setUser(res.data.firstName);
+          setLoggedIn(true);
           
-    //       //TODO get all three goals from backend
-    //       axios.get(`http://localhost:8000/api/${category}/user/${res.data._id}`, { withCredentials: true})
-    //       .then(res => {
-    //         console.log(res.data)
-    //         setGoals(res.data)
+          //TODO get all three goals from backend /api/nutrition/user/:id
+          axios.get(`http://localhost:8000/api/nutrition/user/${res.data._id}`, { withCredentials: true})
+          .then(res => {
+            console.log(res.data)
+            setNutrition(res.data)
   
-    //         let tempComplete = {};
-    //         res.data.map((goal) => tempComplete[goal._id] = goal.complete);
-    //         setComplete(tempComplete);
-    //       })
-    //       .catch(err => console.log(err));
+         
+          })
+          .catch(err => console.log(err));
           
-    //     })
-    //     .catch((err) => {
-    //       console.log(err)
-    //       navigate('/');
-    //     }
-    //     ); 
-    // }, [category]);
+        })
+        .catch((err) => {
+          console.log(err)
+          navigate('/');
+        }
+        ); 
+    }, [category]);
     
     return (
       <div>
@@ -56,7 +54,7 @@ const GoalDashboard = ({setLoggedIn}) => {
         <Row>
           <Col className="form">
             <Card>
-              <Card.Header>Welcome Lisa <span className="">01/24/2023</span></Card.Header>
+              <Card.Header>Welcome {user} <span className="">01/24/2023</span></Card.Header>
                 <Card.Body>
                   <ButtonGroup size="sm" className="mb-2">
                     <Button variant='outline-primary' active>Daily</Button>
@@ -65,8 +63,17 @@ const GoalDashboard = ({setLoggedIn}) => {
                   </ButtonGroup>
                             
                   <div className="mb-2">
+                  {nutrition.map((nutrients, index) =>
+                  <div key={index}>
+                    {nutrients['calories'] ?
+                    <>
                     <Card.Text className="mb-1 nutrientName">Calories</Card.Text>
-                    <ProgressBar variant="primary" now={30} label='Calories' />
+                    <ProgressBar variant="primary" now={nutrients['calories']} label='Calories' />
+                    </>
+                    :null}
+                    
+                    </div>
+                  )}
                   </div>
                   <div className="mb-2">
                     <Card.Text className="mb-1 nutrientName">Macronutrients</Card.Text>
