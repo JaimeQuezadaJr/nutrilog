@@ -17,7 +17,10 @@ import NutritionSearch from "./NutritionSearch";
 const GoalDashboard = ({setLoggedIn}) => {
 
     const navigate = useNavigate();
+    const [btnLink, setBtnLink] = useState([]);
     const [nutrition, setNutrition] = useState([]);
+    const [calories, setCalories] = useState(null);
+    const [protein, setProtein] = useState(null);
     const [category, setCategory] = useState("Nutrition");
     const [complete, setComplete] = useState({});
     const [user, setUser] = useState("");
@@ -33,8 +36,18 @@ const GoalDashboard = ({setLoggedIn}) => {
           //TODO get all three goals from backend /api/nutrition/user/:id
           axios.get(`http://localhost:8000/api/nutrition/user/${res.data._id}`, { withCredentials: true})
           .then(res => {
-            console.log(res.data)
+            console.log(res.data[0].foodName)
             setNutrition(res.data)
+            {let sumCalories = 0;
+              nutrition.map((nutrients) => sumCalories += nutrients.calories);
+            console.log(sumCalories)
+            setCalories(sumCalories)}
+
+            {let sumProtein = 0;
+              nutrition.map((nutrients) => sumProtein += nutrients.protein);
+            console.log(sumProtein)
+            setProtein(sumProtein)}
+            
   
          
           })
@@ -46,7 +59,7 @@ const GoalDashboard = ({setLoggedIn}) => {
           navigate('/');
         }
         ); 
-    }, [category]);
+    }, [calories]);
     
     return (
       <div>
@@ -63,26 +76,25 @@ const GoalDashboard = ({setLoggedIn}) => {
                   </ButtonGroup>
                             
                   <div className="mb-2">
-                  {nutrition.map((nutrients, index) =>
-                  <div key={index}>
-                    {nutrients['calories'] ?
-                    <>
+                  
+                  
                     <Card.Text className="mb-1 nutrientName">Calories</Card.Text>
-                    <ProgressBar variant="primary" now={nutrients['calories']} label='Calories' />
-                    </>
-                    :null}
-                    
-                    </div>
-                  )}
+                    <ProgressBar variant="primary" now={calories} label={`${calories} kCal`} />
+                   
+                  
                   </div>
                   <div className="mb-2">
+                   
+                    
                     <Card.Text className="mb-1 nutrientName">Macronutrients</Card.Text>
-                    <ProgressBar variant="danger" now={30} label='Protein' />
-                    <ProgressBar variant="warning" now={50} label='Total Fat' />
-                    <ProgressBar variant="info" now={60} label='Carbohydates' />
-                    <ProgressBar variant="primary" now={80} label='Dietary Fiber' />
-                    {/* <ProgressBar variant="success" now={90} label='Linoleic acid' />
-                    <ProgressBar variant="danger" now={20} label='Linolenic acid' /> */}
+                    <ProgressBar variant="danger" now={protein} label={`Protein ${protein}g`} />
+                    {/* <ProgressBar variant="warning" now={nutrients['totalFat']} label={`Total Fat ${nutrients['totalFat']}g`} />
+                    <ProgressBar variant="info" now={nutrients['carbohydrates']} label={`Carbohydrates ${nutrients['carbohydrates']}g`} />
+                    <ProgressBar variant="primary" now={nutrients['dietaryFiber']} label={`Fiber ${nutrients['dietaryFiber']}g`} /> */}
+                
+
+                    
+                  
                   </div>
                   <div className="mb-2">
                   <Card.Text className="mb-1 nutrientName">Minerals</Card.Text>
@@ -120,7 +132,7 @@ const GoalDashboard = ({setLoggedIn}) => {
           </Row>
       </Container>
       <Row className="negative-form">
-      <NutritionSearch></NutritionSearch>
+      <NutritionSearch setLoggedIn={setLoggedIn}></NutritionSearch>
       </Row>
       
       </div>
@@ -128,47 +140,3 @@ const GoalDashboard = ({setLoggedIn}) => {
   }
   export default GoalDashboard;
 
-  // <Container className="form">
-  //       <div className="my-3">
-  //         <h3>Welcome {user} !</h3>
-  //       </div>
-  //         <ButtonGroup className="">
-  //           <Button variant="success" onClick={ (e) => setCategory(e.target.value) } value={'Nutrition'}>Nutrition</Button>
-  //           <Button onClick={ (e) => setCategory(e.target.value) } value={'Fitness'}>Fitness</Button>
-  //           <Button variant="light" onClick={ (e) => setCategory(e.target.value) } value={'Mindfulness'}>Mindfulness</Button>
-  //         </ButtonGroup>
-  //       <GoalList setGoals={setGoals} goals={goals} category={category} complete={complete} setComplete={setComplete}/>
-  //       {category === "Nutrition" ?
-  //       <Card className="my-5 col-lg-6">
-  //       <Card.Img variant="top" src="/breakfast-image.webp" />
-  //       <Card.Body>
-  //         <Card.Title>Nutritious Recipes</Card.Title>
-  //         <Card.Text>
-  //           Explore new delicious recipes from the USDA!
-  //         </Card.Text>
-  //         <Button variant="primary" onClick={() => navigate('//www.nutrition.gov/recipes')}>View</Button>
-  //       </Card.Body>
-  //     </Card> :category ==="Fitness"?
-  //     <Card className="my-5 col-lg-6">
-  //     <Card.Img variant="top" src="https://cdn.wallpapersafari.com/1/59/PTymOS.jpg" />
-  //     <Card.Body>
-  //       <Card.Title>Workout Routines</Card.Title>
-  //       <Card.Text>
-  //         Explore workout routines!
-  //       </Card.Text>
-  //       <Button variant="primary" onClick={() => navigate('//www.muscleandstrength.com/workout-routines')}>View</Button>
-  //     </Card.Body>
-  //     </Card>
-  //     :category ==="Mindfulness" ?
-  //     <Card className="my-5 col-lg-6">
-  //     <Card.Img variant="top" src="https://wallpaperaccess.com/full/3445589.jpg" />
-  //     <Card.Body>
-  //       <Card.Title>Mindfulness Routines</Card.Title>
-  //       <Card.Text>
-  //         Explore new meditation techniques from UCLA Health!
-  //       </Card.Text>
-  //       <Button variant="primary" onClick={() => navigate('//www.uclahealth.org/marc/mindful-meditations')}>View</Button>
-  //     </Card.Body>
-  //     </Card>: null 
-  //   }
-  //     </Container>
