@@ -21,8 +21,31 @@ const GoalDashboard = ({setLoggedIn}) => {
     const [nutrition, setNutrition] = useState([]);
     const [calories, setCalories] = useState(null);
     const [protein, setProtein] = useState(null);
-    const [category, setCategory] = useState("Nutrition");
-    const [complete, setComplete] = useState({});
+    const [totalFat, setTotalFat] = useState(null);
+    const [carbohydrates, setCarbohydrates] = useState(null);
+    const [fiber, setFiber] = useState(null);
+    const [calcium, setCalcium] = useState(null);
+    const [iron, setIron] = useState(null);
+    const [magnesium, setMagnesium] = useState(null);
+    const [phosphorus, setPhosphorus] = useState(null);
+    const [potassium, setPotassium] = useState(null);
+    const [sodium, setSodium] = useState(null);
+    const [zinc, setZinc] = useState(null);
+    const [copper, setCopper] = useState(null);
+    const [selenium, setSelenium] = useState(null);
+    const [vitaminA, setVitaminA] = useState(null);
+    const [vitaminE, setVitaminE] = useState(null);
+    const [vitaminD, setVitaminD] = useState(null);
+    const [vitaminC, setVitaminC] = useState(null);
+    const [thiamin, setThiamin] = useState(null);
+    const [riboflavin, setRiboflavin] = useState(null);
+    const [niacin, setNiacin] = useState(null);
+    const [vitaminB6, setVitaminB6] = useState(null);
+    const [vitaminB12, setVitaminB12] = useState(null);
+    const [choline, setCholine] = useState(null);
+    const [vitaminK, setVitaminK] = useState(null);
+    const [folate, setFolate] = useState(null);
+    
     const [user, setUser] = useState("");
   
     useEffect(() => {
@@ -38,6 +61,7 @@ const GoalDashboard = ({setLoggedIn}) => {
           .then(res => {
             console.log(res.data[0].foodName)
             setNutrition(res.data)
+
             {let sumCalories = 0;
               nutrition.map((nutrients) => sumCalories += nutrients.calories);
             console.log(sumCalories)
@@ -48,6 +72,125 @@ const GoalDashboard = ({setLoggedIn}) => {
             console.log(sumProtein)
             setProtein(sumProtein)}
             
+            {let sumTotalFat = 0;
+              nutrition.map((nutrients) => sumTotalFat += nutrients.totalFat);
+            console.log(sumTotalFat)
+            setTotalFat(sumTotalFat)}
+
+            {let sumTotalCarbohydrates = 0;
+              nutrition.map((nutrients) => sumTotalCarbohydrates += nutrients.carbohydrates);
+            console.log(sumTotalCarbohydrates)
+            setCarbohydrates(sumTotalCarbohydrates)}
+
+            {let sumFiber = 0;
+              nutrition.map((nutrients) => sumFiber += nutrients.dietaryFiber);
+            console.log(sumFiber)
+            setFiber(sumFiber)}
+
+            {let sumCalcium = 0;
+              nutrition.map((nutrients) => sumCalcium += nutrients.calcium);
+            console.log(sumCalcium)
+            setCalcium(sumCalcium)}
+
+            {let sumIron = 0;
+              nutrition.map((nutrients) => sumIron += nutrients.iron);
+            console.log(sumIron)
+            setIron(sumIron)}
+
+            {let sumMagnesium = 0;
+              nutrition.map((nutrients) => sumMagnesium += nutrients.magnesium);
+            console.log(sumMagnesium)
+            setMagnesium(sumMagnesium)}
+
+            {let sumPhosphorus = 0;
+              nutrition.map((nutrients) => sumPhosphorus += nutrients.phosphorus);
+            console.log(sumPhosphorus)
+            setPhosphorus(sumPhosphorus)}
+
+            {let sumPotassium = 0;
+              nutrition.map((nutrients) => sumPotassium += nutrients.potassium);
+            console.log(sumPotassium)
+            setPotassium(sumPotassium)}
+
+            {let sumSodium = 0;
+              nutrition.map((nutrients) => sumSodium += nutrients.sodium);
+            console.log(sumSodium)
+            setSodium(sumSodium)}
+
+            {let sumZinc = 0;
+              nutrition.map((nutrients) => sumZinc += nutrients.zinc);
+            console.log(sumZinc)
+            setZinc(sumZinc)}
+
+            {let sumCopper = 0;
+              nutrition.map((nutrients) => sumCopper += nutrients.copper);
+            console.log(sumCopper)
+            setCopper(sumCopper)}
+
+            {let sumSelenium = 0;
+              nutrition.map((nutrients) => sumSelenium += nutrients.selenium);
+            console.log(sumSelenium)
+            setSelenium(sumSelenium)}
+
+            {let sumVitaminA = 0;
+              nutrition.map((nutrients) => sumVitaminA += nutrients.vitaminA);
+            console.log(sumVitaminA)
+            setVitaminA(sumVitaminA)}
+
+            {let sumVitaminE = 0;
+              nutrition.map((nutrients) => sumVitaminE += nutrients.vitaminE);
+            console.log(sumVitaminE)
+            setVitaminE(sumVitaminE)}
+
+            {let sumVitaminD = 0;
+              nutrition.map((nutrients) => sumVitaminD += nutrients.vitaminD);
+            console.log(sumVitaminD)
+            setVitaminD(sumVitaminD)}
+
+            {let sumVitaminC = 0;
+              nutrition.map((nutrients) => sumVitaminC += nutrients.vitaminC);
+            console.log(sumVitaminC)
+            setVitaminC(sumVitaminC)}
+
+            {let sumThiamin = 0;
+              nutrition.map((nutrients) => sumThiamin += nutrients.thiamin);
+            console.log(sumThiamin)
+            setThiamin(sumThiamin)}
+
+            {let sumRiboflavin = 0;
+              nutrition.map((nutrients) => sumRiboflavin += nutrients.riboflavin);
+            console.log(sumRiboflavin)
+            setRiboflavin(sumRiboflavin)}
+
+            {let sumNiacin = 0;
+              nutrition.map((nutrients) => sumNiacin += nutrients.niacin);
+            console.log(sumNiacin)
+            setNiacin(sumNiacin)}
+
+            {let sumVitaminB6 = 0;
+              nutrition.map((nutrients) => sumVitaminB6 += nutrients.vitaminB6);
+            console.log(sumVitaminB6)
+            setVitaminB6(sumVitaminB6)}
+
+            {let sumVitaminB12 = 0;
+              nutrition.map((nutrients) => sumVitaminB12 += nutrients.vitaminB12);
+            console.log(sumVitaminB12)
+            setVitaminB12(sumVitaminB12)}
+
+            {let sumCholine = 0;
+              nutrition.map((nutrients) => sumCholine += nutrients.choline);
+            console.log(sumCholine)
+            setCholine(sumCholine)}
+
+            {let sumVitaminK = 0;
+              nutrition.map((nutrients) => sumVitaminK += nutrients.vitaminK);
+            console.log(sumVitaminK)
+            setVitaminK(sumVitaminK)}
+
+            {let sumFolate = 0;
+              nutrition.map((nutrients) => sumFolate += nutrients.folate);
+            console.log(sumFolate)
+            setFolate(sumFolate)}
   
          
           })
@@ -88,9 +231,9 @@ const GoalDashboard = ({setLoggedIn}) => {
                     
                     <Card.Text className="mb-1 nutrientName">Macronutrients</Card.Text>
                     <ProgressBar variant="danger" now={protein} label={`Protein ${protein}g`} />
-                    {/* <ProgressBar variant="warning" now={nutrients['totalFat']} label={`Total Fat ${nutrients['totalFat']}g`} />
-                    <ProgressBar variant="info" now={nutrients['carbohydrates']} label={`Carbohydrates ${nutrients['carbohydrates']}g`} />
-                    <ProgressBar variant="primary" now={nutrients['dietaryFiber']} label={`Fiber ${nutrients['dietaryFiber']}g`} /> */}
+                    <ProgressBar variant="warning" now={totalFat} label={`Total Fat ${totalFat}g`} />
+                    <ProgressBar variant="info" now={carbohydrates} label={`Carbohydrates ${carbohydrates}g`} />
+                    <ProgressBar variant="primary" now={fiber} label={`Fiber ${fiber}g`} />
                 
 
                     
@@ -98,30 +241,30 @@ const GoalDashboard = ({setLoggedIn}) => {
                   </div>
                   <div className="mb-2">
                   <Card.Text className="mb-1 nutrientName">Minerals</Card.Text>
-                    <ProgressBar variant="danger" now={30} label='Calcium' />
-                    <ProgressBar variant="warning" now={50} label='Iron' />
-                    <ProgressBar variant="info" now={60} label='Magnesium' />
-                    <ProgressBar variant="primary" now={70} label='Phosphorus' />
-                    <ProgressBar variant="success" now={60} label='Potassium' />
-                    <ProgressBar variant="danger" now={80} label='Sodium' />
-                    <ProgressBar variant="warning" now={90} label='Zinc' />
-                    <ProgressBar variant="info" now={90} label='Copper' />
-                    <ProgressBar variant="primary" now={90} label='Selenium' />
+                    <ProgressBar variant="danger" now={calcium} label={`Calcium ${calcium}g`}/>
+                    <ProgressBar variant="warning" now={iron} label={`Iron ${iron}g`} />
+                    <ProgressBar variant="info" now={magnesium} label={`Magnesium ${magnesium}g`} />
+                    <ProgressBar variant="primary" now={phosphorus} label={`Phosphorus ${phosphorus}g`} />
+                    <ProgressBar variant="success" now={potassium} label={`Potassium ${potassium}g`} />
+                    <ProgressBar variant="danger" now={sodium} label={`Sodium ${sodium}g`} />
+                    <ProgressBar variant="warning" now={zinc} label={`Zinc${zinc}g`} />
+                    <ProgressBar variant="info" now={copper} label={`Copper${copper}g`} />
+                    <ProgressBar variant="primary" now={selenium} label={`Selenium ${selenium}g`} />
                   </div>
                   <div className="mb-3">
                   <Card.Text className="mb-1 nutrientName">Vitamins</Card.Text>
-                    <ProgressBar variant="danger" now={30} label='Vitamin A' />
-                    <ProgressBar variant="warning" now={50} label='Vitamin E' />
-                    <ProgressBar variant="info" now={60} label='Vitamin D' />
-                    <ProgressBar variant="primary" now={70} label='Vitamin C' />
-                    <ProgressBar variant="success" now={60} label='Thiamin' />
-                    <ProgressBar variant="danger" now={80} label='Riboflavin' />
-                    <ProgressBar variant="warning" now={90} label='Niacin' />
-                    <ProgressBar variant="info" now={90} label='Vitamin B-6' />
-                    <ProgressBar variant="primary" now={40} label='Vitamin B-12' />
-                    <ProgressBar variant="success" now={70} label='Choline' />
-                    <ProgressBar variant="danger" now={20} label='Vitamin K' />
-                    <ProgressBar variant="warning" now={90} label='Folate' />
+                    <ProgressBar variant="danger" now={vitaminA} label={`Vitamin A ${vitaminA}g`} />
+                    <ProgressBar variant="warning" now={vitaminE} label={`Vitamin E ${vitaminE}g`} />
+                    <ProgressBar variant="info" now={vitaminD} label={`Vitamin D ${vitaminD}g`} />
+                    <ProgressBar variant="primary" now={vitaminC} label={`Vitamin C ${vitaminC}g`} />
+                    <ProgressBar variant="success" now={thiamin} label={`Thiamin ${thiamin}g`} />
+                    <ProgressBar variant="danger" now={riboflavin} label={`Riboflavin ${riboflavin}g`} />
+                    <ProgressBar variant="warning" now={niacin} label={`Niacin ${niacin}g`} />
+                    <ProgressBar variant="info" now={vitaminB6} label={`Vitamin B-6 ${vitaminB6}g`} />
+                    <ProgressBar variant="primary" now={vitaminB12} label={`Vitamin B-12 ${vitaminB12}g`} />
+                    <ProgressBar variant="success" now={choline} label={`Choline ${choline}g`} />
+                    <ProgressBar variant="danger" now={vitaminK} label={`Vitamin K ${vitaminK}g`} />
+                    <ProgressBar variant="warning" now={folate} label={`Folate ${folate}g`} />
                   </div>
                   <Button size="sm" variant="outline-primary" className="me-2">Update Nutrition</Button>
                   <Button size="sm" variant="outline-primary" className="me-2">Delete Foods</Button>
