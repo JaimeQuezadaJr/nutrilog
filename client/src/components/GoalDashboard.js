@@ -203,6 +203,26 @@ const GoalDashboard = ({setLoggedIn}) => {
         }
         ); 
     }, [calories]);
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      axios
+        .post('http://localhost:8000/api/movies', {
+          title,
+          genre,
+          boxArt,
+          duration,
+          rating,
+          actors: actors.split(','),
+          isKidFriendly,
+          releaseYear,
+        })
+        .then((res) => {
+          console.log(res.data);
+          navigate('/');
+        })
+        .catch((err) => setErrors(err.response.data.errors));
+    };
     
     return (
       <div>
