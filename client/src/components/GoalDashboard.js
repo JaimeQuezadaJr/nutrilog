@@ -19,6 +19,7 @@ const GoalDashboard = ({setLoggedIn}) => {
     const navigate = useNavigate();
     const [btnLink, setBtnLink] = useState([]);
     const [nutrition, setNutrition] = useState([]);
+    const [foodName, setFoodName] = useState('');
     const [calories, setCalories] = useState(null);
     const [protein, setProtein] = useState(null);
     const [totalFat, setTotalFat] = useState(null);
@@ -207,19 +208,38 @@ const GoalDashboard = ({setLoggedIn}) => {
     const handleSubmit = (e) => {
       e.preventDefault();
       axios
-        .post('http://localhost:8000/api/movies', {
-          title,
-          genre,
-          boxArt,
-          duration,
-          rating,
-          actors: actors.split(','),
-          isKidFriendly,
-          releaseYear,
-        })
+        .post('http://localhost:8000/api/nutrition', {
+          foodName,
+          calories,
+          protein,
+          totalFat,
+          carbohydrates,
+          dietaryFiber,
+          calcium,
+          iron,
+          magnesium,
+          phosphorus,
+          potassium,
+          sodium,
+          zinc,
+          copper,
+          selenium,
+          vitaminA,
+          vitaminE,
+          vitaminD,
+          vitaminC,
+          thiamin,
+          riboflavin,
+          niacin,
+          vitaminB6,
+          vitaminB12,
+          choline,
+          vitaminK,
+          folate,
+    })
         .then((res) => {
           console.log(res.data);
-          navigate('/');
+          navigate('/dashboard');
         })
         .catch((err) => setErrors(err.response.data.errors));
     };
