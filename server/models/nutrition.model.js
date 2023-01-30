@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const NutritionSchema = mongoose.Schema(
     {
-        foodName: {
+        foodTitle: {
             type: String,
             required: [true, 'Please enter food name'],
         },

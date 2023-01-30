@@ -24,7 +24,7 @@ const GoalDashboard = ({setLoggedIn}) => {
     const [protein, setProtein] = useState(null);
     const [totalFat, setTotalFat] = useState(null);
     const [carbohydrates, setCarbohydrates] = useState(null);
-    const [fiber, setFiber] = useState(null);
+    const [dietaryFiber, setDietaryFiber] = useState(null);
     const [calcium, setCalcium] = useState(null);
     const [iron, setIron] = useState(null);
     const [magnesium, setMagnesium] = useState(null);
@@ -46,6 +46,7 @@ const GoalDashboard = ({setLoggedIn}) => {
     const [choline, setCholine] = useState(null);
     const [vitaminK, setVitaminK] = useState(null);
     const [folate, setFolate] = useState(null);
+    const [errors, setErrors] = useState({});
     
     const [user, setUser] = useState("");
   
@@ -86,7 +87,7 @@ const GoalDashboard = ({setLoggedIn}) => {
             {let sumFiber = 0;
               nutrition.map((nutrients) => sumFiber += nutrients.dietaryFiber);
             console.log(sumFiber)
-            setFiber(sumFiber)}
+            setDietaryFiber(sumFiber)}
 
             {let sumCalcium = 0;
               nutrition.map((nutrients) => sumCalcium += nutrients.calcium);
@@ -205,44 +206,7 @@ const GoalDashboard = ({setLoggedIn}) => {
         ); 
     }, [calories]);
 
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      axios
-        .post('http://localhost:8000/api/nutrition', {
-          foodName,
-          calories,
-          protein,
-          totalFat,
-          carbohydrates,
-          dietaryFiber,
-          calcium,
-          iron,
-          magnesium,
-          phosphorus,
-          potassium,
-          sodium,
-          zinc,
-          copper,
-          selenium,
-          vitaminA,
-          vitaminE,
-          vitaminD,
-          vitaminC,
-          thiamin,
-          riboflavin,
-          niacin,
-          vitaminB6,
-          vitaminB12,
-          choline,
-          vitaminK,
-          folate,
-    })
-        .then((res) => {
-          console.log(res.data);
-          navigate('/dashboard');
-        })
-        .catch((err) => setErrors(err.response.data.errors));
-    };
+
     
     return (
       <div>
@@ -273,7 +237,7 @@ const GoalDashboard = ({setLoggedIn}) => {
                     <ProgressBar variant="danger" now={protein} label={`Protein ${protein}g`} />
                     <ProgressBar variant="warning" now={totalFat} label={`Total Fat ${totalFat}g`} />
                     <ProgressBar variant="info" now={carbohydrates} label={`Carbohydrates ${carbohydrates}g`} />
-                    <ProgressBar variant="primary" now={fiber} label={`Fiber ${fiber}g`} />
+                    <ProgressBar variant="primary" now={dietaryFiber} label={`Fiber ${dietaryFiber}g`} />
                 
 
                     
