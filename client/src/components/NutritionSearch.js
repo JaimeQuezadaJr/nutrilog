@@ -110,6 +110,7 @@ const NutritionSearch = ({setLoggedIn}) => {
         setFoodName(food[foodId].description)
         setNutrients(food[foodId].foodNutrients)
         setFoodIndex(true)
+        console.log(nutrients)
         console.log(food[foodId].foodNutrients)
     }
     const portionHandler = (e) => {
@@ -124,18 +125,9 @@ const NutritionSearch = ({setLoggedIn}) => {
     const handleChange = (e) => {
         e.preventDefault();
         console.log(e.target.length)
-        console.log(e.target[0].name, e.target[0].value)
-        for(let i=0; i<=65; i++) {
-            if(i===0){
-            console.log('protein', e.target[i].name, e.target[i].value)}
-            else if(i===1){
-                console.log('2', e.target[i].name, e.target[i].value)}
-            
-            else{
-                console.log( e.target[i].name, e.target[i].value)
-            }
+
         
-    }
+    
         for(let i=0; i<66; i++) {
             
         
@@ -202,8 +194,8 @@ const NutritionSearch = ({setLoggedIn}) => {
           }
           
         }
-        console.log(nutritionFacts)
-         
+        
+        setNutritionFacts((state) => {console.log(state)})
         
     };
 
@@ -314,14 +306,21 @@ const NutritionSearch = ({setLoggedIn}) => {
               }
               
             }
+            setNutritionFacts((state) => {console.log(state);
+            return state;})
+    }
+    useEffect(() => {
         axios
-          .post('http://localhost:8000/api/nutrition', nutritionFacts, {withCredentials:true}) 
-          .then((res) => {
-            console.log(res.data);
-            navigate('/dashboard');
-          })
-          .catch((err) => console.log(err));
-      };
+        .post('http://localhost:8000/api/nutrition', nutritionFacts, {withCredentials:true}) 
+        .then((res) => {
+          console.log(res.data);
+          window.location.reload(false);
+        })
+        .catch((err) => console.log(err));
+
+    },[nutritionFacts])
+        
+      
 
     
   return (

@@ -67,132 +67,132 @@ const GoalDashboard = ({setLoggedIn}) => {
             {let sumCalories = 0;
               nutrition.map((nutrients) => sumCalories += nutrients.calories);
             console.log(sumCalories)
-            setCalories(sumCalories)}
+            setCalories(sumCalories.toFixed(2))}
 
             {let sumProtein = 0;
               nutrition.map((nutrients) => sumProtein += nutrients.protein);
             console.log(sumProtein)
-            setProtein(sumProtein)}
+            setProtein(sumProtein.toFixed(2))}
             
             {let sumTotalFat = 0;
               nutrition.map((nutrients) => sumTotalFat += nutrients.totalFat);
             console.log(sumTotalFat)
-            setTotalFat(sumTotalFat)}
+            setTotalFat(sumTotalFat.toFixed(2))}
 
             {let sumTotalCarbohydrates = 0;
               nutrition.map((nutrients) => sumTotalCarbohydrates += nutrients.carbohydrates);
             console.log(sumTotalCarbohydrates)
-            setCarbohydrates(sumTotalCarbohydrates)}
+            setCarbohydrates(sumTotalCarbohydrates.toFixed(2))}
 
             {let sumFiber = 0;
               nutrition.map((nutrients) => sumFiber += nutrients.dietaryFiber);
             console.log(sumFiber)
-            setDietaryFiber(sumFiber)}
+            setDietaryFiber(sumFiber.toFixed(2))}
 
             {let sumCalcium = 0;
               nutrition.map((nutrients) => sumCalcium += nutrients.calcium);
             console.log(sumCalcium)
-            setCalcium(sumCalcium)}
+            setCalcium(sumCalcium.toFixed(2))}
 
             {let sumIron = 0;
               nutrition.map((nutrients) => sumIron += nutrients.iron);
             console.log(sumIron)
-            setIron(sumIron)}
+            setIron(sumIron.toFixed(2))}
 
             {let sumMagnesium = 0;
               nutrition.map((nutrients) => sumMagnesium += nutrients.magnesium);
             console.log(sumMagnesium)
-            setMagnesium(sumMagnesium)}
+            setMagnesium(sumMagnesium.toFixed(2))}
 
             {let sumPhosphorus = 0;
               nutrition.map((nutrients) => sumPhosphorus += nutrients.phosphorus);
             console.log(sumPhosphorus)
-            setPhosphorus(sumPhosphorus)}
+            setPhosphorus(sumPhosphorus.toFixed(2))}
 
             {let sumPotassium = 0;
               nutrition.map((nutrients) => sumPotassium += nutrients.potassium);
             console.log(sumPotassium)
-            setPotassium(sumPotassium)}
+            setPotassium(sumPotassium.toFixed(2))}
 
             {let sumSodium = 0;
               nutrition.map((nutrients) => sumSodium += nutrients.sodium);
             console.log(sumSodium)
-            setSodium(sumSodium)}
+            setSodium(sumSodium.toFixed(2))}
 
             {let sumZinc = 0;
               nutrition.map((nutrients) => sumZinc += nutrients.zinc);
-            console.log(sumZinc)
-            setZinc(sumZinc)}
+            console.log(sumZinc.toFixed(2))
+            setZinc(sumZinc.toFixed(2))}
 
             {let sumCopper = 0;
               nutrition.map((nutrients) => sumCopper += nutrients.copper);
-            console.log(sumCopper)
-            setCopper(sumCopper)}
+            console.log(sumCopper.toFixed(2))
+            setCopper(sumCopper.toFixed(2))}
 
             {let sumSelenium = 0;
               nutrition.map((nutrients) => sumSelenium += nutrients.selenium);
-            console.log(sumSelenium)
-            setSelenium(sumSelenium)}
+            console.log(sumSelenium.toFixed(2))
+            setSelenium(sumSelenium.toFixed(2))}
 
             {let sumVitaminA = 0;
               nutrition.map((nutrients) => sumVitaminA += nutrients.vitaminA);
             console.log(sumVitaminA)
-            setVitaminA(sumVitaminA)}
+            setVitaminA(sumVitaminA.toFixed(2))}
 
             {let sumVitaminE = 0;
               nutrition.map((nutrients) => sumVitaminE += nutrients.vitaminE);
-            console.log(sumVitaminE)
-            setVitaminE(sumVitaminE)}
+            console.log(sumVitaminE.toFixed(2))
+            setVitaminE(sumVitaminE.toFixed(2))}
 
             {let sumVitaminD = 0;
               nutrition.map((nutrients) => sumVitaminD += nutrients.vitaminD);
             console.log(sumVitaminD)
-            setVitaminD(sumVitaminD)}
+            setVitaminD(sumVitaminD.toFixed(2))}
 
             {let sumVitaminC = 0;
               nutrition.map((nutrients) => sumVitaminC += nutrients.vitaminC);
             console.log(sumVitaminC)
-            setVitaminC(sumVitaminC)}
+            setVitaminC(sumVitaminC.toFixed(2))}
 
             {let sumThiamin = 0;
               nutrition.map((nutrients) => sumThiamin += nutrients.thiamin);
             console.log(sumThiamin)
-            setThiamin(sumThiamin)}
+            setThiamin(sumThiamin.toFixed(2))}
 
             {let sumRiboflavin = 0;
               nutrition.map((nutrients) => sumRiboflavin += nutrients.riboflavin);
             console.log(sumRiboflavin)
-            setRiboflavin(sumRiboflavin)}
+            setRiboflavin(sumRiboflavin.toFixed(2))}
 
             {let sumNiacin = 0;
               nutrition.map((nutrients) => sumNiacin += nutrients.niacin);
             console.log(sumNiacin)
-            setNiacin(sumNiacin)}
+            setNiacin(sumNiacin.toFixed(2))}
 
             {let sumVitaminB6 = 0;
               nutrition.map((nutrients) => sumVitaminB6 += nutrients.vitaminB6);
             console.log(sumVitaminB6)
-            setVitaminB6(sumVitaminB6)}
+            setVitaminB6(sumVitaminB6.toFixed(2))}
 
             {let sumVitaminB12 = 0;
               nutrition.map((nutrients) => sumVitaminB12 += nutrients.vitaminB12);
             console.log(sumVitaminB12)
-            setVitaminB12(sumVitaminB12)}
+            setVitaminB12(sumVitaminB12.toFixed(2))}
 
             {let sumCholine = 0;
               nutrition.map((nutrients) => sumCholine += nutrients.choline);
             console.log(sumCholine)
-            setCholine(sumCholine)}
+            setCholine(sumCholine.toFixed(2))}
 
             {let sumVitaminK = 0;
               nutrition.map((nutrients) => sumVitaminK += nutrients.vitaminK);
             console.log(sumVitaminK)
-            setVitaminK(sumVitaminK)}
+            setVitaminK(sumVitaminK.toFixed(2))}
 
             {let sumFolate = 0;
               nutrition.map((nutrients) => sumFolate += nutrients.folate);
             console.log(sumFolate)
-            setFolate(sumFolate)}
+            setFolate(sumFolate.toFixed(2))}
   
          
           })
