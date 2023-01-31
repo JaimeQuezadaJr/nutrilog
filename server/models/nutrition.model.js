@@ -8,7 +8,8 @@ const NutritionSchema = mongoose.Schema(
         },
         calories: {
             type: Number,
-            required: [true, 'Please enter food calories']
+            required: [true, 'Please enter food calories'],
+            min: [1, 'More than zero'],
         },
         protein: {
             type: Number,

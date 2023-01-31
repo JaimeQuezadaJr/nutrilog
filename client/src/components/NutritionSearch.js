@@ -28,8 +28,9 @@ const NutritionSearch = ({setLoggedIn}) => {
     const [portion, setPortion] = useState(100);
     const [nutritionFacts, setNutritionFacts] = useState(
         {
-            foodTitle:'',
+            
             calories:0,
+            foodTitle:'',
             protein:0,
             totalFat:0,
             carbohydrates:0,
@@ -121,67 +122,198 @@ const NutritionSearch = ({setLoggedIn}) => {
         
     }
     const handleChange = (e) => {
-        if (e.target.name === 'Protein') {
-            setNutritionFacts({ ...nutritionFacts, protein: e.target.value });
-          } else if (e.target.name === 'Total lipid (fat)') {
-            setNutritionFacts({ ...nutritionFacts, totalFat: e.target.value });
-          } else if (e.target.name === 'Carbohydate, by difference') {
-            setNutritionFacts({ ...nutritionFacts, carbohydrates: e.target.value });
-          } else if (e.target.name === 'Energy') {
-            setNutritionFacts({ ...nutritionFacts, calories: e.target.value });
-          } else if (e.target.name === 'Fiber, total dietary') {
-            setNutritionFacts({ ...nutritionFacts, dietaryFiber: e.target.value });
-          } else if (e.target.name === 'Calcium, Ca') {
-            setNutritionFacts({ ...nutritionFacts, calcium: e.target.value });
-          } else if (e.target.name === 'Iron, Fe') {
-            setNutritionFacts({ ...nutritionFacts, iron: e.target.value });
-          } else if (e.target.name === 'Magnesium, Mg') {
-            setNutritionFacts({ ...nutritionFacts, magnesium: e.target.value });
-          } else if (e.target.name === 'Phosphorus, P') {
-            setNutritionFacts({ ...nutritionFacts, phosphorus: e.target.value });
-          } else if (e.target.name === 'Potassium, K') {
-            setNutritionFacts({ ...nutritionFacts, potassium: e.target.value });
-          } else if (e.target.name === 'Sodium, Na') {
-            setNutritionFacts({ ...nutritionFacts, sodium: e.target.value });
-          } else if (e.target.name === 'Zinc, Zn') {
-            setNutritionFacts({ ...nutritionFacts, zinc: e.target.value });
-          } else if (e.target.name === 'Copper, Cu') {
-            setNutritionFacts({ ...nutritionFacts, copper: e.target.value });
-          } else if (e.target.name === 'Selenium, Se') {
-            setNutritionFacts({ ...nutritionFacts, selenium: e.target.value });
-          } else if (e.target.name === 'Vitamin A, RAE') {
-            setNutritionFacts({ ...nutritionFacts, vitaminA: e.target.value });
-          } else if (e.target.name === 'Vitamin E (alpha-tocopherol)') {
-            setNutritionFacts({ ...nutritionFacts, vitaminE: e.target.value });
-          } else if (e.target.name === 'Vitamin D (D2 + D3)') {
-            setNutritionFacts({ ...nutritionFacts, vitaminD: e.target.value });
-          } else if (e.target.name === 'Vitamin C, total ascorbic acid') {
-            setNutritionFacts({ ...nutritionFacts, vitaminC: e.target.value });
-          } else if (e.target.name === 'Thiamin') {
-            setNutritionFacts({ ...nutritionFacts, thiamin: e.target.value });
-          } else if (e.target.name === 'Riboflavin') {
-            setNutritionFacts({ ...nutritionFacts, riboflavin: e.target.value });
-          } else if (e.target.name === 'Niacin') {
-            setNutritionFacts({ ...nutritionFacts, niacin: e.target.value });
-          } else if (e.target.name === 'Vitamin B-6') {
-            setNutritionFacts({ ...nutritionFacts, vitaminB6: e.target.value });
-          } else if (e.target.name === 'Vitamin B-12') {
-            setNutritionFacts({ ...nutritionFacts, vitaminB12: e.target.value });
-          } else if (e.target.name === 'Choline, total') {
-            setNutritionFacts({ ...nutritionFacts, choline: e.target.value });
-          } else if (e.target.name === 'Vitamin K (phylloquinone)') {
-            setNutritionFacts({ ...nutritionFacts, vitaminK: e.target.value });
-          } else if (e.target.name === 'Folate, total') {
-            setNutritionFacts({ ...nutritionFacts, folate: e.target.value });
-          } else if (e.target.name === 'foodName') {
-            setNutritionFacts({ ...nutritionFacts, foodTitle: e.target.value });
+        e.preventDefault();
+        console.log(e.target.length)
+        console.log(e.target[0].name, e.target[0].value)
+        for(let i=0; i<=65; i++) {
+            if(i===0){
+            console.log('protein', e.target[i].name, e.target[i].value)}
+            else if(i===1){
+                console.log('2', e.target[i].name, e.target[i].value)}
+            
+            else{
+                console.log( e.target[i].name, e.target[i].value)
+            }
+        
+    }
+        for(let i=0; i<66; i++) {
+            
+        
+        
+        if (e.target[i].name === 'Protein') {
+            setNutritionFacts(previousInputs =>({ ...previousInputs, protein: e.target[i].value }));
+            console.log(e.target[i].name, e.target[i].value)
+          } else if (e.target[i].name === 'Total lipid (fat)') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, totalFat: e.target[i].value }));
+            console.log(e.target[i].name, e.target[i].value)
+          } else if (e.target[i].name === 'Carbohydrate, by difference') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, carbohydrates: e.target[i].value }));
+            console.log(e.target[i].name, e.target[i].value)
+          } else if (e.target[i].name === 'Energy') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, calories: e.target[i].value }));
+            console.log(e.target[i].name, e.target[i].value)
+          } else if (e.target[i].name === 'Fiber, total dietary') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, dietaryFiber: e.target[i].value }));
+            console.log(e.target[i].name, e.target[i].value)
+          } else if (e.target[i].name === 'Calcium, Ca') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, calcium: e.target[i].value }));
+          } else if (e.target[i].name === 'Iron, Fe') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, iron: e.target[i].value }));
+          } else if (e.target[i].name === 'Magnesium, Mg') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, magnesium: e.target[i].value }));
+          } else if (e.target[i].name === 'Phosphorus, P') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, phosphorus: e.target[i].value }));
+          } else if (e.target[i].name === 'Potassium, K') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, potassium: e.target[i].value }));
+          } else if (e.target[i].name === 'Sodium, Na') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, sodium: e.target[i].value }));
+          } else if (e.target[i].name === 'Zinc, Zn') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, zinc: e.target[i].value }));
+          } else if (e.target[i].name === 'Copper, Cu') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, copper: e.target[i].value }));
+          } else if (e.target[i].name === 'Selenium, Se') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, selenium: e.target[i].value }));
+          } else if (e.target[i].name === 'Vitamin A, RAE') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminA: e.target[i].value }));
+          } else if (e.target[i].name === 'Vitamin E (alpha-tocopherol)') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminE: e.target[i].value }));
+          } else if (e.target[i].name === 'Vitamin D (D2 + D3)') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminD: e.target[i].value }));
+          } else if (e.target[i].name === 'Vitamin C, total ascorbic acid') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminC: e.target[i].value }));
+          } else if (e.target[i].name === 'Thiamin') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, thiamin: e.target[i].value }));
+          } else if (e.target[i].name === 'Riboflavin') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, riboflavin: e.target[i].value }));
+          } else if (e.target[i].name === 'Niacin') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, niacin: e.target[i].value }));
+          } else if (e.target[i].name === 'Vitamin B-6') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminB6: e.target[i].value }));
+          } else if (e.target[i].name === 'Vitamin B-12') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminB12: e.target[i].value }));
+          } else if (e.target[i].name === 'Choline, total') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, choline: e.target[i].value }));
+          } else if (e.target[i].name === 'Vitamin K (phylloquinone)') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminK: e.target[i].value }));
+          } else if (e.target[i].name === 'Folate, total') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, folate: e.target[i].value }));
+          } else if (e.target[i].name === 'foodName') {
+            setNutritionFacts(previousInputs => ({ ...previousInputs, foodTitle: e.target[i].value }));
           }
+          
+        }
+        console.log(nutritionFacts)
          
+        
+    };
+
+    const handleEvents = (e) => {
+        e.preventDefault();
+       
+            setNutritionFacts(
+                {   protein: e.target.value,
+                    totalFat: e.target.value,
+                    carbohydrates: e.target.value ,
+                    calories: e.target.value,
+                    dietaryFiber: e.target.value,
+                    calcium: e.target.value ,
+                    iron: e.target.value,
+                    magnesium: e.target.value,
+                    phosphorus: e.target.value,
+                    potassium: e.target.value,
+                    sodium: e.target.value,
+                    zinc: e.target.value,
+                    copper: e.target.value,
+                    selenium: e.target.value,
+                    vitaminA: e.target.value,
+                    vitaminE: e.target.value,
+                    vitaminD: e.target.value,
+                    vitaminC: e.target.value,
+                    thiamin: e.target.value,
+                    riboflavin: e.target.value,
+                    niacin: e.target.value,
+                    vitaminB6: e.target.value,
+                    vitaminB12: e.target.value,
+                    choline: e.target.value,
+                    vitaminK: e.target.value,
+                    folate: e.target.value,
+                    foodTitle: e.target.value,
+
+                });
+
+          
+         console.log(nutritionFacts)
         
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        for(let i=0; i<66; i++) {
+            
+        
+        
+            if (e.target[i].name === 'Protein') {
+                setNutritionFacts(previousInputs =>({ ...previousInputs, protein: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
+              } else if (e.target[i].name === 'Total lipid (fat)') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, totalFat: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
+              } else if (e.target[i].name === 'Carbohydrate, by difference') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, carbohydrates: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
+              } else if (e.target[i].name === 'Energy') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, calories: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
+              } else if (e.target[i].name === 'Fiber, total dietary') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, dietaryFiber: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
+              } else if (e.target[i].name === 'Calcium, Ca') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, calcium: e.target[i].value }));
+              } else if (e.target[i].name === 'Iron, Fe') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, iron: e.target[i].value }));
+              } else if (e.target[i].name === 'Magnesium, Mg') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, magnesium: e.target[i].value }));
+              } else if (e.target[i].name === 'Phosphorus, P') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, phosphorus: e.target[i].value }));
+              } else if (e.target[i].name === 'Potassium, K') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, potassium: e.target[i].value }));
+              } else if (e.target[i].name === 'Sodium, Na') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, sodium: e.target[i].value }));
+              } else if (e.target[i].name === 'Zinc, Zn') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, zinc: e.target[i].value }));
+              } else if (e.target[i].name === 'Copper, Cu') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, copper: e.target[i].value }));
+              } else if (e.target[i].name === 'Selenium, Se') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, selenium: e.target[i].value }));
+              } else if (e.target[i].name === 'Vitamin A, RAE') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminA: e.target[i].value }));
+              } else if (e.target[i].name === 'Vitamin E (alpha-tocopherol)') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminE: e.target[i].value }));
+              } else if (e.target[i].name === 'Vitamin D (D2 + D3)') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminD: e.target[i].value }));
+              } else if (e.target[i].name === 'Vitamin C, total ascorbic acid') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminC: e.target[i].value }));
+              } else if (e.target[i].name === 'Thiamin') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, thiamin: e.target[i].value }));
+              } else if (e.target[i].name === 'Riboflavin') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, riboflavin: e.target[i].value }));
+              } else if (e.target[i].name === 'Niacin') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, niacin: e.target[i].value }));
+              } else if (e.target[i].name === 'Vitamin B-6') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminB6: e.target[i].value }));
+              } else if (e.target[i].name === 'Vitamin B-12') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminB12: e.target[i].value }));
+              } else if (e.target[i].name === 'Choline, total') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, choline: e.target[i].value }));
+              } else if (e.target[i].name === 'Vitamin K (phylloquinone)') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminK: e.target[i].value }));
+              } else if (e.target[i].name === 'Folate, total') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, folate: e.target[i].value }));
+              } else if (e.target[i].name === 'foodName') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, foodTitle: e.target[i].value }));
+              }
+              
+            }
         axios
           .post('http://localhost:8000/api/nutrition', nutritionFacts, {withCredentials:true}) 
           .then((res) => {
@@ -253,7 +385,7 @@ const NutritionSearch = ({setLoggedIn}) => {
                     
                     <div className='scroll mt-3'>
                     <Form onSubmit={handleSubmit}>
-                    <Button size='sm' type="submit" variant='outline-primary' className='mb-2' onClick={(btnLink[0])}>{btnLink[1]}</Button>
+                    
                     {nutrients.map((foodNutrients, index) =>
                
                     <div key = {index}>
@@ -283,7 +415,8 @@ const NutritionSearch = ({setLoggedIn}) => {
                   
                     
                     )}
-                    <input hidden readOnly name='foodName' value={foodName} onChange={handleChange}></input>
+                    <input hidden readOnly name="foodName" value={foodName} onChange={handleChange}></input>
+                    <Button size='sm' type="submit" variant='outline-primary' className='mt-2 mb-2' >{btnLink[1]}</Button>
                     </Form>
                     </div>
                 </Card.Body>
