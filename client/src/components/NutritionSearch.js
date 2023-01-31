@@ -122,121 +122,7 @@ const NutritionSearch = ({setLoggedIn}) => {
         console.log([nutrients])
         
     }
-    const handleChange = (e) => {
-        e.preventDefault();
-        console.log(e.target.length)
 
-        
-    
-        for(let i=0; i<66; i++) {
-            
-        
-        
-        if (e.target[i].name === 'Protein') {
-            setNutritionFacts(previousInputs =>({ ...previousInputs, protein: e.target[i].value }));
-            console.log(e.target[i].name, e.target[i].value)
-          } else if (e.target[i].name === 'Total lipid (fat)') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, totalFat: e.target[i].value }));
-            console.log(e.target[i].name, e.target[i].value)
-          } else if (e.target[i].name === 'Carbohydrate, by difference') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, carbohydrates: e.target[i].value }));
-            console.log(e.target[i].name, e.target[i].value)
-          } else if (e.target[i].name === 'Energy') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, calories: e.target[i].value }));
-            console.log(e.target[i].name, e.target[i].value)
-          } else if (e.target[i].name === 'Fiber, total dietary') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, dietaryFiber: e.target[i].value }));
-            console.log(e.target[i].name, e.target[i].value)
-          } else if (e.target[i].name === 'Calcium, Ca') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, calcium: e.target[i].value }));
-          } else if (e.target[i].name === 'Iron, Fe') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, iron: e.target[i].value }));
-          } else if (e.target[i].name === 'Magnesium, Mg') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, magnesium: e.target[i].value }));
-          } else if (e.target[i].name === 'Phosphorus, P') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, phosphorus: e.target[i].value }));
-          } else if (e.target[i].name === 'Potassium, K') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, potassium: e.target[i].value }));
-          } else if (e.target[i].name === 'Sodium, Na') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, sodium: e.target[i].value }));
-          } else if (e.target[i].name === 'Zinc, Zn') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, zinc: e.target[i].value }));
-          } else if (e.target[i].name === 'Copper, Cu') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, copper: e.target[i].value }));
-          } else if (e.target[i].name === 'Selenium, Se') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, selenium: e.target[i].value }));
-          } else if (e.target[i].name === 'Vitamin A, RAE') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminA: e.target[i].value }));
-          } else if (e.target[i].name === 'Vitamin E (alpha-tocopherol)') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminE: e.target[i].value }));
-          } else if (e.target[i].name === 'Vitamin D (D2 + D3)') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminD: e.target[i].value }));
-          } else if (e.target[i].name === 'Vitamin C, total ascorbic acid') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminC: e.target[i].value }));
-          } else if (e.target[i].name === 'Thiamin') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, thiamin: e.target[i].value }));
-          } else if (e.target[i].name === 'Riboflavin') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, riboflavin: e.target[i].value }));
-          } else if (e.target[i].name === 'Niacin') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, niacin: e.target[i].value }));
-          } else if (e.target[i].name === 'Vitamin B-6') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminB6: e.target[i].value }));
-          } else if (e.target[i].name === 'Vitamin B-12') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminB12: e.target[i].value }));
-          } else if (e.target[i].name === 'Choline, total') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, choline: e.target[i].value }));
-          } else if (e.target[i].name === 'Vitamin K (phylloquinone)') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminK: e.target[i].value }));
-          } else if (e.target[i].name === 'Folate, total') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, folate: e.target[i].value }));
-          } else if (e.target[i].name === 'foodName') {
-            setNutritionFacts(previousInputs => ({ ...previousInputs, foodTitle: e.target[i].value }));
-          }
-          
-        }
-        
-        setNutritionFacts((state) => {console.log(state)})
-        
-    };
-
-    const handleEvents = (e) => {
-        e.preventDefault();
-       
-            setNutritionFacts(
-                {   protein: e.target.value,
-                    totalFat: e.target.value,
-                    carbohydrates: e.target.value ,
-                    calories: e.target.value,
-                    dietaryFiber: e.target.value,
-                    calcium: e.target.value ,
-                    iron: e.target.value,
-                    magnesium: e.target.value,
-                    phosphorus: e.target.value,
-                    potassium: e.target.value,
-                    sodium: e.target.value,
-                    zinc: e.target.value,
-                    copper: e.target.value,
-                    selenium: e.target.value,
-                    vitaminA: e.target.value,
-                    vitaminE: e.target.value,
-                    vitaminD: e.target.value,
-                    vitaminC: e.target.value,
-                    thiamin: e.target.value,
-                    riboflavin: e.target.value,
-                    niacin: e.target.value,
-                    vitaminB6: e.target.value,
-                    vitaminB12: e.target.value,
-                    choline: e.target.value,
-                    vitaminK: e.target.value,
-                    folate: e.target.value,
-                    foodTitle: e.target.value,
-
-                });
-
-          
-         console.log(nutritionFacts)
-        
-    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -391,21 +277,21 @@ const NutritionSearch = ({setLoggedIn}) => {
                        
                        {foodNutrients.unitName === 'G'?
                        <>
-                        <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly name={foodNutrients.nutrientName} value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}} onChange={handleChange}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
+                        <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly name={foodNutrients.nutrientName} value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
                         <ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(100/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(100/portion)).toFixed(2)} %`}/>
                         </>
                         :foodNutrients.unitName === 'MG'?
                         <>
-                        <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly name={foodNutrients.nutrientName} value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}} onChange={handleChange}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
+                        <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly name={foodNutrients.nutrientName} value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
                         <ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(.1/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(.1/portion)).toFixed(2)} %`}/>
                         </>
                     :foodNutrients.unitName === 'UG'?
                     <>
-                        <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly name={foodNutrients.nutrientName} value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}} onChange={handleChange}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
+                        <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly name={foodNutrients.nutrientName} value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
                         <ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(.0001/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(.0001/portion)).toFixed(2)} %`}/>
                         </>
                     :<>
-                    <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly name={foodNutrients.nutrientName} value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}} onChange={handleChange}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
+                    <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly name={foodNutrients.nutrientName} value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
                     <ProgressBar variant="primary" now={0}/>
                     </>
                     }
@@ -414,7 +300,7 @@ const NutritionSearch = ({setLoggedIn}) => {
                   
                     
                     )}
-                    <input hidden readOnly name="foodName" value={foodName} onChange={handleChange}></input>
+                    <input hidden readOnly name="foodName" value={foodName}></input>
                     <Button size='sm' type="submit" variant='outline-primary' className='mt-2 mb-2' >{btnLink[1]}</Button>
                     </Form>
                     </div>

@@ -271,7 +271,7 @@ const GoalDashboard = ({setLoggedIn}) => {
                     <ProgressBar variant="warning" now={folate} label={`Folate ${folate}g`} />
                   </div>
                   <Button size="sm" variant="outline-primary" className="me-2">Update Nutrition</Button>
-                  <Button size="sm" variant="outline-primary" className="me-2">Delete Foods</Button>
+                  <Button size="sm" variant="outline-primary" className="me-2" onClick={() => navigate('/deleteFood')}>Delete Foods</Button>
                   
                 </Card.Body>
             </Card>
