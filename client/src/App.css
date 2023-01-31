@@ -69,3 +69,13 @@ p {
   display: flex;
   align-items: center;
 }
+
+.delete-food {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.small-date {
+  font-size: x-small;
+}
