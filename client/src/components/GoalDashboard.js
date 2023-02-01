@@ -20,6 +20,7 @@ const GoalDashboard = ({setLoggedIn}) => {
     const [btnLink, setBtnLink] = useState([]);
     const [nutrition, setNutrition] = useState([]);
     const [foodName, setFoodName] = useState('');
+
     const [calories, setCalories] = useState(null);
     const [protein, setProtein] = useState(null);
     const [totalFat, setTotalFat] = useState(null);
@@ -46,16 +47,47 @@ const GoalDashboard = ({setLoggedIn}) => {
     const [choline, setCholine] = useState(null);
     const [vitaminK, setVitaminK] = useState(null);
     const [folate, setFolate] = useState(null);
+
+    const [caloriesLimit, setCaloriesLimit] = useState(null);
+    const [proteinLimit, setProteinLimit] = useState(null);
+    const [totalFatLimit, setTotalFatLimit] = useState(null);
+    const [carbohydratesLimit, setCarbohydratesLimit] = useState(null);
+    const [dietaryFiberLimit, setDietaryFiberLimit] = useState(null);
+    const [calciumLimit, setCalciumLimit] = useState(null);
+    const [ironLimit, setIronLimit] = useState(null);
+    const [magnesiumLimit, setMagnesiumLimit] = useState(null);
+    const [phosphorusLimit, setPhosphorusLimit] = useState(null);
+    const [potassiumLimit, setPotassiumLimit] = useState(null);
+    const [sodiumLimit, setSodiumLimit] = useState(null);
+    const [zincLimit, setZincLimit] = useState(null);
+    const [copperLimit, setCopperLimit] = useState(null);
+    const [seleniumLimit, setSeleniumLimit] = useState(null);
+    const [vitaminALimit, setVitaminALimit] = useState(null);
+    const [vitaminELimit, setVitaminELimit] = useState(null);
+    const [vitaminDLimit, setVitaminDLimit] = useState(null);
+    const [vitaminCLimit, setVitaminCLimit] = useState(null);
+    const [thiaminLimit, setThiaminLimit] = useState(null);
+    const [riboflavinLimit, setRiboflavinLimit] = useState(null);
+    const [niacinLimit, setNiacinLimit] = useState(null);
+    const [vitaminB6Limit, setVitaminB6Limit] = useState(null);
+    const [vitaminB12Limit, setVitaminB12Limit] = useState(null);
+    const [cholineLimit, setCholineLimit] = useState(null);
+    const [vitaminKLimit, setVitaminKLimit] = useState(null);
+    const [folateLimit, setFolateLimit] = useState(null);
+
+
+
     const [errors, setErrors] = useState({});
-    
     const [user, setUser] = useState("");
     const [age, setAge] = useState(0);
+    const [gender, setGender] = useState('');
   
     useEffect(() => {
       axios
         .get('http://localhost:8000/api/current-user', { withCredentials: true })
         .then((res) => {
           setAge(res.data.age)
+          setGender(res.data.gender)
           setUser(res.data.firstName);
           setLoggedIn(true);
           
@@ -194,7 +226,10 @@ const GoalDashboard = ({setLoggedIn}) => {
               nutrition.map((nutrients) => sumFolate += nutrients.folate);
             console.log(sumFolate)
             setFolate(sumFolate.toFixed(2))}
-  
+              
+            if(age<= 50  && age >= 31 && gender === 'Male'){
+              setProteinLimit(56)
+            }
          
           })
           .catch(err => console.log(err));
@@ -236,7 +271,7 @@ const GoalDashboard = ({setLoggedIn}) => {
                     
                     <Card.Text className="mb-1 nutrientName">Macronutrients</Card.Text>
                     <p className="m-0 small-date">Protein</p>
-                    <ProgressBar className="" variant="danger" now={protein} label={`${protein} %`} />
+                    <ProgressBar className="" variant="danger" now={protein/proteinLimit*100} label={`${(protein/proteinLimit *100).toFixed(2)} %`} />
                     <p className="m-0 small-date">Total Fat</p>
                     <ProgressBar variant="warning" now={totalFat} label={`${totalFat} %`} />
                     <p className="m-0 small-date">Carbohydates</p>
