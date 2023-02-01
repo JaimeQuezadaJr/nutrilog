@@ -49,12 +49,13 @@ const GoalDashboard = ({setLoggedIn}) => {
     const [errors, setErrors] = useState({});
     
     const [user, setUser] = useState("");
+    const [age, setAge] = useState(0);
   
     useEffect(() => {
       axios
         .get('http://localhost:8000/api/current-user', { withCredentials: true })
         .then((res) => {
-          console.log(res.data)
+          setAge(res.data.age)
           setUser(res.data.firstName);
           setLoggedIn(true);
           
@@ -214,7 +215,7 @@ const GoalDashboard = ({setLoggedIn}) => {
         <Row>
           <Col className="form">
             <Card>
-              <Card.Header>Welcome {user} <span className="">01/24/2023</span></Card.Header>
+              <Card.Header>Nutrition Summary</Card.Header>
                 <Card.Body>
                   <ButtonGroup size="sm" className="mb-2">
                     <Button variant='outline-primary' active>Daily</Button>
@@ -234,10 +235,14 @@ const GoalDashboard = ({setLoggedIn}) => {
                    
                     
                     <Card.Text className="mb-1 nutrientName">Macronutrients</Card.Text>
-                    <ProgressBar variant="danger" now={protein} label={`Protein ${protein}g`} />
-                    <ProgressBar variant="warning" now={totalFat} label={`Total Fat ${totalFat}g`} />
-                    <ProgressBar variant="info" now={carbohydrates} label={`Carbohydrates ${carbohydrates}g`} />
-                    <ProgressBar variant="primary" now={dietaryFiber} label={`Fiber ${dietaryFiber}g`} />
+                    <p className="m-0 small-date">Protein</p>
+                    <ProgressBar className="" variant="danger" now={protein} label={`${protein} %`} />
+                    <p className="m-0 small-date">Total Fat</p>
+                    <ProgressBar variant="warning" now={totalFat} label={`${totalFat} %`} />
+                    <p className="m-0 small-date">Carbohydates</p>
+                    <ProgressBar variant="info" now={carbohydrates} label={`${carbohydrates} %`} />
+                    <p className="m-0 small-date">Fiber</p>
+                    <ProgressBar variant="primary" now={dietaryFiber} label={`${dietaryFiber} %`} />
                 
 
                     
@@ -245,29 +250,50 @@ const GoalDashboard = ({setLoggedIn}) => {
                   </div>
                   <div className="mb-2">
                   <Card.Text className="mb-1 nutrientName">Minerals</Card.Text>
-                    <ProgressBar variant="danger" now={calcium} label={`Calcium ${calcium}g`}/>
-                    <ProgressBar variant="warning" now={iron} label={`Iron ${iron}g`} />
-                    <ProgressBar variant="info" now={magnesium} label={`Magnesium ${magnesium}g`} />
-                    <ProgressBar variant="primary" now={phosphorus} label={`Phosphorus ${phosphorus}g`} />
-                    <ProgressBar variant="success" now={potassium} label={`Potassium ${potassium}g`} />
-                    <ProgressBar variant="danger" now={sodium} label={`Sodium ${sodium}g`} />
-                    <ProgressBar variant="warning" now={zinc} label={`Zinc${zinc}g`} />
-                    <ProgressBar variant="info" now={copper} label={`Copper${copper}g`} />
-                    <ProgressBar variant="primary" now={selenium} label={`Selenium ${selenium}g`} />
+                    <p className="m-0 small-date">Calcium</p>
+                    <ProgressBar variant="danger" now={calcium} label={`${calcium} %`}/>
+                    <p className="m-0 small-date">Iron</p>
+                    <ProgressBar variant="warning" now={iron} label={`${iron} %`} />
+                    <p className="m-0 small-date">Magnesium</p>
+                    <ProgressBar variant="info" now={magnesium} label={`${magnesium} %`} />
+                    <p className="m-0 small-date">Phosphorus</p>
+                    <ProgressBar variant="primary" now={phosphorus} label={`${phosphorus} %`} />
+                    <p className="m-0 small-date">Potassium</p>
+                    <ProgressBar variant="success" now={potassium} label={`${potassium} %`} />
+                    <p className="m-0 small-date">Sodium</p>
+                    <ProgressBar variant="danger" now={sodium} label={`${sodium} %`} />
+                    <p className="m-0 small-date">Zinc</p>
+                    <ProgressBar variant="warning" now={zinc} label={`${zinc} %`} />
+                    <p className="m-0 small-date">Copper</p>
+                    <ProgressBar variant="info" now={copper} label={`${copper} %`} />
+                    <p className="m-0 small-date">Selenium</p>
+                    <ProgressBar variant="primary" now={selenium} label={`${selenium} %`} />
                   </div>
                   <div className="mb-3">
                   <Card.Text className="mb-1 nutrientName">Vitamins</Card.Text>
+                    <p className="m-0 small-date">Vitamin A</p>
                     <ProgressBar variant="danger" now={vitaminA} label={`Vitamin A ${vitaminA}g`} />
+                    <p className="m-0 small-date">Vitamin E</p>
                     <ProgressBar variant="warning" now={vitaminE} label={`Vitamin E ${vitaminE}g`} />
+                    <p className="m-0 small-date">Vitamin D</p>
                     <ProgressBar variant="info" now={vitaminD} label={`Vitamin D ${vitaminD}g`} />
+                    <p className="m-0 small-date">Vitamin C</p>
                     <ProgressBar variant="primary" now={vitaminC} label={`Vitamin C ${vitaminC}g`} />
+                    <p className="m-0 small-date">Thiamin</p>
                     <ProgressBar variant="success" now={thiamin} label={`Thiamin ${thiamin}g`} />
+                    <p className="m-0 small-date">Riboflavin</p>
                     <ProgressBar variant="danger" now={riboflavin} label={`Riboflavin ${riboflavin}g`} />
+                    <p className="m-0 small-date">Niacin</p>
                     <ProgressBar variant="warning" now={niacin} label={`Niacin ${niacin}g`} />
+                    <p className="m-0 small-date">Vitamin B-6</p>
                     <ProgressBar variant="info" now={vitaminB6} label={`Vitamin B-6 ${vitaminB6}g`} />
+                    <p className="m-0 small-date">Vitamin B-12</p>
                     <ProgressBar variant="primary" now={vitaminB12} label={`Vitamin B-12 ${vitaminB12}g`} />
+                    <p className="m-0 small-date">Choline</p>
                     <ProgressBar variant="success" now={choline} label={`Choline ${choline}g`} />
+                    <p className="m-0 small-date">Vitamin K</p>
                     <ProgressBar variant="danger" now={vitaminK} label={`Vitamin K ${vitaminK}g`} />
+                    <p className="m-0 small-date">Folate</p>
                     <ProgressBar variant="warning" now={folate} label={`Folate ${folate}g`} />
                   </div>
                   <Button size="sm" variant="outline-primary" className="me-2">Update Nutrition</Button>
