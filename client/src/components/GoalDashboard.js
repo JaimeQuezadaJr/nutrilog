@@ -228,7 +228,32 @@ const GoalDashboard = ({setLoggedIn}) => {
             setFolate(sumFolate.toFixed(2))}
               
             if(age<= 50  && age >= 31 && gender === 'Male'){
+              setCaloriesLimit(2200)
               setProteinLimit(56)
+              setTotalFatLimit(49)
+              setCarbohydratesLimit(130)
+              setDietaryFiberLimit(30.8)
+              setCalciumLimit(1000)
+              setIronLimit(8)
+              setMagnesiumLimit(420)
+              setPhosphorusLimit(700)
+              setPotassiumLimit(4700)
+              setSodiumLimit(2300)
+              setZincLimit(11)
+              setCopperLimit(0.9)
+              setSeleniumLimit(55)
+              setVitaminALimit(900)
+              setVitaminELimit(15)
+              setVitaminDLimit(600)
+              setVitaminCLimit(90)
+              setThiaminLimit(1.2)
+              setRiboflavinLimit(1.3)
+              setNiacinLimit(16)
+              setVitaminB6Limit(1.3)
+              setVitaminB12Limit(2.4)
+              setCholineLimit(550)
+              setVitaminKLimit(120)
+              setFolateLimit(400)
             }
          
           })
@@ -258,35 +283,36 @@ const GoalDashboard = ({setLoggedIn}) => {
                     <Button variant='outline-primary'>Monthly</Button>
                   </ButtonGroup>
                             
-                  <div className="mb-2">
+                  <div className="mb-1">
                   
                   
-                    <Card.Text className="mb-1 nutrientName">Calories</Card.Text>
-                    <ProgressBar variant="primary" now={calories} label={`${calories} kCal`} />
+                    <Card.Text className="mb-0 nutrientName">Calories</Card.Text>
+                    <p className="m-0 small-date">{`Calories: ${calories} kCal out of ${caloriesLimit} kCal`}</p>
+                    <ProgressBar variant="primary" now={calories/caloriesLimit*100} label={`${(calories/caloriesLimit*100).toFixed(2)} %`} />
                    
                   
                   </div>
-                  <div className="mb-2">
+                  <div className="mb-1">
                    
                     
-                    <Card.Text className="mb-1 nutrientName">Macronutrients</Card.Text>
-                    <p className="m-0 small-date">Protein</p>
+                    <Card.Text className="mb-0 nutrientName">Macronutrients</Card.Text>
+                    <p className="m-0 small-date">{`Protein: ${protein} g out of ${proteinLimit} g`}</p>
                     <ProgressBar className="" variant="danger" now={protein/proteinLimit*100} label={`${(protein/proteinLimit *100).toFixed(2)} %`} />
-                    <p className="m-0 small-date">Total Fat</p>
-                    <ProgressBar variant="warning" now={totalFat} label={`${totalFat} %`} />
-                    <p className="m-0 small-date">Carbohydates</p>
-                    <ProgressBar variant="info" now={carbohydrates} label={`${carbohydrates} %`} />
-                    <p className="m-0 small-date">Fiber</p>
-                    <ProgressBar variant="primary" now={dietaryFiber} label={`${dietaryFiber} %`} />
+                    <p className="m-0 small-date">{`Total Fat: ${totalFat} g out of ${totalFatLimit} g`}</p>
+                    <ProgressBar variant="warning" now={totalFat/totalFatLimit*100} label={`${(totalFat/totalFatLimit*100).toFixed(2)} %`} />
+                    <p className="m-0 small-date">{`Carbohydrates: ${carbohydrates} g out of ${carbohydratesLimit} g`}</p>
+                    <ProgressBar variant="info" now={carbohydrates/carbohydratesLimit*100} label={`${(carbohydrates/carbohydratesLimit*100).toFixed(2)} %`} />
+                    <p className="m-0 small-date">{`Fiber: ${dietaryFiber} g out of ${dietaryFiberLimit} g`}</p>
+                    <ProgressBar variant="primary" now={dietaryFiber/dietaryFiberLimit*100} label={`${(dietaryFiber/dietaryFiberLimit*100).toFixed(2)} %`} />
                 
 
                     
                   
                   </div>
-                  <div className="mb-2">
-                  <Card.Text className="mb-1 nutrientName">Minerals</Card.Text>
-                    <p className="m-0 small-date">Calcium</p>
-                    <ProgressBar variant="danger" now={calcium} label={`${calcium} %`}/>
+                  <div className="mb-1">
+                  <Card.Text className="mb-0 nutrientName">Minerals</Card.Text>
+                    <p className="m-0 small-date">{`Calcium: ${calcium} mg out of ${calciumLimit} mg`}</p>
+                    <ProgressBar variant="danger" now={calcium/calciumLimit*100} label={`${(calcium/calciumLimit*100).toFixed(2)} %`}/>
                     <p className="m-0 small-date">Iron</p>
                     <ProgressBar variant="warning" now={iron} label={`${iron} %`} />
                     <p className="m-0 small-date">Magnesium</p>
@@ -304,8 +330,8 @@ const GoalDashboard = ({setLoggedIn}) => {
                     <p className="m-0 small-date">Selenium</p>
                     <ProgressBar variant="primary" now={selenium} label={`${selenium} %`} />
                   </div>
-                  <div className="mb-3">
-                  <Card.Text className="mb-1 nutrientName">Vitamins</Card.Text>
+                  <div className="mb-2">
+                  <Card.Text className="mb-0 nutrientName">Vitamins</Card.Text>
                     <p className="m-0 small-date">Vitamin A</p>
                     <ProgressBar variant="danger" now={vitaminA} label={`Vitamin A ${vitaminA}g`} />
                     <p className="m-0 small-date">Vitamin E</p>
