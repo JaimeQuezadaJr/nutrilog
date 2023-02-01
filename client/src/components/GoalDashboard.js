@@ -21,59 +21,59 @@ const GoalDashboard = ({setLoggedIn}) => {
     const [nutrition, setNutrition] = useState([]);
     const [foodName, setFoodName] = useState('');
 
-    const [calories, setCalories] = useState(null);
-    const [protein, setProtein] = useState(null);
-    const [totalFat, setTotalFat] = useState(null);
-    const [carbohydrates, setCarbohydrates] = useState(null);
-    const [dietaryFiber, setDietaryFiber] = useState(null);
-    const [calcium, setCalcium] = useState(null);
-    const [iron, setIron] = useState(null);
-    const [magnesium, setMagnesium] = useState(null);
-    const [phosphorus, setPhosphorus] = useState(null);
-    const [potassium, setPotassium] = useState(null);
-    const [sodium, setSodium] = useState(null);
-    const [zinc, setZinc] = useState(null);
-    const [copper, setCopper] = useState(null);
-    const [selenium, setSelenium] = useState(null);
-    const [vitaminA, setVitaminA] = useState(null);
-    const [vitaminE, setVitaminE] = useState(null);
-    const [vitaminD, setVitaminD] = useState(null);
-    const [vitaminC, setVitaminC] = useState(null);
-    const [thiamin, setThiamin] = useState(null);
-    const [riboflavin, setRiboflavin] = useState(null);
-    const [niacin, setNiacin] = useState(null);
-    const [vitaminB6, setVitaminB6] = useState(null);
-    const [vitaminB12, setVitaminB12] = useState(null);
-    const [choline, setCholine] = useState(null);
-    const [vitaminK, setVitaminK] = useState(null);
-    const [folate, setFolate] = useState(null);
+    const [calories, setCalories] = useState(0);
+    const [protein, setProtein] = useState(0);
+    const [totalFat, setTotalFat] = useState(0);
+    const [carbohydrates, setCarbohydrates] = useState(0);
+    const [dietaryFiber, setDietaryFiber] = useState(0);
+    const [calcium, setCalcium] = useState(0);
+    const [iron, setIron] = useState(0);
+    const [magnesium, setMagnesium] = useState(0);
+    const [phosphorus, setPhosphorus] = useState(0);
+    const [potassium, setPotassium] = useState(0);
+    const [sodium, setSodium] = useState(0);
+    const [zinc, setZinc] = useState(0);
+    const [copper, setCopper] = useState(0);
+    const [selenium, setSelenium] = useState(0);
+    const [vitaminA, setVitaminA] = useState(0);
+    const [vitaminE, setVitaminE] = useState(0);
+    const [vitaminD, setVitaminD] = useState(0);
+    const [vitaminC, setVitaminC] = useState(0);
+    const [thiamin, setThiamin] = useState(0);
+    const [riboflavin, setRiboflavin] = useState(0);
+    const [niacin, setNiacin] = useState(0);
+    const [vitaminB6, setVitaminB6] = useState(0);
+    const [vitaminB12, setVitaminB12] = useState(0);
+    const [choline, setCholine] = useState(0);
+    const [vitaminK, setVitaminK] = useState(0);
+    const [folate, setFolate] = useState(0);
 
-    const [caloriesLimit, setCaloriesLimit] = useState(null);
-    const [proteinLimit, setProteinLimit] = useState(null);
-    const [totalFatLimit, setTotalFatLimit] = useState(null);
-    const [carbohydratesLimit, setCarbohydratesLimit] = useState(null);
-    const [dietaryFiberLimit, setDietaryFiberLimit] = useState(null);
-    const [calciumLimit, setCalciumLimit] = useState(null);
-    const [ironLimit, setIronLimit] = useState(null);
-    const [magnesiumLimit, setMagnesiumLimit] = useState(null);
-    const [phosphorusLimit, setPhosphorusLimit] = useState(null);
-    const [potassiumLimit, setPotassiumLimit] = useState(null);
-    const [sodiumLimit, setSodiumLimit] = useState(null);
-    const [zincLimit, setZincLimit] = useState(null);
-    const [copperLimit, setCopperLimit] = useState(null);
-    const [seleniumLimit, setSeleniumLimit] = useState(null);
-    const [vitaminALimit, setVitaminALimit] = useState(null);
-    const [vitaminELimit, setVitaminELimit] = useState(null);
-    const [vitaminDLimit, setVitaminDLimit] = useState(null);
-    const [vitaminCLimit, setVitaminCLimit] = useState(null);
-    const [thiaminLimit, setThiaminLimit] = useState(null);
-    const [riboflavinLimit, setRiboflavinLimit] = useState(null);
-    const [niacinLimit, setNiacinLimit] = useState(null);
-    const [vitaminB6Limit, setVitaminB6Limit] = useState(null);
-    const [vitaminB12Limit, setVitaminB12Limit] = useState(null);
-    const [cholineLimit, setCholineLimit] = useState(null);
-    const [vitaminKLimit, setVitaminKLimit] = useState(null);
-    const [folateLimit, setFolateLimit] = useState(null);
+    const [caloriesLimit, setCaloriesLimit] = useState(0);
+    const [proteinLimit, setProteinLimit] = useState(0);
+    const [totalFatLimit, setTotalFatLimit] = useState(0);
+    const [carbohydratesLimit, setCarbohydratesLimit] = useState(0);
+    const [dietaryFiberLimit, setDietaryFiberLimit] = useState(0);
+    const [calciumLimit, setCalciumLimit] = useState(0);
+    const [ironLimit, setIronLimit] = useState(0);
+    const [magnesiumLimit, setMagnesiumLimit] = useState(0);
+    const [phosphorusLimit, setPhosphorusLimit] = useState(0);
+    const [potassiumLimit, setPotassiumLimit] = useState(0);
+    const [sodiumLimit, setSodiumLimit] = useState(0);
+    const [zincLimit, setZincLimit] = useState(0);
+    const [copperLimit, setCopperLimit] = useState(0);
+    const [seleniumLimit, setSeleniumLimit] = useState(0);
+    const [vitaminALimit, setVitaminALimit] = useState(0);
+    const [vitaminELimit, setVitaminELimit] = useState(0);
+    const [vitaminDLimit, setVitaminDLimit] = useState(0);
+    const [vitaminCLimit, setVitaminCLimit] = useState(0);
+    const [thiaminLimit, setThiaminLimit] = useState(0);
+    const [riboflavinLimit, setRiboflavinLimit] = useState(0);
+    const [niacinLimit, setNiacinLimit] = useState(0);
+    const [vitaminB6Limit, setVitaminB6Limit] = useState(0);
+    const [vitaminB12Limit, setVitaminB12Limit] = useState(0);
+    const [cholineLimit, setCholineLimit] = useState(0);
+    const [vitaminKLimit, setVitaminKLimit] = useState(0);
+    const [folateLimit, setFolateLimit] = useState(0);
 
 
 
@@ -90,12 +90,40 @@ const GoalDashboard = ({setLoggedIn}) => {
           setGender(res.data.gender)
           setUser(res.data.firstName);
           setLoggedIn(true);
+          if(age<= 50  && age >= 31 && gender === 'Male'){
+            setCaloriesLimit(2200)
+            setProteinLimit(56)
+            setTotalFatLimit(49)
+            setCarbohydratesLimit(130)
+            setDietaryFiberLimit(30.8)
+            setCalciumLimit(1000)
+            setIronLimit(8)
+            setMagnesiumLimit(420)
+            setPhosphorusLimit(700)
+            setPotassiumLimit(4700)
+            setSodiumLimit(2300)
+            setZincLimit(11)
+            setCopperLimit(0.9)
+            setSeleniumLimit(55)
+            setVitaminALimit(900)
+            setVitaminELimit(15)
+            setVitaminDLimit(22.5)
+            setVitaminCLimit(90)
+            setThiaminLimit(1.2)
+            setRiboflavinLimit(1.3)
+            setNiacinLimit(16)
+            setVitaminB6Limit(1.3)
+            setVitaminB12Limit(2.4)
+            setCholineLimit(550)
+            setVitaminKLimit(120)
+            setFolateLimit(400)
+          }
           
-          //TODO get all three goals from backend /api/nutrition/user/:id
           axios.get(`http://localhost:8000/api/nutrition/user/${res.data._id}`, { withCredentials: true})
           .then(res => {
-            console.log(res.data[0].foodName)
             setNutrition(res.data)
+
+
 
             {let sumCalories = 0;
               nutrition.map((nutrients) => sumCalories += nutrients.calories);
@@ -227,34 +255,7 @@ const GoalDashboard = ({setLoggedIn}) => {
             console.log(sumFolate)
             setFolate(sumFolate.toFixed(2))}
               
-            if(age<= 50  && age >= 31 && gender === 'Male'){
-              setCaloriesLimit(2200)
-              setProteinLimit(56)
-              setTotalFatLimit(49)
-              setCarbohydratesLimit(130)
-              setDietaryFiberLimit(30.8)
-              setCalciumLimit(1000)
-              setIronLimit(8)
-              setMagnesiumLimit(420)
-              setPhosphorusLimit(700)
-              setPotassiumLimit(4700)
-              setSodiumLimit(2300)
-              setZincLimit(11)
-              setCopperLimit(0.9)
-              setSeleniumLimit(55)
-              setVitaminALimit(900)
-              setVitaminELimit(15)
-              setVitaminDLimit(600)
-              setVitaminCLimit(90)
-              setThiaminLimit(1.2)
-              setRiboflavinLimit(1.3)
-              setNiacinLimit(16)
-              setVitaminB6Limit(1.3)
-              setVitaminB12Limit(2.4)
-              setCholineLimit(550)
-              setVitaminKLimit(120)
-              setFolateLimit(400)
-            }
+
          
           })
           .catch(err => console.log(err));
@@ -285,10 +286,11 @@ const GoalDashboard = ({setLoggedIn}) => {
                             
                   <div className="mb-1">
                   
-                  
+               
                     <Card.Text className="mb-0 nutrientName">Calories</Card.Text>
                     <p className="m-0 small-date">{`Calories: ${calories} kCal out of ${caloriesLimit} kCal`}</p>
                     <ProgressBar variant="primary" now={calories/caloriesLimit*100} label={`${(calories/caloriesLimit*100).toFixed(2)} %`} />
+                    
                    
                   
                   </div>
@@ -313,49 +315,49 @@ const GoalDashboard = ({setLoggedIn}) => {
                   <Card.Text className="mb-0 nutrientName">Minerals</Card.Text>
                     <p className="m-0 small-date">{`Calcium: ${calcium} mg out of ${calciumLimit} mg`}</p>
                     <ProgressBar variant="danger" now={calcium/calciumLimit*100} label={`${(calcium/calciumLimit*100).toFixed(2)} %`}/>
-                    <p className="m-0 small-date">Iron</p>
-                    <ProgressBar variant="warning" now={iron} label={`${iron} %`} />
-                    <p className="m-0 small-date">Magnesium</p>
-                    <ProgressBar variant="info" now={magnesium} label={`${magnesium} %`} />
-                    <p className="m-0 small-date">Phosphorus</p>
-                    <ProgressBar variant="primary" now={phosphorus} label={`${phosphorus} %`} />
-                    <p className="m-0 small-date">Potassium</p>
-                    <ProgressBar variant="success" now={potassium} label={`${potassium} %`} />
-                    <p className="m-0 small-date">Sodium</p>
-                    <ProgressBar variant="danger" now={sodium} label={`${sodium} %`} />
-                    <p className="m-0 small-date">Zinc</p>
-                    <ProgressBar variant="warning" now={zinc} label={`${zinc} %`} />
-                    <p className="m-0 small-date">Copper</p>
-                    <ProgressBar variant="info" now={copper} label={`${copper} %`} />
-                    <p className="m-0 small-date">Selenium</p>
-                    <ProgressBar variant="primary" now={selenium} label={`${selenium} %`} />
+                    <p className="m-0 small-date">{`Iron: ${iron} mg out of ${ironLimit} mg`}</p>
+                    <ProgressBar variant="warning" now={iron/ironLimit*100} label={`${(iron/ironLimit*100).toFixed(2)} %`} />
+                    <p className="m-0 small-date">{`Magnesium: ${magnesium} mg out of ${magnesiumLimit} mg`}</p>
+                    <ProgressBar variant="info" now={magnesium/magnesiumLimit*100} label={`${(magnesium/magnesiumLimit*100).toFixed(2)} %`} />
+                    <p className="m-0 small-date">{`Phosphorus ${phosphorus} mg out of ${phosphorusLimit} mg`}</p>
+                    <ProgressBar variant="primary" now={phosphorus/phosphorusLimit*100} label={`${(phosphorus/phosphorusLimit*100).toFixed(2)} %`} />
+                    <p className="m-0 small-date">{`Potassium: ${potassium} mg out of ${potassiumLimit} mg`}</p>
+                    <ProgressBar variant="success" now={potassium/potassiumLimit*100} label={`${(potassium/potassiumLimit*100).toFixed(2)} %`} />
+                    <p className="m-0 small-date">{`Sodium ${sodium} mg out of ${sodiumLimit} mg`}</p>
+                    <ProgressBar variant="danger" now={sodium/sodiumLimit*100} label={`${(sodium/sodiumLimit*100).toFixed(2)} %`} />
+                    <p className="m-0 small-date">{`Zinc: ${zinc} mg out of ${zincLimit} mg`}</p>
+                    <ProgressBar variant="warning" now={zinc/zincLimit*100} label={`${(zinc/zincLimit*100).toFixed(2)} %`} />
+                    <p className="m-0 small-date">{`Copper: ${copper} mg out of ${copperLimit} mg`}</p>
+                    <ProgressBar variant="info" now={copper/copperLimit*100} label={`${(copper/copperLimit*100).toFixed(2)} %`} />
+                    <p className="m-0 small-date">{`Selenium: ${selenium} ug out of ${seleniumLimit} ug`}</p>
+                    <ProgressBar variant="primary" now={selenium/seleniumLimit*100} label={`${(selenium/seleniumLimit*100).toFixed(2)} %`} />
                   </div>
                   <div className="mb-2">
                   <Card.Text className="mb-0 nutrientName">Vitamins</Card.Text>
-                    <p className="m-0 small-date">Vitamin A</p>
-                    <ProgressBar variant="danger" now={vitaminA} label={`Vitamin A ${vitaminA}g`} />
-                    <p className="m-0 small-date">Vitamin E</p>
-                    <ProgressBar variant="warning" now={vitaminE} label={`Vitamin E ${vitaminE}g`} />
-                    <p className="m-0 small-date">Vitamin D</p>
-                    <ProgressBar variant="info" now={vitaminD} label={`Vitamin D ${vitaminD}g`} />
-                    <p className="m-0 small-date">Vitamin C</p>
-                    <ProgressBar variant="primary" now={vitaminC} label={`Vitamin C ${vitaminC}g`} />
-                    <p className="m-0 small-date">Thiamin</p>
-                    <ProgressBar variant="success" now={thiamin} label={`Thiamin ${thiamin}g`} />
-                    <p className="m-0 small-date">Riboflavin</p>
-                    <ProgressBar variant="danger" now={riboflavin} label={`Riboflavin ${riboflavin}g`} />
-                    <p className="m-0 small-date">Niacin</p>
-                    <ProgressBar variant="warning" now={niacin} label={`Niacin ${niacin}g`} />
-                    <p className="m-0 small-date">Vitamin B-6</p>
-                    <ProgressBar variant="info" now={vitaminB6} label={`Vitamin B-6 ${vitaminB6}g`} />
-                    <p className="m-0 small-date">Vitamin B-12</p>
-                    <ProgressBar variant="primary" now={vitaminB12} label={`Vitamin B-12 ${vitaminB12}g`} />
-                    <p className="m-0 small-date">Choline</p>
-                    <ProgressBar variant="success" now={choline} label={`Choline ${choline}g`} />
-                    <p className="m-0 small-date">Vitamin K</p>
-                    <ProgressBar variant="danger" now={vitaminK} label={`Vitamin K ${vitaminK}g`} />
-                    <p className="m-0 small-date">Folate</p>
-                    <ProgressBar variant="warning" now={folate} label={`Folate ${folate}g`} />
+                    <p className="m-0 small-date">{`Vitamin A: ${vitaminA} ug out of ${vitaminALimit} ug`}</p>
+                    <ProgressBar variant="danger" now={vitaminA/vitaminALimit*100} label={`${(vitaminA/vitaminALimit*100).toFixed(2)} %`} />
+                    <p className="m-0 small-date">{`Vitamin E: ${vitaminE} mg out of ${vitaminELimit} mg`}</p>
+                    <ProgressBar variant="warning" now={vitaminE/vitaminELimit*100} label={`${(vitaminE/vitaminELimit*100).toFixed(2)} %`} />
+                    <p className="m-0 small-date">{`Vitamin D: ${vitaminD} ug out of ${vitaminDLimit} ug`}</p>
+                    <ProgressBar variant="info" now={vitaminD/vitaminDLimit*100} label={`${(vitaminD/vitaminDLimit*100).toFixed(2)} %`} />
+                    <p className="m-0 small-date">{`Vitamin C: ${vitaminC} mg out of ${vitaminCLimit} mg`}</p>
+                    <ProgressBar variant="primary" now={vitaminC/vitaminCLimit*100} label={`${(vitaminC/vitaminCLimit*100).toFixed(2)} %`} />
+                    <p className="m-0 small-date">{`Thiamin: ${thiamin} mg out of ${thiaminLimit} mg`}</p>
+                    <ProgressBar variant="success" now={thiamin/thiaminLimit*100} label={`${(thiamin/thiaminLimit*100).toFixed(2)} %`} />
+                    <p className="m-0 small-date">{`Riboflavin: ${riboflavin} mg out of ${riboflavinLimit} mg`}</p>
+                    <ProgressBar variant="danger" now={riboflavin/riboflavinLimit*100} label={`${(riboflavin/riboflavinLimit*100).toFixed(2)} %`} />
+                    <p className="m-0 small-date">{`Niacin: ${niacin} mg out of ${niacinLimit} mg`}</p>
+                    <ProgressBar variant="warning" now={niacin/niacinLimit*100} label={`${(niacin/niacinLimit*100).toFixed(2)} %`} />
+                    <p className="m-0 small-date">{`Vitamin B-6: ${vitaminB6} mg out of ${vitaminB6Limit} mg`}</p>
+                    <ProgressBar variant="info" now={vitaminB6/vitaminB6Limit*100} label={`${(vitaminB6/vitaminB6Limit*100).toFixed(2)} %`} />
+                    <p className="m-0 small-date">{`Vitamin B-12: ${vitaminB12} ug out of ${vitaminB12Limit} ug`}</p>
+                    <ProgressBar variant="primary" now={vitaminB12/vitaminB12Limit*100} label={`${(vitaminB12/vitaminB12Limit*100).toFixed(2)} %`} />
+                    <p className="m-0 small-date">{`Choline: ${choline} mg out of ${cholineLimit} mg`}</p>
+                    <ProgressBar variant="success" now={choline/cholineLimit*100} label={`${(choline/cholineLimit*100).toFixed(2)} %`} />
+                    <p className="m-0 small-date">{`Vitamin K: ${vitaminK} ug out of ${vitaminKLimit} ug`}</p>
+                    <ProgressBar variant="danger" now={vitaminK/vitaminKLimit*100} label={`${(vitaminK/vitaminKLimit*100).toFixed(2)} %`} />
+                    <p className="m-0 small-date">{`Folate ${folate} ug out of ${folateLimit} ug`}</p>
+                    <ProgressBar variant="warning" now={folate/folateLimit*100} label={`${(folate/folateLimit*100).toFixed(2)} %`} />
                   </div>
                   <Button size="sm" variant="outline-primary" className="me-2">Update Nutrition</Button>
                   <Button size="sm" variant="outline-primary" className="me-2" onClick={() => navigate('/deleteFood')}>Delete Foods</Button>
