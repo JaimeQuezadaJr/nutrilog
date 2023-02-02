@@ -22,7 +22,6 @@ const DeleteFood = ({setLoggedIn}) => {
             setUser(res.data.firstName);
             setLoggedIn(true);
             
-            //TODO get all three goals from backend /api/nutrition/user/:id
             axios.get(`http://localhost:8000/api/nutrition/user/${res.data._id}`, { withCredentials: true})
             .then(res => {
                 console.log(res.data)
@@ -55,23 +54,21 @@ const DeleteFood = ({setLoggedIn}) => {
     <Container>
         <Row className='form'>
             <Col>
-            <Card border="light" >
-                        <Card.Header>Foods</Card.Header>
+                <Card border="light" >
+                    <Card.Header>Foods</Card.Header>
                         <Card.Body>
-        
-    <div>
-                    {food.map((foods, index)=>
-                            <div key={index} className='delete-food'>
-                                <p className='m-0'>{foods.foodTitle}<span className='small-date ms-3'>{dateParse(foods.createdAt)}</span></p>
-                                
-                                <Button variant="outline-danger" className='m-1' size='sm' onClick = {(e) => {deleteMovie(foods._id)}}>Delete</Button>
-                            </div>
+                            <div>
+                                {food.map((foods, index)=>
+                                    <div key={index} className='delete-food'>
+                                    <p className='m-0'>{foods.foodTitle}<span className='small-date ms-3'>{dateParse(foods.createdAt)}</span></p>
+                                    <Button variant="outline-danger" className='m-1' size='sm' onClick = {(e) => {deleteMovie(foods._id)}}>Delete</Button>
+                                    </div>
                     )}
-                    </div>
-                    </Card.Body>
-                    </Card>
-                    </Col>
-                    </Row>
+                            </div>
+                        </Card.Body>
+                </Card>
+            </Col>
+        </Row>
     </Container>
   )
 }
