@@ -55,6 +55,9 @@ const UserRegistration = ({ setLoggedIn }) => {
               <Form.Group className="mb-3 col-md-4" controlId="age">
                 <Form.Label>Age</Form.Label>
                 <Form.Control type="number" name='age' placeholder="Enter age" value={user.age} onChange={handleChange} required />
+                <Form.Text className="text-muted">
+                  Nutritional goals for each age/gender group used in assessing adequacy of USDA Food Patterns at various calorie levels.
+                </Form.Text>
                 {errors.age && <Form.Text className='text-danger'>{errors.age.message}</Form.Text>}
               </Form.Group>
               <Form.Group className="mb-3 col-md-4" controlId="gender">
@@ -64,6 +67,9 @@ const UserRegistration = ({ setLoggedIn }) => {
                   <option value='Male'>Male</option>
                   <option value='Female'>Female</option>
                   </Form.Select>
+                  <Form.Text className="text-muted">
+                  Daily nutritional goals for age-gender groups based on dietary reference intakes & dietary guidelines recommendations.
+                </Form.Text>
                 {errors.age && <Form.Text className='text-danger'>{errors.gender.message}</Form.Text>}
               </Form.Group>
               <Form.Group className="mb-3 col-md-4" controlId="formBasicEmail">

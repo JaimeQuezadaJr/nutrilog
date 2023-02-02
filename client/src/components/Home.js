@@ -25,7 +25,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
         })
         .catch((err) => {
           setLoggedIn(false);
-          setBtnLink(['/login', 'Get Started']);
+          setBtnLink(['/login', 'Login']);
           console.log(err)
         });
       },[loggedIn])
@@ -52,13 +52,19 @@ const Home = ({loggedIn, setLoggedIn}) => {
                         <Card.Text>
                             Quick and easy way to view nutrition facts of your favorite foods and be able to track your diet with your own personal nutrition data base.
                         </Card.Text>
-                        
-                        <Button size='sm' variant="outline-primary" onClick={() => navigate('/login')}>Login</Button>
+                        {loggedIn ?
+                        <>
+                        <Button size='sm' variant="outline-primary" onClick={() => navigate(btnLink[0])}>{btnLink[1]}</Button>
+                        </>
+                        :<>
+                        <Button size='sm' variant="outline-primary" onClick={() => navigate(btnLink[0])}>{btnLink[1]}</Button>
                         <Button size='sm' variant="outline-primary" className='m-2' onClick={() => navigate('/register')}>Register</Button>
+                        </>}
                         </Card.Body>
                     </Card>
                 </Col>
             </Row>
+            {!loggedIn ?
             <Row>
                 <Col sm={{ span: 4, offset: 6 }} className='mt-2'>
                     <div className='main'>
@@ -74,6 +80,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
             </Col>
             
             </Row>
+            :null}
         </Container>
     </div>
   )

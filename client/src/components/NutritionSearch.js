@@ -15,7 +15,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 import InputGroup from 'react-bootstrap/InputGroup';
 
 
-const NutritionSearch = ({setLoggedIn}) => {
+const NutritionSearch = ({loggedIn, setLoggedIn}) => {
     const navigate = useNavigate();
     const [errors, setErrors] = useState({});
     const [btnLink, setBtnLink] = useState([]);
@@ -69,7 +69,8 @@ const NutritionSearch = ({setLoggedIn}) => {
           setBtnLink(['handleSubmit', 'Add Nutrition']);
         })
         .catch((err) => {
-          setBtnLink(['/login', 'Get Started']);
+          setLoggedIn(false);
+          setBtnLink(['/register', 'Get Started']);
           console.log(err)
         });
     
@@ -192,15 +193,15 @@ const NutritionSearch = ({setLoggedIn}) => {
               }
               
             }
-            setNutritionFacts((state) => {console.log(state);
-            return state;})
+
     }
+    
     useEffect(() => {
         axios
         .post('http://localhost:8000/api/nutrition', nutritionFacts, {withCredentials:true}) 
         .then((res) => {
           console.log(res.data);
-          window.location.reload(false);
+          navigate('/dashboard');
         })
         .catch((err) => console.log(err));
 
@@ -221,7 +222,9 @@ const NutritionSearch = ({setLoggedIn}) => {
                     <Card border="light" >
                         <Card.Header>Nutrition Base</Card.Header>
                         <Card.Body>
-                        <Card.Title>View Nutrition <img className='rounded' src='/Buffer-Progress-Bar.jpg' alt="blueCircle" width={30} height={30} /></Card.Title>
+                            {loggedIn ?
+                        <Card.Title>Add Nutrition <img className='rounded' src='/Buffer-Progress-Bar.jpg' alt="blueCircle" width={30} height={30} /></Card.Title>
+                        :<Card.Title>View Nutrition <img className='rounded' src='/Buffer-Progress-Bar.jpg' alt="blueCircle" width={30} height={30} /></Card.Title>}
                         <Card.Text>
                             Access quick nutrition facts about your favorite foods to better understand your diet.
                         </Card.Text>
@@ -301,7 +304,9 @@ const NutritionSearch = ({setLoggedIn}) => {
                     
                     )}
                     <input hidden readOnly name="foodName" value={foodName}></input>
+                    {loggedIn ?
                     <Button size='sm' type="submit" variant='outline-primary' className='mt-2 mb-2' >{btnLink[1]}</Button>
+                    :<Button size='sm' variant='outline-primary' className='mt-2 mb-2' onClick={() => navigate('/register')} >{btnLink[1]}</Button>}
                     </Form>
                     </div>
                 </Card.Body>
