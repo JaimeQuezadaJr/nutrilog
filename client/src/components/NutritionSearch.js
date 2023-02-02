@@ -315,49 +315,4 @@ const NutritionSearch = ({setLoggedIn}) => {
   )
 }
 
-
-{/* <div className='main'>
-                        <Card.Header><span className='nutrientName'>Try it out!</span></Card.Header>
-                        <Card.Body>
-                        <Card.Text className='submain'>Search the nutrition facts for some of your favorite foods!</Card.Text>
-                        <Card.Text>
-                        <Form onSubmit = {foodHandler}>
-                        <Form.Group className='mb-3 col-sm-8'>
-                            <Form.Label>Food Search</Form.Label>
-                            <Form.Control type='text' value={foodQuery} onChange = {(e) => setFoodQuery(e.target.value)}></Form.Control>
-                        </Form.Group>
-                        <Button size='sm' type="submit" variant='outline-primary' className='mb-3'>Search</Button>
-                    </Form>
-                    <div className='foodScroll'>
-                    {food.map((foods, index)=>
-                            <div key={foods.fdcId} >
-                                <Button variant="outline-success" className='mb-2' size='sm' onClick = {(e) => {nutrientHandler(index)}}>{foods.description}</Button>
-                            </div>
-                    )}
-                    </div>
-                        </Card.Text>
-                        </Card.Body>
-                        </div> 
-
-
-                        <div key = {index}>
-                        {foodNutrients.unitName === 'MG' ?
-                        <>
-                        <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>: {((portion/100)*foodNutrients.value).toFixed(2)} {(foodNutrients.unitName).toLowerCase()}</p>
-                        <ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(.1/portion)).toFixed(2)}  label={foodNutrients.nutrientName} />
-                        
-                        </>
-                        :null}
-                        </div>
-                        
-                        
-                        <InputGroup size="sm" className="mb-3">
-                            <InputGroup.Text id="inputGroup-sizing-sm">{foodNutrients.nutrientName}</InputGroup.Text>
-                            <Form.Control
-                            aria-label="Small"
-                            aria-describedby="inputGroup-sizing-sm"
-                            type='number' value={((portion/100)*foodNutrients.value).toFixed(2)}
-                            />
-                        </InputGroup>*/
-                    }
 export default NutritionSearch;
