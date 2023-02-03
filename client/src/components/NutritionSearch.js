@@ -28,7 +28,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
     const [portion, setPortion] = useState(100);
     const [nutritionFacts, setNutritionFacts] = useState(
         {
-            
+            portionSize:0,
             calories:0,
             foodTitle:'',
             protein:0,
@@ -111,13 +111,13 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
         setFoodName(food[foodId].description)
         setNutrients(food[foodId].foodNutrients)
         setFoodIndex(true)
-        console.log(nutrients)
+        console.log(portion)
         console.log(food[foodId].foodNutrients)
     }
     const portionHandler = (e) => {
         e.preventDefault();
         console.log("hello")
-        console.log(foodIndex)
+        console.log(foodName)
         console.log(portion)
         console.log(nutrients[0].value)
         console.log([nutrients])
@@ -127,7 +127,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        for(let i=0; i<66; i++) {
+        for(let i=0; i<67; i++) {
             
         
         
@@ -190,6 +190,8 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, folate: e.target[i].value }));
               } else if (e.target[i].name === 'foodName') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, foodTitle: e.target[i].value }));
+              } else if (e.target[i].name === 'portion') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, portionSize: e.target[i].value }));
               }
               
             }
@@ -304,6 +306,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                     
                     )}
                     <input hidden readOnly name="foodName" value={foodName}></input>
+                    <input hidden readOnly name="portion" value={portion}></input>
                     {loggedIn ?
                     <Button size='sm' type="submit" variant='outline-primary' className='mt-2 mb-2' >{btnLink[1]}</Button>
                     :<Button size='sm' variant='outline-primary' className='mt-2 mb-2' onClick={() => navigate('/register')} >{btnLink[1]}</Button>}

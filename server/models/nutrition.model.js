@@ -6,6 +6,10 @@ const NutritionSchema = mongoose.Schema(
             type: String,
             required: [true, 'Please enter food name'],
         },
+        portionSize: {
+            type: Number,
+            required: [true, 'Please enter portion amount']
+        },
         calories: {
             type: Number,
             required: [true, 'Please enter food calories'],

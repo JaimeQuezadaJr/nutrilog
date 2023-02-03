@@ -60,12 +60,12 @@ const DeleteFood = ({setLoggedIn}) => {
                             
                                 {food.map((foods, index)=>
                                
-                                <div>
-                                <Card key={index} className='page-bottom' border="light" style={{ width: '18rem' }}>
+                                <div key={index} >
+                                <Card className='page-bottom' border="light" style={{ width: '18rem' }}>
                                     <Card.Header>{foods.foodTitle}</Card.Header>
                                         <Card.Body>
                                             <Card.Text className='mb-2'>Added on: {dateParse(foods.createdAt)}</Card.Text>
-                                            <Card.Text className='mb-2'>Portion: 100g</Card.Text>
+                                            <Card.Text className='mb-2'>Portion: {foods.portionSize} g</Card.Text>
                                                 <div className='foodScroll mb-3'>
                                                 <Card.Text className="mb-0 nutrientName">Calories</Card.Text>
                                                 <p className="m-0 small-date">{`Calories: ${foods.calories} kCal`}</p>
