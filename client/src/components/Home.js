@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 
 
@@ -31,6 +32,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
       },[loggedIn])
           
   return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity:1 }} exit={{ opacity: 0}} transition={{duration:1}}>
     <div>
         <Container>
             <Row>
@@ -83,6 +85,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
             :null}
         </Container>
     </div>
+    </motion.div>
   )
 }
 

@@ -7,6 +7,7 @@ import Card from 'react-bootstrap/Card';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { motion } from 'framer-motion';
 
 const DeleteFood = ({setLoggedIn}) => {
     const [user, setUser] = useState("");
@@ -52,6 +53,7 @@ const DeleteFood = ({setLoggedIn}) => {
         return `${month}/${day}/${dateObj.getFullYear()}`;
       }
   return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity:1 }} exit={{ opacity: 0}} transition={{duration:1}}>
     <Container>
         
         <div className='form flex'>
@@ -129,7 +131,9 @@ const DeleteFood = ({setLoggedIn}) => {
                 
                                                 
                                                 </div>
-                                                <Button variant="outline-danger"  size='sm' onClick = {(e) => {deleteMovie(foods._id)}}>Delete</Button>
+                                                <Button variant="outline-primary"  size='sm' >Update Portion</Button>
+                                                <Button variant="outline-danger" className='ms-1' size='sm' onClick = {(e) => {deleteMovie(foods._id)}}>Delete</Button>
+                                                <Button variant="outline-primary" size='sm' className='ms-1' onClick={() => navigate('/dashboard')} >Home</Button>
                                         </Card.Body>
                                 </Card>
                                     
@@ -143,6 +147,7 @@ const DeleteFood = ({setLoggedIn}) => {
         </div>
 
     </Container>
+    </motion.div>
   )
 }
 

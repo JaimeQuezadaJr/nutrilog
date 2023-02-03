@@ -11,7 +11,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import NutritionSearch from "./NutritionSearch";
-
+import { motion } from 'framer-motion';
 
 
 const GoalDashboard = ({setLoggedIn}) => {
@@ -564,7 +564,7 @@ const GoalDashboard = ({setLoggedIn}) => {
             
             setFolate(sumFolate.toFixed(2))}
               
-
+              window.scrollTo(0,0)
          
           })
           .catch(err => console.log(err));
@@ -580,6 +580,7 @@ const GoalDashboard = ({setLoggedIn}) => {
 
     
     return (
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity:1 }} exit={{ opacity: 0}} transition={{duration:1}}>
       <div>
       <Container>
         <Row className="form">
@@ -668,8 +669,8 @@ const GoalDashboard = ({setLoggedIn}) => {
                     <p className="m-0 small-date">{`Folate ${folate} ug out of ${folateLimit} ug`}</p>
                     <ProgressBar variant="warning" now={folate/folateLimit*100} label={`${(folate/folateLimit*100).toFixed(2)} %`} />
                   </div>
-                  <Button size="sm" variant="outline-primary" className="me-2">Update Nutrition</Button>
-                  <Button size="sm" variant="outline-primary" className="me-2" onClick={() => navigate('/deleteFood')}>Delete Foods</Button>
+                  <Button size="sm" variant="outline-primary" className="me-2">Update Goals</Button>
+                  <Button size="sm" variant="outline-primary" className="me-2" onClick={() => navigate('/deleteFood')}>All Foods</Button>
                   <Button size="sm" variant="outline-primary" className="me-2" onClick={() => navigate('/nutrition')}>Add Foods</Button>
                 </Card.Body>
             </Card>
@@ -679,6 +680,7 @@ const GoalDashboard = ({setLoggedIn}) => {
 
       
       </div>
+      </motion.div>
     )
   }
   export default GoalDashboard;

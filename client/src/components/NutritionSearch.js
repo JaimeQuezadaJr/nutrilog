@@ -13,6 +13,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Spinner from 'react-bootstrap/Spinner';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import InputGroup from 'react-bootstrap/InputGroup';
+import { motion } from 'framer-motion';
 
 
 const NutritionSearch = ({loggedIn, setLoggedIn}) => {
@@ -213,6 +214,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
 
     
   return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity:1 }} exit={{ opacity: 0}} transition={{duration:1}}>
     <div>
         <Container>
             <Row>
@@ -221,6 +223,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
             </Row>
             <Row className=''>
                 <Col className='mb-3' >
+                
                     <Card border="light" >
                         <Card.Header>Nutrition Base</Card.Header>
                         <Card.Body>
@@ -238,6 +241,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                         </Form.Group>
                         <Button size='sm' type="submit" variant='outline-primary' className='mb-3'>Search</Button>
                     </Form>
+                    
                     <div className='foodScroll'>
                     {food.map((foods, index)=>
                             
@@ -245,13 +249,16 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                             
                     )}
                     </div>
+                    
                         
                         </Card.Body>
                     </Card>
+                    
                 </Col>
                 </Row>
                 <Row>
                 <Col className='page-bottom' >
+                
             {foodIndex ===true ?
             <Card
             border='light'
@@ -315,11 +322,13 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                 </Card.Body>
             </Card>
             :null}
+            
             </Col>
             </Row>
 
         </Container>
     </div>
+    </motion.div>
   )
 }
 

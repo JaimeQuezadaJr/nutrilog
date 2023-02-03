@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import Card from 'react-bootstrap/Card';
+import { motion } from 'framer-motion';
 
 const UserLogin = ({ setLoggedIn }) => {
     const navigate = useNavigate();
@@ -35,6 +36,7 @@ const UserLogin = ({ setLoggedIn }) => {
         .catch((err) => setErrors(err.response));
     };
     return (
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity:1 }} exit={{ opacity: 0}} transition={{duration:1}}>
       <div className='background-image'>
         
           <Container>
@@ -61,6 +63,7 @@ const UserLogin = ({ setLoggedIn }) => {
           </Container>
         
         </div>
+        </motion.div>
     );
   };
   

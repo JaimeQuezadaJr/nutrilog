@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { motion } from 'framer-motion';
 
 const UserRegistration = ({ setLoggedIn }) => {
     const navigate = useNavigate();
@@ -38,6 +39,7 @@ const UserRegistration = ({ setLoggedIn }) => {
     };
   
     return (
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity:1 }} exit={{ opacity: 0}} transition={{duration:1}}>
       <div className='background-image'>
           <Container>
             <Row>
@@ -101,7 +103,7 @@ const UserRegistration = ({ setLoggedIn }) => {
             </Row>
           </Container>
           </div>
-        
+          </motion.div>
     );
   };
   
