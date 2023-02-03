@@ -53,14 +53,15 @@ const DeleteFood = ({setLoggedIn}) => {
       }
   return (
     <Container>
-        <div className='form'>
+        
+        <div className='form flex'>
             
                 
                             
                                 {food.map((foods, index)=>
                                
-                                
-                                <Card key={index} className='m-1' border="light" style={{ width: '18rem', display:'inline-block' }}>
+                                <div>
+                                <Card key={index} className='page-bottom' border="light" style={{ width: '18rem' }}>
                                     <Card.Header>{foods.foodTitle}</Card.Header>
                                         <Card.Body>
                                             <Card.Text className='mb-2'>Added on: {dateParse(foods.createdAt)}</Card.Text>
@@ -69,6 +70,7 @@ const DeleteFood = ({setLoggedIn}) => {
                                                 <Card.Text className="mb-0 nutrientName">Calories</Card.Text>
                                                 <p className="m-0 small-date">{`Calories: ${foods.calories} kCal`}</p>
                                                 <ProgressBar className="" variant="primary" now={foods.calories} label={`${foods.calories} %`} />
+
                                                 <Card.Text className="mb-0 nutrientName">Macronutrients</Card.Text>
                                                 <p className="m-0 small-date">{`Protein: ${foods.protein} g`}</p>
                                                 <ProgressBar className="" variant="primary" now={foods.protein} label={`${foods.protein} %`} />
@@ -78,6 +80,7 @@ const DeleteFood = ({setLoggedIn}) => {
                                                 <ProgressBar variant="info" now={foods.carbohydrates} label={`${foods.carbohydrates} %`} />
                                                 <p className="m-0 small-date">{`Fiber: ${foods.dietaryFiber} g`}</p>
                                                 <ProgressBar variant="primary" now={foods.dietaryFiber} label={`${foods.dietaryFiber} %`} />
+
                                                 <Card.Text className="mb-0 nutrientName">Minerals</Card.Text>
                                                 <p className="m-0 small-date">{`Calcium: ${foods.calcium} mg`}</p>
                                                 <ProgressBar variant="danger" now={foods.calcium} label={`${foods.calcium} %`}/>
@@ -97,6 +100,32 @@ const DeleteFood = ({setLoggedIn}) => {
                                                 <ProgressBar variant="info" now={foods.copper} label={`${foods.copper} %`} />
                                                 <p className="m-0 small-date">{`Selenium: ${foods.selenium} ug`}</p>
                                                 <ProgressBar variant="primary" now={foods.selenium} label={`${foods.selenium} %`} />
+
+                                                <Card.Text className="mb-0 nutrientName">Vitamins</Card.Text>
+                                                <p className="m-0 small-date">{`Vitamin A: ${foods.vitaminA} ug`}</p>
+                                                <ProgressBar variant="danger" now={foods.vitaminA} label={`${foods.vitaminA} %`} />
+                                                <p className="m-0 small-date">{`Vitamin E: ${foods.vitaminE} mg`}</p>
+                                                <ProgressBar variant="warning" now={foods.vitaminE} label={`${foods.vitaminE} %`} />
+                                                <p className="m-0 small-date">{`Vitamin D: ${foods.vitaminD} ug`}</p>
+                                                <ProgressBar variant="info" now={foods.vitaminD} label={`${foods.vitaminD} %`} />
+                                                <p className="m-0 small-date">{`Vitamin C: ${foods.vitaminC} mg`}</p>
+                                                <ProgressBar variant="primary" now={foods.vitaminC} label={`${foods.vitaminC} %`} />
+                                                <p className="m-0 small-date">{`Thiamin: ${foods.thiamin} mg`}</p>
+                                                <ProgressBar variant="success" now={foods.thiamin} label={`${foods.thiamin} %`} />
+                                                <p className="m-0 small-date">{`Riboflavin: ${foods.riboflavin} mg`}</p>
+                                                <ProgressBar variant="danger" now={foods.riboflavin} label={`${foods.riboflavin} %`} />
+                                                <p className="m-0 small-date">{`Niacin: ${foods.niacin} mg`}</p>
+                                                <ProgressBar variant="warning" now={foods.niacin} label={`${foods.niacin} %`} />
+                                                <p className="m-0 small-date">{`Vitamin B-6: ${foods.vitaminB6} mg`}</p>
+                                                <ProgressBar variant="info" now={foods.vitaminB6} label={`${foods.vitaminB6} %`} />
+                                                <p className="m-0 small-date">{`Vitamin B-12: ${foods.vitaminB12} ug`}</p>
+                                                <ProgressBar variant="primary" now={foods.vitaminB12} label={`${foods.vitaminB12} %`} />
+                                                <p className="m-0 small-date">{`Choline: ${foods.choline} mg`}</p>
+                                                <ProgressBar variant="success" now={foods.choline} label={`${foods.choline} %`} />
+                                                <p className="m-0 small-date">{`Vitamin K: ${foods.vitaminK} ug`}</p>
+                                                <ProgressBar variant="danger" now={foods.vitaminK} label={`${foods.vitaminK} %`} />
+                                                <p className="m-0 small-date">{`Folate ${foods.folate} ug`}</p>
+                                                <ProgressBar variant="warning" now={foods.folate} label={`${foods.folate} %`} />
                 
                                                 
                                                 </div>
@@ -106,7 +135,7 @@ const DeleteFood = ({setLoggedIn}) => {
                                     
                                   
                                     
-                                  
+                         </div>         
                     )}
                             
                
