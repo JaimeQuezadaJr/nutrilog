@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button'
 
 import Nav from 'react-bootstrap/Nav';
 import styles from './Header.module.css';
+import { motion } from 'framer-motion';
 
 
 const Header = ({loggedIn, setLoggedIn}) => {
@@ -38,6 +39,7 @@ const Header = ({loggedIn, setLoggedIn}) => {
   
     return (
       <>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity:1 }} exit={{ opacity: 0}} transition={{duration:1}}>
       <Navbar bg="light" variant='light' expand='sm' className='fixed-top'>
         <Container>
           <Navbar.Brand as={Link} to="/"><img
@@ -68,6 +70,7 @@ const Header = ({loggedIn, setLoggedIn}) => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      </motion.div>
       <div className={`${styles.footer} fixed-bottom`}></div>
       </>
       

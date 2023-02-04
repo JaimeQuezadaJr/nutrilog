@@ -249,7 +249,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                                 <Button key={foods.fdcId} variant="outline-success" className='m-1' size='sm' onClick = {(e) => {nutrientHandler(index)}}>{foods.description}</Button>
                             
                     )}
-                    
+                   
                     </div>
                     </motion.div>
                         
