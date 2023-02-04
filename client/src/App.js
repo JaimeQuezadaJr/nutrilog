@@ -20,8 +20,9 @@ function App() {
   return (
     <div>
 
-      <AnimatePresence mode='wait'>
+      
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
+      <AnimatePresence mode='wait'>
         <Routes location={location} key={location.pathname}>
           <Route path={'/'} element={<Home loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
           <Route path={'/nutrition'} element={<NutritionSearch loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />

@@ -241,15 +241,17 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                         </Form.Group>
                         <Button size='sm' type="submit" variant='outline-primary' className='mb-3'>Search</Button>
                     </Form>
-                    
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity:1 }} exit={{ opacity: 0}} transition={{duration:1}}>
                     <div className='foodScroll'>
+                    
                     {food.map((foods, index)=>
                             
                                 <Button key={foods.fdcId} variant="outline-success" className='m-1' size='sm' onClick = {(e) => {nutrientHandler(index)}}>{foods.description}</Button>
                             
                     )}
-                    </div>
                     
+                    </div>
+                    </motion.div>
                         
                         </Card.Body>
                     </Card>
@@ -260,6 +262,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                 <Col className='page-bottom' >
                 
             {foodIndex ===true ?
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity:1 }} exit={{ opacity: 0}} transition={{duration:1}}>
             <Card
             border='light'
             
@@ -321,6 +324,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                     </div>
                 </Card.Body>
             </Card>
+            </motion.div>
             :null}
             
             </Col>
