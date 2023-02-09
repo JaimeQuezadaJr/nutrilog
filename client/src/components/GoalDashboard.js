@@ -83,6 +83,7 @@ const GoalDashboard = ({setLoggedIn}) => {
     const [gender, setGender] = useState('');
   
     useEffect(() => {
+      window.scrollTo(0,0)
       axios
         .get('http://localhost:8000/api/current-user', { withCredentials: true })
         .then((res) => {
@@ -564,7 +565,7 @@ const GoalDashboard = ({setLoggedIn}) => {
             
             setFolate(sumFolate.toFixed(2))}
               
-              window.scrollTo(0,0)
+              
          
           })
           .catch(err => console.log(err));
