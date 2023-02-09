@@ -221,7 +221,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                 <Col className='form'>
                 </Col>
             </Row>
-            <Row className=''>
+            <Row>
                 <Col className='mb-3' >
                 
                     <Card border="light" >
