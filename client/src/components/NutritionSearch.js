@@ -241,7 +241,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                         </Form.Group>
                         <Button size='sm' type="submit" variant='outline-primary' className='mb-3'>Search</Button>
                     </Form>
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity:1 }} exit={{ opacity: 0}} transition={{duration:1}}>
+                    
                     <div className='foodScroll'>
                     
                     {food.map((foods, index)=>
@@ -251,7 +251,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                     )}
                    
                     </div>
-                    </motion.div>
+                    
                         
                         </Card.Body>
                     </Card>
