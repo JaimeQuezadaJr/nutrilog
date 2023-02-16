@@ -234,9 +234,16 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                             Add nutrition facts to your nutrition base to better understand your diet.
                         </Card.Text>
                         </>
-                        :<Card.Title>View Nutrition <img className='rounded' src='/Buffer-Progress-Bar.jpg' alt="blueCircle" width={30} height={30} /></Card.Title>}
+                        :
+                        <>
+                        <Card.Title>View Nutrition <img className='rounded' src='/Buffer-Progress-Bar.jpg' alt="blueCircle" width={30} height={30} /></Card.Title>
                         <Card.Text>
                             Access quick nutrition facts about your favorite foods to better understand your diet.
+                        </Card.Text>
+                        </>
+                        }
+                        <Card.Text>
+                          * All information from the Survey USDA.
                         </Card.Text>
                         
                         <Form onSubmit = {foodHandler}>
