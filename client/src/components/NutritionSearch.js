@@ -243,7 +243,10 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                         </>
                         }
                         <Card.Text>
-                          * All information from the Survey USDA.
+                          * All information from the USDA food data central.
+                        </Card.Text>
+                        <Card.Text>
+                          * Data on 65 food components, including nutrients, and weights for foods and beverages reported in the What We Eat in America dietary survey component of the National Health and Nutrition Examination Survey.
                         </Card.Text>
                         
                         <Form onSubmit = {foodHandler}>
