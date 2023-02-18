@@ -8,7 +8,7 @@ import About from './components/About';
 import { useState } from 'react';
 import NutritionSearch from './components/NutritionSearch';
 import GoalDashboard from './components/GoalDashboard';
-import DeleteFood from './components/DeleteFood';
+import ViewFood from './components/ViewFood';
 import { AnimatePresence, motion } from 'framer-motion';
 
 
@@ -30,7 +30,7 @@ function App() {
           <Route path={'/register'} element={<UserRegistration setLoggedIn={setLoggedIn} />}/>
           <Route path={'/about'} element={<About setLoggedIn={setLoggedIn} />} />
           <Route path={'/dashboard'} element={<GoalDashboard setLoggedIn={setLoggedIn} />} />
-          <Route path={'/deleteFood'} element={<DeleteFood setLoggedIn={setLoggedIn} />} />
+          <Route path={'/viewFood'} element={<ViewFood setLoggedIn={setLoggedIn} />} />
         </Routes>
         </AnimatePresence>
       

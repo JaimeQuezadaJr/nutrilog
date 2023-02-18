@@ -9,7 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { motion } from 'framer-motion';
 
-const DeleteFood = ({setLoggedIn}) => {
+const ViewFood = ({setLoggedIn}) => {
     const [user, setUser] = useState("");
     const [food, setFood] = useState([]);
 
@@ -152,4 +152,4 @@ const DeleteFood = ({setLoggedIn}) => {
 }
 
 
-export default DeleteFood;
+export default ViewFood;
