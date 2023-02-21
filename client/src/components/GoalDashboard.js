@@ -2,14 +2,12 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import ProgressBar from 'react-bootstrap/ProgressBar';
-
 import Button from "react-bootstrap/Button";
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
 import { motion } from 'framer-motion';
 
 
@@ -73,7 +71,6 @@ const GoalDashboard = ({setLoggedIn}) => {
     const [cholineLimit, setCholineLimit] = useState(0);
     const [vitaminKLimit, setVitaminKLimit] = useState(0);
     const [folateLimit, setFolateLimit] = useState(0);
-
 
 
     const [errors, setErrors] = useState({});
@@ -432,149 +429,117 @@ const GoalDashboard = ({setLoggedIn}) => {
           .then(res => {
             setNutrition(res.data)
 
-
-
             {let sumCalories = 0;
               nutrition.map((nutrients) => sumCalories += nutrients.calories);
-            
-            setCalories(sumCalories.toFixed(2))}
+              setCalories(sumCalories.toFixed(2))}
 
             {let sumProtein = 0;
               nutrition.map((nutrients) => sumProtein += nutrients.protein);
-           
-            setProtein(sumProtein.toFixed(2))}
+              setProtein(sumProtein.toFixed(2))}
             
             {let sumTotalFat = 0;
               nutrition.map((nutrients) => sumTotalFat += nutrients.totalFat);
-            
-            setTotalFat(sumTotalFat.toFixed(2))}
+              setTotalFat(sumTotalFat.toFixed(2))}
 
             {let sumTotalCarbohydrates = 0;
               nutrition.map((nutrients) => sumTotalCarbohydrates += nutrients.carbohydrates);
-            
-            setCarbohydrates(sumTotalCarbohydrates.toFixed(2))}
+              setCarbohydrates(sumTotalCarbohydrates.toFixed(2))}
 
             {let sumFiber = 0;
               nutrition.map((nutrients) => sumFiber += nutrients.dietaryFiber);
-           
-            setDietaryFiber(sumFiber.toFixed(2))}
+              setDietaryFiber(sumFiber.toFixed(2))}
 
             {let sumCalcium = 0;
               nutrition.map((nutrients) => sumCalcium += nutrients.calcium);
-           
-            setCalcium(sumCalcium.toFixed(2))}
+              setCalcium(sumCalcium.toFixed(2))}
 
             {let sumIron = 0;
               nutrition.map((nutrients) => sumIron += nutrients.iron);
-           
-            setIron(sumIron.toFixed(2))}
+              setIron(sumIron.toFixed(2))}
 
             {let sumMagnesium = 0;
               nutrition.map((nutrients) => sumMagnesium += nutrients.magnesium);
-            
-            setMagnesium(sumMagnesium.toFixed(2))}
+              setMagnesium(sumMagnesium.toFixed(2))}
 
             {let sumPhosphorus = 0;
               nutrition.map((nutrients) => sumPhosphorus += nutrients.phosphorus);
-            
-            setPhosphorus(sumPhosphorus.toFixed(2))}
+              setPhosphorus(sumPhosphorus.toFixed(2))}
 
             {let sumPotassium = 0;
               nutrition.map((nutrients) => sumPotassium += nutrients.potassium);
-            
-            setPotassium(sumPotassium.toFixed(2))}
+              setPotassium(sumPotassium.toFixed(2))}
 
             {let sumSodium = 0;
               nutrition.map((nutrients) => sumSodium += nutrients.sodium);
-            
-            setSodium(sumSodium.toFixed(2))}
+              setSodium(sumSodium.toFixed(2))}
 
             {let sumZinc = 0;
               nutrition.map((nutrients) => sumZinc += nutrients.zinc);
-            
-            setZinc(sumZinc.toFixed(2))}
+              setZinc(sumZinc.toFixed(2))}
 
             {let sumCopper = 0;
               nutrition.map((nutrients) => sumCopper += nutrients.copper);
-            
-            setCopper(sumCopper.toFixed(2))}
+              setCopper(sumCopper.toFixed(2))}
 
             {let sumSelenium = 0;
               nutrition.map((nutrients) => sumSelenium += nutrients.selenium);
-           
-            setSelenium(sumSelenium.toFixed(2))}
+              setSelenium(sumSelenium.toFixed(2))}
 
             {let sumVitaminA = 0;
               nutrition.map((nutrients) => sumVitaminA += nutrients.vitaminA);
-           
-            setVitaminA(sumVitaminA.toFixed(2))}
+              setVitaminA(sumVitaminA.toFixed(2))}
 
             {let sumVitaminE = 0;
               nutrition.map((nutrients) => sumVitaminE += nutrients.vitaminE);
-           
-            setVitaminE(sumVitaminE.toFixed(2))}
+              setVitaminE(sumVitaminE.toFixed(2))}
 
             {let sumVitaminD = 0;
               nutrition.map((nutrients) => sumVitaminD += nutrients.vitaminD);
-            
-            setVitaminD(sumVitaminD.toFixed(2))}
+              setVitaminD(sumVitaminD.toFixed(2))}
 
             {let sumVitaminC = 0;
               nutrition.map((nutrients) => sumVitaminC += nutrients.vitaminC);
-           
-            setVitaminC(sumVitaminC.toFixed(2))}
+              setVitaminC(sumVitaminC.toFixed(2))}
 
             {let sumThiamin = 0;
               nutrition.map((nutrients) => sumThiamin += nutrients.thiamin);
-            
-            setThiamin(sumThiamin.toFixed(2))}
+              setThiamin(sumThiamin.toFixed(2))}
 
             {let sumRiboflavin = 0;
               nutrition.map((nutrients) => sumRiboflavin += nutrients.riboflavin);
-            
-            setRiboflavin(sumRiboflavin.toFixed(2))}
+              setRiboflavin(sumRiboflavin.toFixed(2))}
 
             {let sumNiacin = 0;
               nutrition.map((nutrients) => sumNiacin += nutrients.niacin);
-           
-            setNiacin(sumNiacin.toFixed(2))}
+              setNiacin(sumNiacin.toFixed(2))}
 
             {let sumVitaminB6 = 0;
               nutrition.map((nutrients) => sumVitaminB6 += nutrients.vitaminB6);
-            
-            setVitaminB6(sumVitaminB6.toFixed(2))}
+              setVitaminB6(sumVitaminB6.toFixed(2))}
 
             {let sumVitaminB12 = 0;
               nutrition.map((nutrients) => sumVitaminB12 += nutrients.vitaminB12);
-            
-            setVitaminB12(sumVitaminB12.toFixed(2))}
+              setVitaminB12(sumVitaminB12.toFixed(2))}
 
             {let sumCholine = 0;
               nutrition.map((nutrients) => sumCholine += nutrients.choline);
-            
-            setCholine(sumCholine.toFixed(2))}
+              setCholine(sumCholine.toFixed(2))}
 
             {let sumVitaminK = 0;
               nutrition.map((nutrients) => sumVitaminK += nutrients.vitaminK);
-            
-            setVitaminK(sumVitaminK.toFixed(2))}
+              setVitaminK(sumVitaminK.toFixed(2))}
 
             {let sumFolate = 0;
               nutrition.map((nutrients) => sumFolate += nutrients.folate);
-            
-            setFolate(sumFolate.toFixed(2))}
+              setFolate(sumFolate.toFixed(2))}
               
-              
-         
           })
           .catch(err => console.log(err));
-          
         })
         .catch((err) => {
           console.log(err)
           navigate('/');
-        }
-        ); 
+        }); 
     }, [calories]);
 
 
@@ -595,18 +560,11 @@ const GoalDashboard = ({setLoggedIn}) => {
                   </ButtonGroup>
                             
                   <div className="mb-1">
-                  
-               
                     <Card.Text className="mb-0 nutrientName">Calories</Card.Text>
                     <p className="m-0 small-date">{`Calories: ${calories} kCal out of ${caloriesLimit} kCal`}</p>
                     <ProgressBar variant="primary" now={calories/caloriesLimit*100} label={`${(calories/caloriesLimit*100).toFixed(2)} %`} />
-                    
-                   
-                  
                   </div>
                   <div className="mb-1">
-                   
-                    
                     <Card.Text className="mb-0 nutrientName">Macronutrients</Card.Text>
                     <p className="m-0 small-date">{`Protein: ${protein} g out of ${proteinLimit} g`}</p>
                     <ProgressBar className="" variant="danger" now={protein/proteinLimit*100} label={`${(protein/proteinLimit *100).toFixed(2)} %`} />
@@ -616,10 +574,6 @@ const GoalDashboard = ({setLoggedIn}) => {
                     <ProgressBar variant="info" now={carbohydrates/carbohydratesLimit*100} label={`${(carbohydrates/carbohydratesLimit*100).toFixed(2)} %`} />
                     <p className="m-0 small-date">{`Fiber: ${dietaryFiber} g out of ${dietaryFiberLimit} g`}</p>
                     <ProgressBar variant="primary" now={dietaryFiber/dietaryFiberLimit*100} label={`${(dietaryFiber/dietaryFiberLimit*100).toFixed(2)} %`} />
-                
-
-                    
-                  
                   </div>
                   <div className="mb-1">
                   <Card.Text className="mb-0 nutrientName">Minerals</Card.Text>
@@ -670,12 +624,12 @@ const GoalDashboard = ({setLoggedIn}) => {
                     <ProgressBar variant="warning" now={folate/folateLimit*100} label={`${(folate/folateLimit*100).toFixed(2)} %`} />
                   </div>
                   <Button size="sm" variant="outline-primary" className="me-2">Update Goals</Button>
-                  <Button size="sm" variant="outline-primary" className="me-2" onClick={() => navigate('/deleteFood')}>All Foods</Button>
+                  <Button size="sm" variant="outline-primary" className="me-2" onClick={() => navigate('/viewFood')}>All Foods</Button>
                   <Button size="sm" variant="outline-primary" className="me-2" onClick={() => navigate('/nutrition')}>Add Foods</Button>
                 </Card.Body>
             </Card>
           </Col>
-          </Row>
+        </Row>
       </Container>
 
       

@@ -7,12 +7,9 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Navigate, useNavigate } from 'react-router-dom';
-
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-
 import ProgressBar from 'react-bootstrap/ProgressBar';
-
 import { motion } from 'framer-motion';
 
 
@@ -57,7 +54,6 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
             choline:0,
             vitaminK:0,
             folate:0,
-
         },
     );
  
@@ -124,14 +120,9 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
         console.log([nutrients])
         
     }
-
-
     const handleSubmit = (e) => {
         e.preventDefault();
         for(let i=0; i<67; i++) {
-            
-        
-        
             if (e.target[i].name === 'Protein') {
                 setNutritionFacts(previousInputs =>({ ...previousInputs, protein: e.target[i].value }));
                 console.log(e.target[i].name, e.target[i].value)
@@ -194,9 +185,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
               } else if (e.target[i].name === 'portion') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, portionSize: e.target[i].value }));
               }
-              
-            }
-
+          }
     }
     
     useEffect(() => {
@@ -207,12 +196,9 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
           navigate('/dashboard');
         })
         .catch((err) => console.log(err));
-
-    },[nutritionFacts])
-        
       
-
-    
+      },[nutritionFacts]);
+        
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity:1 }} exit={{ opacity: 0}} transition={{duration:1}}>
     <div>
@@ -223,7 +209,6 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
             </Row>
             <Row>
                 <Col className='mb-3' >
-                
                     <Card border="light" >
                         <Card.Header>Nutrition Base</Card.Header>
                         <Card.Body>
@@ -255,58 +240,47 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                             <Form.Control type='text' value={foodQuery} onChange = {(e) => setFoodQuery(e.target.value)}></Form.Control>
                         </Form.Group>
                         <Button size='sm' type="submit" variant='outline-primary' className='mb-3'>Search</Button>
-                    </Form>
-                    
-                    <div className='foodScroll'>
-                    
-                    {food.map((foods, index)=>
-                            
-                                <Button key={foods.fdcId} variant="outline-success" className='m-1' size='sm' onClick = {(e) => {nutrientHandler(index)}}>{foods.description}</Button>
-                            
-                    )}
-                   
-                    </div>
-                    
-                        
-                        </Card.Body>
+                        </Form>
+
+                        <div className='foodScroll'>
+                        {food.map((foods, index)=>
+                            <Button key={foods.fdcId} variant="outline-success" className='m-1' size='sm' onClick = {(e) => {nutrientHandler(index)}}>{foods.description}</Button>
+                        )}
+                        </div>
+
+                      </Card.Body>
                     </Card>
-                    
                 </Col>
-                </Row>
-                <Row>
+              </Row>
+            <Row>
                 <Col className='page-bottom' >
-                
-            {foodIndex ===true ?
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity:1 }} exit={{ opacity: 0}} transition={{duration:1}}>
-            <Card
-            border='light'
-            
-            className="">
-                <Card.Header className='nutrientName'>Nutrition Facts: {foodName}</Card.Header>
-                <Card.Body>
-                    <Card.Title>
-                    <Form onSubmit = {portionHandler}>
-                <Form.Group>
-                    <Form.Label className='portion'>Portion Size (g)</Form.Label>
-                    <Form.Control type='text' value={portion} onChange = {(e) => (setPortion(e.target.value))} style={{width: '5rem'}} className='portion'></Form.Control>
-                </Form.Group>
-            </Form>
-                    </Card.Title>
-                    <DropdownButton size='sm' variant='outline-primary' id="dropdown-basic-button" title="Portion Size">
-                    {foodMeasure.map((foodMeasures, index) =>
-                        <Dropdown.Item className='mb-0' key = {index} onClick ={() => {setPortion(foodMeasures.gramWeight)}}><span className='nutrientName'>{foodMeasures.disseminationText}</span>: {foodMeasures.gramWeight} g</Dropdown.Item>
-                    )}
-                    </DropdownButton>
+                    {foodIndex ===true ?
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity:1 }} exit={{ opacity: 0}} transition={{duration:1}}>
+                    <Card border='light'>
+                        <Card.Header className='nutrientName'>Nutrition Facts: {foodName}</Card.Header>
+                        <Card.Body>
+                            <Card.Title>
+                                <Form onSubmit = {portionHandler}>
+                                    <Form.Group>
+                                        <Form.Label className='portion'>Portion Size (g)</Form.Label>
+                                        <Form.Control type='text' value={portion} onChange = {(e) => (setPortion(e.target.value))} style={{width: '5rem'}} className='portion'></Form.Control>
+                                    </Form.Group>
+                                </Form>
+                            </Card.Title>
+
+                            <DropdownButton size='sm' variant='outline-primary' id="dropdown-basic-button" title="Portion Size">
+                            {foodMeasure.map((foodMeasures, index) =>
+                                <Dropdown.Item className='mb-0' key = {index} onClick ={() => {setPortion(foodMeasures.gramWeight)}}><span className='nutrientName'>{foodMeasures.disseminationText}</span>: {foodMeasures.gramWeight} g</Dropdown.Item>
+                            )}
+                            </DropdownButton>
                     
                     <div className='scroll mt-3'>
-                    <Form onSubmit={handleSubmit}>
-                    
-                    {nutrients.map((foodNutrients, index) =>
-               
+                        <Form onSubmit={handleSubmit}>
+                        {nutrients.map((foodNutrients, index) =>
+
                     <div key = {index}>
-                       
-                       {foodNutrients.unitName === 'G'?
-                       <>
+                        {foodNutrients.unitName === 'G'?
+                        <>
                         <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly name={foodNutrients.nutrientName} value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
                         <ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(100/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(100/portion)).toFixed(2)} %`}/>
                         </>
@@ -316,17 +290,16 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                         <ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(.1/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(.1/portion)).toFixed(2)} %`}/>
                         </>
                     :foodNutrients.unitName === 'UG'?
-                    <>
+                      <>
                         <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly name={foodNutrients.nutrientName} value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
                         <ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(.0001/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(.0001/portion)).toFixed(2)} %`}/>
                         </>
-                    :<>
+                      :<>
                     <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly name={foodNutrients.nutrientName} value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
                     <ProgressBar variant="primary" now={0}/>
                     </>
                     }
-                        
-                        </div>
+                    </div>
                   
                     
                     )}
