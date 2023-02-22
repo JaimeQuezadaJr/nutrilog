@@ -53,14 +53,12 @@ const Header = ({loggedIn, setLoggedIn}) => {
           <Navbar.Collapse className="justify-content-end">
             {user ? (
                 <Nav className=" justify-contend-end">
-                  <Nav.Link as={Link} to="/about">About</Nav.Link>
                   <Nav.Link as={Link} to="/dashboard">Home</Nav.Link>
                   <Nav.Link as={Link} to="/nutrition">Search</Nav.Link>
                   <Nav.Link onClick={onLogOut}>Logout</Nav.Link>
               </Nav>
             ) : (
                 <Nav className=" justify-contend-end">
-                  <Nav.Link as={Link} to="/about">About</Nav.Link>
                   <Nav.Link as={Link} to="/login">Login</Nav.Link>
                   <Nav.Link as={Link} to="/register">Register</Nav.Link>
                   <Nav.Link as={Link} to="/nutrition">Search</Nav.Link>
