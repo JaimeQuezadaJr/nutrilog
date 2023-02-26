@@ -8,7 +8,7 @@ import { useState } from 'react';
 import NutritionSearch from './components/NutritionSearch';
 import GoalDashboard from './components/GoalDashboard';
 import ViewFood from './components/ViewFood';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 
 function App() {
