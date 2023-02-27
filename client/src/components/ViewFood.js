@@ -5,8 +5,6 @@ import Button from 'react-bootstrap/esm/Button';
 import Container from 'react-bootstrap/esm/Container';
 import Card from 'react-bootstrap/Card';
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import { motion } from 'framer-motion';
 
 const ViewFood = ({setLoggedIn}) => {
