@@ -10,8 +10,19 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { motion } from 'framer-motion';
 
+import ToggleButton from 'react-bootstrap/ToggleButton';
+
+
 
 const GoalDashboard = ({setLoggedIn}) => {
+  const [checked, setChecked] = useState(false);
+  const [radioValue, setRadioValue] = useState('1');
+  const [dailyValue, setDailyValue] = useState(false);
+  const [weeklyValue, setWeeklyValue] = useState(false);
+  const [monthlyValue, setMonthlyValue] = useState(false);
+  const [dailyView, setDailyView] = useState([]);
+  const [weeklyView, setWeeklyView] = useState([]);
+  const [monthlyView, setMonthlyView] = useState([]);
 
     const navigate = useNavigate();
     const [btnLink, setBtnLink] = useState([]);
@@ -77,6 +88,20 @@ const GoalDashboard = ({setLoggedIn}) => {
     const [user, setUser] = useState("");
     const [age, setAge] = useState(0);
     const [gender, setGender] = useState('');
+
+    const radios = [
+      { name: 'Daily', value: '1' },
+      { name: 'Weekly', value: '2' },
+      { name: 'Monthly', value: '3' },
+    ];
+
+    const dateParse = (date) => {
+      let dateObj = new Date(date);
+      let day = `0${dateObj.getDate()}`.slice(-2);
+      let month = `0${dateObj.getMonth() + 1}`.slice(-2);
+      return `${month}/${day}/${dateObj.getFullYear()}`;
+    }
+
   
     useEffect(() => {
       window.scrollTo(0,0)
@@ -87,6 +112,7 @@ const GoalDashboard = ({setLoggedIn}) => {
           setGender(res.data.gender)
           setUser(res.data.firstName);
           setLoggedIn(true);
+          setDailyValue(true);
 
           if(age<= 8  && age >= 4 && gender === 'Female'){
             setCaloriesLimit(1200)
@@ -542,6 +568,24 @@ const GoalDashboard = ({setLoggedIn}) => {
         }); 
     }, [calories]);
 
+    const dailyChange = () => {
+      setDailyValue(true);
+      setWeeklyValue(false);
+      setMonthlyValue(false);
+      
+    }
+    const weeklyChange = () => {
+      setDailyValue(false);
+      setWeeklyValue(true);
+      setMonthlyValue(false);
+    }
+    const monthlyChange = () => {
+      setDailyValue(false);
+      setWeeklyValue(false);
+      setMonthlyValue(true);
+
+    }
+
 
     
     return (
@@ -553,11 +597,13 @@ const GoalDashboard = ({setLoggedIn}) => {
             <Card>
               <Card.Header>Nutrition Summary</Card.Header>
                 <Card.Body>
+                  <p>* Nutrition goals set based off age and gender according to the USDA dietary guidelines for americans.</p>
                   <ButtonGroup size="sm" className="mb-2">
-                    <Button variant='outline-primary' active>Daily</Button>
-                    <Button variant='outline-primary'>Weekly</Button>
-                    <Button variant='outline-primary'>Monthly</Button>
+                    <Button variant="outline-primary" onClick={dailyChange} active={dailyValue}>Daily</Button>
+                    <Button variant="outline-primary" onClick={weeklyChange} active ={weeklyValue}>Weekly</Button>
+                    <Button variant="outline-primary" onClick={monthlyChange} active={monthlyValue}>Monthly</Button>
                   </ButtonGroup>
+
                             
                   <div className="mb-1">
                     <Card.Text className="mb-0 nutrientName">Calories</Card.Text>
