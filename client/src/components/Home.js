@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/esm/Button';
 import Container from 'react-bootstrap/esm/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 
