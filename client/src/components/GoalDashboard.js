@@ -454,6 +454,10 @@ const GoalDashboard = ({setLoggedIn}) => {
           axios.get(`http://localhost:8000/api/nutrition/user/${res.data._id}`, { withCredentials: true})
           .then(res => {
             setNutrition(res.data)
+            console.log(dateParse(new Date()))
+            nutrition.map ((nutrients) => {
+              console.log(dateParse(nutrients.createdAt))
+            })
 
             {let sumCalories = 0;
               nutrition.map((nutrients) => sumCalories += nutrients.calories);
@@ -572,17 +576,24 @@ const GoalDashboard = ({setLoggedIn}) => {
       setDailyValue(true);
       setWeeklyValue(false);
       setMonthlyValue(false);
+      console.log(new Date())
       
     }
     const weeklyChange = () => {
+      if (monthlyValue === true) {
+        console.log('yes')
+        setCaloriesLimit((caloriesLimit/30) *2 )
+      }
       setDailyValue(false);
       setWeeklyValue(true);
       setMonthlyValue(false);
+      setCaloriesLimit(caloriesLimit * 2)
     }
     const monthlyChange = () => {
       setDailyValue(false);
       setWeeklyValue(false);
       setMonthlyValue(true);
+      
 
     }
 
@@ -599,9 +610,9 @@ const GoalDashboard = ({setLoggedIn}) => {
                 <Card.Body>
                   <p>* Nutrition goals set based off age and gender according to the USDA dietary guidelines for americans.</p>
                   <ButtonGroup size="sm" className="mb-2">
-                    <Button variant="outline-primary" onClick={dailyChange} active={dailyValue}>Daily</Button>
-                    <Button variant="outline-primary" onClick={weeklyChange} active ={weeklyValue}>Weekly</Button>
-                    <Button variant="outline-primary" onClick={monthlyChange} active={monthlyValue}>Monthly</Button>
+                    <Button variant="outline-primary" onClick={dailyChange} active={dailyValue}>Today</Button>
+                    <Button variant="outline-primary" onClick={weeklyChange} active ={weeklyValue}>Last 7 Days</Button>
+                    <Button variant="outline-primary" onClick={monthlyChange} active={monthlyValue}>Last 30 Days</Button>
                   </ButtonGroup>
 
                             
