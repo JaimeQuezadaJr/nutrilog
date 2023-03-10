@@ -454,14 +454,22 @@ const GoalDashboard = ({setLoggedIn}) => {
           axios.get(`http://localhost:8000/api/nutrition/user/${res.data._id}`, { withCredentials: true})
           .then(res => {
             setNutrition(res.data)
-            console.log(dateParse(new Date()))
+            let sumCalories = 0;
             nutrition.map ((nutrients) => {
+              
+              if (dateParse(nutrients.createdAt) === dateParse(new Date())){
               console.log(dateParse(nutrients.createdAt))
+              
+              sumCalories += nutrients.calories;
+              setCalories(sumCalories.toFixed(2))}
+              else {
+                console.log('wrong date')
+              }
             })
 
-            {let sumCalories = 0;
-              nutrition.map((nutrients) => sumCalories += nutrients.calories);
-              setCalories(sumCalories.toFixed(2))}
+            // {let sumCalories = 0;
+            //   nutrition.map((nutrients) => sumCalories += nutrients.calories);
+            //   setCalories(sumCalories.toFixed(2))}
 
             {let sumProtein = 0;
               nutrition.map((nutrients) => sumProtein += nutrients.protein);
@@ -570,7 +578,7 @@ const GoalDashboard = ({setLoggedIn}) => {
           console.log(err)
           navigate('/');
         }); 
-    }, [calories]);
+    }, []);
 
     const dailyChange = () => {
       setDailyValue(true);
