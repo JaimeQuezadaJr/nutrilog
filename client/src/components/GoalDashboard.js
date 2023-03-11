@@ -114,6 +114,22 @@ const GoalDashboard = ({setLoggedIn}) => {
           setLoggedIn(true);
           setDailyValue(true);
 
+          axios.get(`http://localhost:8000/api/nutrition/user/${res.data._id}`, { withCredentials: true})
+          .then(res => {
+            setNutrition(res.data)
+            console.log(nutrition)
+
+          })
+          .catch(err => console.log(err));
+        })
+        .catch((err) => {
+          console.log(err)
+          navigate('/');
+        }); 
+    }, []);
+
+    useEffect(() => {
+
           if(age<= 8  && age >= 4 && gender === 'Female'){
             setCaloriesLimit(1200)
             setProteinLimit(19)
@@ -451,134 +467,237 @@ const GoalDashboard = ({setLoggedIn}) => {
             setFolateLimit(400)
           }
           
-          axios.get(`http://localhost:8000/api/nutrition/user/${res.data._id}`, { withCredentials: true})
-          .then(res => {
-            setNutrition(res.data)
-            let sumCalories = 0;
-            nutrition.map ((nutrients) => {
               
-              if (dateParse(nutrients.createdAt) === dateParse(new Date())){
-              console.log(dateParse(nutrients.createdAt))
-              
-              sumCalories += nutrients.calories;
-              setCalories(sumCalories.toFixed(2))}
-              else {
-                console.log('wrong date')
-              }
-            })
+ 
+    }, [age]);
+
+    useEffect(() => {
+                let sumCalories = 0;
+                let sumProtein = 0;
+                let sumTotalFat = 0;
+                let sumTotalCarbohydrates = 0;
+                let sumFiber = 0;
+                let sumCalcium = 0;
+                let sumIron = 0;
+                let sumMagnesium = 0;
+                let sumPhosphorus = 0;
+                let sumPotassium = 0;
+                let sumSodium = 0;
+                let sumZinc = 0;
+                let sumCopper = 0;
+                let sumSelenium = 0;
+                let sumVitaminA = 0;
+                let sumVitaminE = 0;
+                let sumVitaminD = 0;
+                let sumVitaminC = 0;
+                let sumThiamin = 0;
+                let sumRiboflavin = 0;
+                let sumNiacin = 0;
+                let sumVitaminB6 = 0;
+                let sumVitaminB12 = 0;
+                let sumCholine = 0;
+                let sumVitaminK = 0;
+                let sumFolate = 0;
+                nutrition.map((nutrients) => {
+                  if (dateParse(nutrients.createdAt) === dateParse(new Date())){
+                    console.log(dateParse(nutrients.createdAt))
+                    
+                    sumCalories += nutrients.calories
+                    setCalories(sumCalories.toFixed(2))
+
+                    sumProtein += nutrients.protein
+                    setProtein(sumProtein.toFixed(2))
+
+                    sumTotalFat += nutrients.totalFat
+                    setTotalFat(sumTotalFat.toFixed(2))
+
+                    sumTotalCarbohydrates += nutrients.carbohydrates
+                    setCarbohydrates(sumTotalCarbohydrates.toFixed(2))
+
+                    sumFiber += nutrients.dietaryFiber
+                    setDietaryFiber(sumFiber.toFixed(2))
+
+                    sumCalcium += nutrients.calcium
+                    setCalcium(sumCalcium.toFixed(2))
+
+                    sumIron += nutrients.iron
+                    setIron(sumIron.toFixed(2))
+
+                    sumMagnesium += nutrients.magnesium
+                    setMagnesium(sumMagnesium.toFixed(2))
+
+                    sumPhosphorus += nutrients.phosphorus
+                    setPhosphorus(sumPhosphorus.toFixed(2))
+
+                    sumPotassium += nutrients.potassium
+                    setPotassium(sumPotassium.toFixed(2))
+
+                    sumSodium += nutrients.sodium
+                    setSodium(sumSodium.toFixed(2))
+
+                    sumZinc += nutrients.zinc
+                    setZinc(sumZinc.toFixed(2))
+
+                    sumCopper += nutrients.copper
+                    setCopper(sumCopper.toFixed(2))
+
+                    sumSelenium += nutrients.selenium
+                    setSelenium(sumSelenium.toFixed(2))
+
+                    sumVitaminA += nutrients.vitaminA
+                    setVitaminA(sumVitaminA.toFixed(2))
+                    
+                    sumVitaminE += nutrients.vitaminE
+                    setVitaminE(sumVitaminE.toFixed(2))
+
+                    sumVitaminD += nutrients.vitaminD
+                    setVitaminD(sumVitaminD.toFixed(2))
+
+                    sumVitaminC += nutrients.vitaminC
+                    setVitaminC(sumVitaminC.toFixed(2))
+
+                    sumThiamin += nutrients.thiamin
+                    setThiamin(sumThiamin.toFixed(2))
+
+                    sumRiboflavin += nutrients.riboflavin
+                    setRiboflavin(sumRiboflavin.toFixed(2))
+
+                    sumNiacin += nutrients.niacin
+                    setNiacin(sumNiacin.toFixed(2))
+
+                    sumVitaminB6 += nutrients.vitaminB6
+                    setVitaminB6(sumVitaminB6.toFixed(2))
+
+                    sumVitaminB12 += nutrients.vitaminB12
+                    setVitaminB12(sumVitaminB12.toFixed(2))
+
+                    sumCholine += nutrients.choline
+                    setCholine(sumCholine.toFixed(2))
+
+                    sumVitaminK += nutrients.vitaminK
+                    setVitaminK(sumVitaminK.toFixed(2))
+
+                    sumFolate += nutrients.folate
+                    setFolate(sumFolate.toFixed(2))
+
+                  
+                  
+                  
+                  }
+                    else {
+                      console.log('wrong date')
+                    }
+
+                })
+
+        
 
             // {let sumCalories = 0;
             //   nutrition.map((nutrients) => sumCalories += nutrients.calories);
             //   setCalories(sumCalories.toFixed(2))}
 
-            {let sumProtein = 0;
-              nutrition.map((nutrients) => sumProtein += nutrients.protein);
-              setProtein(sumProtein.toFixed(2))}
+            // {let sumProtein = 0;
+            //   nutrition.map((nutrients) => sumProtein += nutrients.protein);
+            //   setProtein(sumProtein.toFixed(2))}
             
-            {let sumTotalFat = 0;
-              nutrition.map((nutrients) => sumTotalFat += nutrients.totalFat);
-              setTotalFat(sumTotalFat.toFixed(2))}
+            // {let sumTotalFat = 0;
+            //   nutrition.map((nutrients) => sumTotalFat += nutrients.totalFat);
+            //   setTotalFat(sumTotalFat.toFixed(2))}
 
-            {let sumTotalCarbohydrates = 0;
-              nutrition.map((nutrients) => sumTotalCarbohydrates += nutrients.carbohydrates);
-              setCarbohydrates(sumTotalCarbohydrates.toFixed(2))}
+            // {let sumTotalCarbohydrates = 0;
+            //   nutrition.map((nutrients) => sumTotalCarbohydrates += nutrients.carbohydrates);
+            //   setCarbohydrates(sumTotalCarbohydrates.toFixed(2))}
 
-            {let sumFiber = 0;
-              nutrition.map((nutrients) => sumFiber += nutrients.dietaryFiber);
-              setDietaryFiber(sumFiber.toFixed(2))}
+            // {let sumFiber = 0;
+            //   nutrition.map((nutrients) => sumFiber += nutrients.dietaryFiber);
+            //   setDietaryFiber(sumFiber.toFixed(2))}
 
-            {let sumCalcium = 0;
-              nutrition.map((nutrients) => sumCalcium += nutrients.calcium);
-              setCalcium(sumCalcium.toFixed(2))}
+            // {let sumCalcium = 0;
+            //   nutrition.map((nutrients) => sumCalcium += nutrients.calcium);
+            //   setCalcium(sumCalcium.toFixed(2))}
 
-            {let sumIron = 0;
-              nutrition.map((nutrients) => sumIron += nutrients.iron);
-              setIron(sumIron.toFixed(2))}
+            // {let sumIron = 0;
+            //   nutrition.map((nutrients) => sumIron += nutrients.iron);
+            //   setIron(sumIron.toFixed(2))}
 
-            {let sumMagnesium = 0;
-              nutrition.map((nutrients) => sumMagnesium += nutrients.magnesium);
-              setMagnesium(sumMagnesium.toFixed(2))}
+            // {let sumMagnesium = 0;
+            //   nutrition.map((nutrients) => sumMagnesium += nutrients.magnesium);
+            //   setMagnesium(sumMagnesium.toFixed(2))}
 
-            {let sumPhosphorus = 0;
-              nutrition.map((nutrients) => sumPhosphorus += nutrients.phosphorus);
-              setPhosphorus(sumPhosphorus.toFixed(2))}
+            // {let sumPhosphorus = 0;
+            //   nutrition.map((nutrients) => sumPhosphorus += nutrients.phosphorus);
+            //   setPhosphorus(sumPhosphorus.toFixed(2))}
 
-            {let sumPotassium = 0;
-              nutrition.map((nutrients) => sumPotassium += nutrients.potassium);
-              setPotassium(sumPotassium.toFixed(2))}
+            // {let sumPotassium = 0;
+            //   nutrition.map((nutrients) => sumPotassium += nutrients.potassium);
+            //   setPotassium(sumPotassium.toFixed(2))}
 
-            {let sumSodium = 0;
-              nutrition.map((nutrients) => sumSodium += nutrients.sodium);
-              setSodium(sumSodium.toFixed(2))}
+            // {let sumSodium = 0;
+            //   nutrition.map((nutrients) => sumSodium += nutrients.sodium);
+            //   setSodium(sumSodium.toFixed(2))}
 
-            {let sumZinc = 0;
-              nutrition.map((nutrients) => sumZinc += nutrients.zinc);
-              setZinc(sumZinc.toFixed(2))}
+            // {let sumZinc = 0;
+            //   nutrition.map((nutrients) => sumZinc += nutrients.zinc);
+            //   setZinc(sumZinc.toFixed(2))}
 
-            {let sumCopper = 0;
-              nutrition.map((nutrients) => sumCopper += nutrients.copper);
-              setCopper(sumCopper.toFixed(2))}
+            // {let sumCopper = 0;
+            //   nutrition.map((nutrients) => sumCopper += nutrients.copper);
+            //   setCopper(sumCopper.toFixed(2))}
 
-            {let sumSelenium = 0;
-              nutrition.map((nutrients) => sumSelenium += nutrients.selenium);
-              setSelenium(sumSelenium.toFixed(2))}
+            // {let sumSelenium = 0;
+            //   nutrition.map((nutrients) => sumSelenium += nutrients.selenium);
+            //   setSelenium(sumSelenium.toFixed(2))}
 
-            {let sumVitaminA = 0;
-              nutrition.map((nutrients) => sumVitaminA += nutrients.vitaminA);
-              setVitaminA(sumVitaminA.toFixed(2))}
+            // {let sumVitaminA = 0;
+            //   nutrition.map((nutrients) => sumVitaminA += nutrients.vitaminA);
+            //   setVitaminA(sumVitaminA.toFixed(2))}
 
-            {let sumVitaminE = 0;
-              nutrition.map((nutrients) => sumVitaminE += nutrients.vitaminE);
-              setVitaminE(sumVitaminE.toFixed(2))}
+            // {let sumVitaminE = 0;
+            //   nutrition.map((nutrients) => sumVitaminE += nutrients.vitaminE);
+            //   setVitaminE(sumVitaminE.toFixed(2))}
 
-            {let sumVitaminD = 0;
-              nutrition.map((nutrients) => sumVitaminD += nutrients.vitaminD);
-              setVitaminD(sumVitaminD.toFixed(2))}
+            // {let sumVitaminD = 0;
+            //   nutrition.map((nutrients) => sumVitaminD += nutrients.vitaminD);
+            //   setVitaminD(sumVitaminD.toFixed(2))}
 
-            {let sumVitaminC = 0;
-              nutrition.map((nutrients) => sumVitaminC += nutrients.vitaminC);
-              setVitaminC(sumVitaminC.toFixed(2))}
+            // {let sumVitaminC = 0;
+            //   nutrition.map((nutrients) => sumVitaminC += nutrients.vitaminC);
+            //   setVitaminC(sumVitaminC.toFixed(2))}
 
-            {let sumThiamin = 0;
-              nutrition.map((nutrients) => sumThiamin += nutrients.thiamin);
-              setThiamin(sumThiamin.toFixed(2))}
+            // {let sumThiamin = 0;
+            //   nutrition.map((nutrients) => sumThiamin += nutrients.thiamin);
+            //   setThiamin(sumThiamin.toFixed(2))}
 
-            {let sumRiboflavin = 0;
-              nutrition.map((nutrients) => sumRiboflavin += nutrients.riboflavin);
-              setRiboflavin(sumRiboflavin.toFixed(2))}
+            // {let sumRiboflavin = 0;
+            //   nutrition.map((nutrients) => sumRiboflavin += nutrients.riboflavin);
+            //   setRiboflavin(sumRiboflavin.toFixed(2))}
 
-            {let sumNiacin = 0;
-              nutrition.map((nutrients) => sumNiacin += nutrients.niacin);
-              setNiacin(sumNiacin.toFixed(2))}
+            // {let sumNiacin = 0;
+            //   nutrition.map((nutrients) => sumNiacin += nutrients.niacin);
+            //   setNiacin(sumNiacin.toFixed(2))}
 
-            {let sumVitaminB6 = 0;
-              nutrition.map((nutrients) => sumVitaminB6 += nutrients.vitaminB6);
-              setVitaminB6(sumVitaminB6.toFixed(2))}
+            // {let sumVitaminB6 = 0;
+            //   nutrition.map((nutrients) => sumVitaminB6 += nutrients.vitaminB6);
+            //   setVitaminB6(sumVitaminB6.toFixed(2))}
 
-            {let sumVitaminB12 = 0;
-              nutrition.map((nutrients) => sumVitaminB12 += nutrients.vitaminB12);
-              setVitaminB12(sumVitaminB12.toFixed(2))}
+            // {let sumVitaminB12 = 0;
+            //   nutrition.map((nutrients) => sumVitaminB12 += nutrients.vitaminB12);
+            //   setVitaminB12(sumVitaminB12.toFixed(2))}
 
-            {let sumCholine = 0;
-              nutrition.map((nutrients) => sumCholine += nutrients.choline);
-              setCholine(sumCholine.toFixed(2))}
+            // {let sumCholine = 0;
+            //   nutrition.map((nutrients) => sumCholine += nutrients.choline);
+            //   setCholine(sumCholine.toFixed(2))}
 
-            {let sumVitaminK = 0;
-              nutrition.map((nutrients) => sumVitaminK += nutrients.vitaminK);
-              setVitaminK(sumVitaminK.toFixed(2))}
+            // {let sumVitaminK = 0;
+            //   nutrition.map((nutrients) => sumVitaminK += nutrients.vitaminK);
+            //   setVitaminK(sumVitaminK.toFixed(2))}
 
-            {let sumFolate = 0;
-              nutrition.map((nutrients) => sumFolate += nutrients.folate);
-              setFolate(sumFolate.toFixed(2))}
-              
-          })
-          .catch(err => console.log(err));
-        })
-        .catch((err) => {
-          console.log(err)
-          navigate('/');
-        }); 
-    }, []);
+            // {let sumFolate = 0;
+            //   nutrition.map((nutrients) => sumFolate += nutrients.folate);
+            //   setFolate(sumFolate.toFixed(2))}
+  
+  }, [nutrition]);
+
 
     const dailyChange = () => {
       setDailyValue(true);

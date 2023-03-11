@@ -60,7 +60,7 @@ const ViewFood = ({setLoggedIn}) => {
 
                 <div key={index} >
                 <Card className='page-bottom' border="light" style={{ width: '18rem' }}>
-                    <Card.Header>{foods.foodTitle}</Card.Header>
+                    <Card.Header className='nutrientName'>{foods.foodTitle}</Card.Header>
                         <Card.Body>
                             <Card.Text className='mb-2'>Added on: {dateParse(foods.createdAt)}</Card.Text>
                             <Card.Text className='mb-2'>Portion: {foods.portionSize} g</Card.Text>
