@@ -10,10 +10,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { motion } from 'framer-motion';
 
-import ToggleButton from 'react-bootstrap/ToggleButton';
-
-
-
 const GoalDashboard = ({setLoggedIn}) => {
   const [checked, setChecked] = useState(false);
   const [radioValue, setRadioValue] = useState('1');
@@ -89,11 +85,6 @@ const GoalDashboard = ({setLoggedIn}) => {
     const [age, setAge] = useState(0);
     const [gender, setGender] = useState('');
 
-    const radios = [
-      { name: 'Daily', value: '1' },
-      { name: 'Weekly', value: '2' },
-      { name: 'Monthly', value: '3' },
-    ];
 
     const dateParse = (date) => {
       let dateObj = new Date(date);
@@ -579,13 +570,11 @@ const GoalDashboard = ({setLoggedIn}) => {
 
                     sumFolate += nutrients.folate
                     setFolate(sumFolate.toFixed(2))
-
-                  
-                  
                   
                   }
                     else {
                       console.log('wrong date')
+                      console.log(dateParse(nutrients.createdAt))
                     }
 
                 })
