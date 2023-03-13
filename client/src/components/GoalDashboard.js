@@ -575,6 +575,7 @@ const GoalDashboard = ({setLoggedIn}) => {
                     else {
                       console.log('wrong date')
                       console.log(dateParse(nutrients.createdAt))
+                      console.log(new Date().toLocaleString())
                     }
 
                 })
