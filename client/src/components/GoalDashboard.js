@@ -690,7 +690,116 @@ const GoalDashboard = ({setLoggedIn}) => {
       setDailyValue(true);
       setWeeklyValue(false);
       setMonthlyValue(false);
-      console.log(new Date())
+      let sumCalories = 0;
+      let sumProtein = 0;
+      let sumTotalFat = 0;
+      let sumTotalCarbohydrates = 0;
+      let sumFiber = 0;
+      let sumCalcium = 0;
+      let sumIron = 0;
+      let sumMagnesium = 0;
+      let sumPhosphorus = 0;
+      let sumPotassium = 0;
+      let sumSodium = 0;
+      let sumZinc = 0;
+      let sumCopper = 0;
+      let sumSelenium = 0;
+      let sumVitaminA = 0;
+      let sumVitaminE = 0;
+      let sumVitaminD = 0;
+      let sumVitaminC = 0;
+      let sumThiamin = 0;
+      let sumRiboflavin = 0;
+      let sumNiacin = 0;
+      let sumVitaminB6 = 0;
+      let sumVitaminB12 = 0;
+      let sumCholine = 0;
+      let sumVitaminK = 0;
+      let sumFolate = 0;
+      nutrition.map((nutrients) => {
+        if (dateParse(nutrients.createdAt) === dateParse(new Date())){
+          
+          sumCalories += nutrients.calories
+          setCalories(sumCalories.toFixed(2))
+
+          sumProtein += nutrients.protein
+          setProtein(sumProtein.toFixed(2))
+
+          sumTotalFat += nutrients.totalFat
+          setTotalFat(sumTotalFat.toFixed(2))
+
+          sumTotalCarbohydrates += nutrients.carbohydrates
+          setCarbohydrates(sumTotalCarbohydrates.toFixed(2))
+
+          sumFiber += nutrients.dietaryFiber
+          setDietaryFiber(sumFiber.toFixed(2))
+
+          sumCalcium += nutrients.calcium
+          setCalcium(sumCalcium.toFixed(2))
+
+          sumIron += nutrients.iron
+          setIron(sumIron.toFixed(2))
+
+          sumMagnesium += nutrients.magnesium
+          setMagnesium(sumMagnesium.toFixed(2))
+
+          sumPhosphorus += nutrients.phosphorus
+          setPhosphorus(sumPhosphorus.toFixed(2))
+
+          sumPotassium += nutrients.potassium
+          setPotassium(sumPotassium.toFixed(2))
+
+          sumSodium += nutrients.sodium
+          setSodium(sumSodium.toFixed(2))
+
+          sumZinc += nutrients.zinc
+          setZinc(sumZinc.toFixed(2))
+
+          sumCopper += nutrients.copper
+          setCopper(sumCopper.toFixed(2))
+
+          sumSelenium += nutrients.selenium
+          setSelenium(sumSelenium.toFixed(2))
+
+          sumVitaminA += nutrients.vitaminA
+          setVitaminA(sumVitaminA.toFixed(2))
+          
+          sumVitaminE += nutrients.vitaminE
+          setVitaminE(sumVitaminE.toFixed(2))
+
+          sumVitaminD += nutrients.vitaminD
+          setVitaminD(sumVitaminD.toFixed(2))
+
+          sumVitaminC += nutrients.vitaminC
+          setVitaminC(sumVitaminC.toFixed(2))
+
+          sumThiamin += nutrients.thiamin
+          setThiamin(sumThiamin.toFixed(2))
+
+          sumRiboflavin += nutrients.riboflavin
+          setRiboflavin(sumRiboflavin.toFixed(2))
+
+          sumNiacin += nutrients.niacin
+          setNiacin(sumNiacin.toFixed(2))
+
+          sumVitaminB6 += nutrients.vitaminB6
+          setVitaminB6(sumVitaminB6.toFixed(2))
+
+          sumVitaminB12 += nutrients.vitaminB12
+          setVitaminB12(sumVitaminB12.toFixed(2))
+
+          sumCholine += nutrients.choline
+          setCholine(sumCholine.toFixed(2))
+
+          sumVitaminK += nutrients.vitaminK
+          setVitaminK(sumVitaminK.toFixed(2))
+
+          sumFolate += nutrients.folate
+          setFolate(sumFolate.toFixed(2))
+        
+        }
+
+      })
       
     }
     const weeklyChange = () => {
@@ -726,7 +835,6 @@ const GoalDashboard = ({setLoggedIn}) => {
       current.setDate(current.getDate() - 7)
       nutrition.map((nutrients) => {
         if (dateParse(nutrients.createdAt) >= dateParse(current.toDateString())){
-          console.log(dateParse(nutrients.createdAt))
           
           sumCalories += nutrients.calories
           setCalories(sumCalories.toFixed(2))
@@ -815,6 +923,118 @@ const GoalDashboard = ({setLoggedIn}) => {
       setDailyValue(false);
       setWeeklyValue(false);
       setMonthlyValue(true);
+
+      let sumCalories = 0;
+      let sumProtein = 0;
+      let sumTotalFat = 0;
+      let sumTotalCarbohydrates = 0;
+      let sumFiber = 0;
+      let sumCalcium = 0;
+      let sumIron = 0;
+      let sumMagnesium = 0;
+      let sumPhosphorus = 0;
+      let sumPotassium = 0;
+      let sumSodium = 0;
+      let sumZinc = 0;
+      let sumCopper = 0;
+      let sumSelenium = 0;
+      let sumVitaminA = 0;
+      let sumVitaminE = 0;
+      let sumVitaminD = 0;
+      let sumVitaminC = 0;
+      let sumThiamin = 0;
+      let sumRiboflavin = 0;
+      let sumNiacin = 0;
+      let sumVitaminB6 = 0;
+      let sumVitaminB12 = 0;
+      let sumCholine = 0;
+      let sumVitaminK = 0;
+      let sumFolate = 0;
+      current.setDate(current.getDate() - 60)
+      nutrition.map((nutrients) => {
+        if (dateParse(nutrients.createdAt) >= dateParse(current.toDateString())){
+          
+          sumCalories += nutrients.calories
+          setCalories(sumCalories.toFixed(2))
+
+          sumProtein += nutrients.protein
+          setProtein(sumProtein.toFixed(2))
+
+          sumTotalFat += nutrients.totalFat
+          setTotalFat(sumTotalFat.toFixed(2))
+
+          sumTotalCarbohydrates += nutrients.carbohydrates
+          setCarbohydrates(sumTotalCarbohydrates.toFixed(2))
+
+          sumFiber += nutrients.dietaryFiber
+          setDietaryFiber(sumFiber.toFixed(2))
+
+          sumCalcium += nutrients.calcium
+          setCalcium(sumCalcium.toFixed(2))
+
+          sumIron += nutrients.iron
+          setIron(sumIron.toFixed(2))
+
+          sumMagnesium += nutrients.magnesium
+          setMagnesium(sumMagnesium.toFixed(2))
+
+          sumPhosphorus += nutrients.phosphorus
+          setPhosphorus(sumPhosphorus.toFixed(2))
+
+          sumPotassium += nutrients.potassium
+          setPotassium(sumPotassium.toFixed(2))
+
+          sumSodium += nutrients.sodium
+          setSodium(sumSodium.toFixed(2))
+
+          sumZinc += nutrients.zinc
+          setZinc(sumZinc.toFixed(2))
+
+          sumCopper += nutrients.copper
+          setCopper(sumCopper.toFixed(2))
+
+          sumSelenium += nutrients.selenium
+          setSelenium(sumSelenium.toFixed(2))
+
+          sumVitaminA += nutrients.vitaminA
+          setVitaminA(sumVitaminA.toFixed(2))
+          
+          sumVitaminE += nutrients.vitaminE
+          setVitaminE(sumVitaminE.toFixed(2))
+
+          sumVitaminD += nutrients.vitaminD
+          setVitaminD(sumVitaminD.toFixed(2))
+
+          sumVitaminC += nutrients.vitaminC
+          setVitaminC(sumVitaminC.toFixed(2))
+
+          sumThiamin += nutrients.thiamin
+          setThiamin(sumThiamin.toFixed(2))
+
+          sumRiboflavin += nutrients.riboflavin
+          setRiboflavin(sumRiboflavin.toFixed(2))
+
+          sumNiacin += nutrients.niacin
+          setNiacin(sumNiacin.toFixed(2))
+
+          sumVitaminB6 += nutrients.vitaminB6
+          setVitaminB6(sumVitaminB6.toFixed(2))
+
+          sumVitaminB12 += nutrients.vitaminB12
+          setVitaminB12(sumVitaminB12.toFixed(2))
+
+          sumCholine += nutrients.choline
+          setCholine(sumCholine.toFixed(2))
+
+          sumVitaminK += nutrients.vitaminK
+          setVitaminK(sumVitaminK.toFixed(2))
+
+          sumFolate += nutrients.folate
+          setFolate(sumFolate.toFixed(2))
+        
+        }
+
+      })
       
 
     }
