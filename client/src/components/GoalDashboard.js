@@ -16,9 +16,9 @@ const GoalDashboard = ({setLoggedIn}) => {
   const [dailyValue, setDailyValue] = useState(false);
   const [weeklyValue, setWeeklyValue] = useState(false);
   const [monthlyValue, setMonthlyValue] = useState(false);
-  const [dailyView, setDailyView] = useState([]);
-  const [weeklyView, setWeeklyView] = useState([]);
-  const [monthlyView, setMonthlyView] = useState([]);
+  const [checkValue, setCheckValue] = useState(0);
+  const [weeklyView, setWeeklyView] = useState(2);
+  const [monthlyView, setMonthlyView] = useState(3);
 
     const navigate = useNavigate();
     const [btnLink, setBtnLink] = useState([]);
@@ -106,6 +106,7 @@ const GoalDashboard = ({setLoggedIn}) => {
           setUser(res.data.firstName);
           setLoggedIn(true);
           setDailyValue(true);
+          setCheckValue(1);
 
           axios.get(`http://localhost:8000/api/nutrition/user/${res.data._id}`, { withCredentials: true})
           .then(res => {
@@ -690,6 +691,94 @@ const GoalDashboard = ({setLoggedIn}) => {
       setDailyValue(true);
       setWeeklyValue(false);
       setMonthlyValue(false);
+
+      if (dailyValue === false && weeklyValue === true && checkValue === 1) {
+        setCaloriesLimit(caloriesLimit/7)
+        setProteinLimit(proteinLimit / 7)
+        setTotalFatLimit(totalFatLimit / 7)
+        setCarbohydratesLimit(carbohydratesLimit / 7)
+        setDietaryFiberLimit(dietaryFiberLimit / 7)
+        setCalciumLimit(calciumLimit / 7)
+        setIronLimit(ironLimit / 7)
+        setMagnesiumLimit(magnesiumLimit / 7)
+        setPhosphorusLimit(phosphorusLimit / 7)
+        setPotassiumLimit(potassiumLimit / 7)
+        setSodiumLimit(sodiumLimit / 7)
+        setZincLimit(zincLimit / 7)
+        setCopperLimit(copperLimit / 7)
+        setSeleniumLimit(seleniumLimit / 7)
+        setVitaminALimit(vitaminALimit / 7)
+        setVitaminELimit(vitaminELimit / 7)
+        setVitaminDLimit(vitaminDLimit / 7)
+        setVitaminCLimit(vitaminCLimit / 7)
+        setThiaminLimit(thiaminLimit / 7)
+        setRiboflavinLimit(riboflavinLimit / 7)
+        setNiacinLimit(niacinLimit / 7)
+        setVitaminB6Limit(vitaminB6Limit / 7)
+        setVitaminB12Limit(vitaminB12Limit / 7)
+        setCholineLimit(cholineLimit / 7)
+        setVitaminKLimit(vitaminKLimit / 7)
+        setFolateLimit(folateLimit / 7)
+      }
+
+      else if (monthlyValue === true) {
+        setCaloriesLimit(caloriesLimit / 30)
+        setProteinLimit(proteinLimit / 30)
+        setTotalFatLimit(totalFatLimit / 30)
+        setCarbohydratesLimit(carbohydratesLimit / 30)
+        setDietaryFiberLimit(dietaryFiberLimit / 30)
+        setCalciumLimit(calciumLimit / 30)
+        setIronLimit(ironLimit / 30)
+        setMagnesiumLimit(magnesiumLimit / 30)
+        setPhosphorusLimit(phosphorusLimit / 30)
+        setPotassiumLimit(potassiumLimit / 30)
+        setSodiumLimit(sodiumLimit / 30)
+        setZincLimit(zincLimit / 30)
+        setCopperLimit(copperLimit / 30)
+        setSeleniumLimit(seleniumLimit / 30)
+        setVitaminALimit(vitaminALimit / 30)
+        setVitaminELimit(vitaminELimit / 30)
+        setVitaminDLimit(vitaminDLimit / 30)
+        setVitaminCLimit(vitaminCLimit / 30)
+        setThiaminLimit(thiaminLimit / 30)
+        setRiboflavinLimit(riboflavinLimit / 30)
+        setNiacinLimit(niacinLimit / 30)
+        setVitaminB6Limit(vitaminB6Limit / 30)
+        setVitaminB12Limit(vitaminB12Limit / 30)
+        setCholineLimit(cholineLimit / 30)
+        setVitaminKLimit(vitaminKLimit / 30)
+        setFolateLimit(folateLimit / 30)
+      }
+
+      else if (weeklyValue === true) {
+        setCaloriesLimit(caloriesLimit / 7)
+        setProteinLimit(proteinLimit / 7)
+        setTotalFatLimit(totalFatLimit / 7)
+        setCarbohydratesLimit(carbohydratesLimit / 7)
+        setDietaryFiberLimit(dietaryFiberLimit / 7)
+        setCalciumLimit(calciumLimit / 7)
+        setIronLimit(ironLimit / 7)
+        setMagnesiumLimit(magnesiumLimit / 7)
+        setPhosphorusLimit(phosphorusLimit / 7)
+        setPotassiumLimit(potassiumLimit / 7)
+        setSodiumLimit(sodiumLimit / 7)
+        setZincLimit(zincLimit / 7)
+        setCopperLimit(copperLimit / 7)
+        setSeleniumLimit(seleniumLimit / 7)
+        setVitaminALimit(vitaminALimit / 7)
+        setVitaminELimit(vitaminELimit / 7)
+        setVitaminDLimit(vitaminDLimit / 7)
+        setVitaminCLimit(vitaminCLimit / 7)
+        setThiaminLimit(thiaminLimit / 7)
+        setRiboflavinLimit(riboflavinLimit / 7)
+        setNiacinLimit(niacinLimit / 7)
+        setVitaminB6Limit(vitaminB6Limit / 7)
+        setVitaminB12Limit(vitaminB12Limit / 7)
+        setCholineLimit(cholineLimit / 7)
+        setVitaminKLimit(vitaminKLimit / 7)
+        setFolateLimit(folateLimit / 7)
+      }
+
       let sumCalories = 0;
       let sumProtein = 0;
       let sumTotalFat = 0;
@@ -834,13 +923,121 @@ const GoalDashboard = ({setLoggedIn}) => {
       setDailyValue(false);
       setWeeklyValue(true);
       setMonthlyValue(false);
-      // if (weeklyValue === false) {
-      //   setCaloriesLimit(caloriesLimit * 2)
-      // }
+      setCheckValue(1);
+      if (dailyValue === true && weeklyValue === false && checkValue === 1) {
+        setCaloriesLimit(caloriesLimit * 7)
+        setProteinLimit(proteinLimit * 7)
+        setTotalFatLimit(totalFatLimit * 7)
+        setCarbohydratesLimit(carbohydratesLimit * 7)
+        setDietaryFiberLimit(dietaryFiberLimit * 7)
+        setCalciumLimit(calciumLimit * 7)
+        setIronLimit(ironLimit * 7)
+        setMagnesiumLimit(magnesiumLimit * 7)
+        setPhosphorusLimit(phosphorusLimit * 7)
+        setPotassiumLimit(potassiumLimit * 7)
+        setSodiumLimit(sodiumLimit * 7)
+        setZincLimit(zincLimit * 7)
+        setCopperLimit(copperLimit * 7)
+        setSeleniumLimit(seleniumLimit * 7)
+        setVitaminALimit(vitaminALimit * 7)
+        setVitaminELimit(vitaminELimit * 7)
+        setVitaminDLimit(vitaminDLimit * 7)
+        setVitaminCLimit(vitaminCLimit * 7)
+        setThiaminLimit(thiaminLimit * 7)
+        setRiboflavinLimit(riboflavinLimit * 7)
+        setNiacinLimit(niacinLimit * 7)
+        setVitaminB6Limit(vitaminB6Limit * 7)
+        setVitaminB12Limit(vitaminB12Limit * 7)
+        setCholineLimit(cholineLimit * 7)
+        setVitaminKLimit(vitaminKLimit * 7)
+        setFolateLimit(folateLimit * 7)
+      }
 
-      // else {
-      //   setCaloriesLimit(caloriesLimit)
-      // }
+      else if (monthlyValue === false) {
+        setCaloriesLimit(caloriesLimit)
+        setProteinLimit(proteinLimit )
+        setTotalFatLimit(totalFatLimit )
+        setCarbohydratesLimit(carbohydratesLimit )
+        setDietaryFiberLimit(dietaryFiberLimit )
+        setCalciumLimit(calciumLimit )
+        setIronLimit(ironLimit )
+        setMagnesiumLimit(magnesiumLimit )
+        setPhosphorusLimit(phosphorusLimit )
+        setPotassiumLimit(potassiumLimit )
+        setSodiumLimit(sodiumLimit )
+        setZincLimit(zincLimit )
+        setCopperLimit(copperLimit )
+        setSeleniumLimit(seleniumLimit )
+        setVitaminALimit(vitaminALimit )
+        setVitaminELimit(vitaminELimit )
+        setVitaminDLimit(vitaminDLimit )
+        setVitaminCLimit(vitaminCLimit )
+        setThiaminLimit(thiaminLimit )
+        setRiboflavinLimit(riboflavinLimit )
+        setNiacinLimit(niacinLimit )
+        setVitaminB6Limit(vitaminB6Limit )
+        setVitaminB12Limit(vitaminB12Limit )
+        setCholineLimit(cholineLimit )
+        setVitaminKLimit(vitaminKLimit )
+        setFolateLimit(folateLimit )
+      }
+      else if (monthlyValue === true) {
+        setCaloriesLimit((caloriesLimit / 30) * 7)
+        setProteinLimit((proteinLimit/30) * 7)
+        setTotalFatLimit((totalFatLimit/30) * 7)
+        setCarbohydratesLimit((carbohydratesLimit/30) * 7)
+        setDietaryFiberLimit((dietaryFiberLimit/30) * 7)
+        setCalciumLimit((calciumLimit/30) * 7)
+        setIronLimit((ironLimit/30) * 7)
+        setMagnesiumLimit((magnesiumLimit/30) * 7)
+        setPhosphorusLimit((phosphorusLimit/30) * 7)
+        setPotassiumLimit((potassiumLimit/30) * 7)
+        setSodiumLimit((sodiumLimit/30) * 7)
+        setZincLimit((zincLimit/30) * 7)
+        setCopperLimit((copperLimit/30) * 7)
+        setSeleniumLimit((seleniumLimit/30) * 7)
+        setVitaminALimit((vitaminALimit/30) * 7)
+        setVitaminELimit((vitaminELimit/30) * 7)
+        setVitaminDLimit((vitaminDLimit/30) * 7)
+        setVitaminCLimit((vitaminCLimit/30) * 7)
+        setThiaminLimit((thiaminLimit/30) * 7)
+        setRiboflavinLimit((riboflavinLimit/30) * 7)
+        setNiacinLimit((niacinLimit/30) * 7)
+        setVitaminB6Limit((vitaminB6Limit/30) * 7)
+        setVitaminB12Limit((vitaminB12Limit/30) * 7)
+        setCholineLimit((cholineLimit/30) * 7)
+        setVitaminKLimit((vitaminKLimit/30) * 7)
+        setFolateLimit((folateLimit/30) * 7)
+      }
+
+      else if (weeklyValue === true) {
+        setCaloriesLimit(caloriesLimit)
+        setProteinLimit(proteinLimit)
+        setTotalFatLimit(totalFatLimit)
+        setCarbohydratesLimit(carbohydratesLimit)
+        setDietaryFiberLimit(dietaryFiberLimit)
+        setCalciumLimit(calciumLimit)
+        setIronLimit(ironLimit)
+        setMagnesiumLimit(magnesiumLimit)
+        setPhosphorusLimit(phosphorusLimit)
+        setPotassiumLimit(potassiumLimit)
+        setSodiumLimit(sodiumLimit)
+        setZincLimit(zincLimit)
+        setCopperLimit(copperLimit)
+        setSeleniumLimit(seleniumLimit)
+        setVitaminALimit(vitaminALimit)
+        setVitaminELimit(vitaminELimit)
+        setVitaminDLimit(vitaminDLimit)
+        setVitaminCLimit(vitaminCLimit)
+        setThiaminLimit(thiaminLimit)
+        setRiboflavinLimit(riboflavinLimit)
+        setNiacinLimit(niacinLimit)
+        setVitaminB6Limit(vitaminB6Limit)
+        setVitaminB12Limit(vitaminB12Limit)
+        setCholineLimit(cholineLimit)
+        setVitaminKLimit(vitaminKLimit)
+        setFolateLimit(folateLimit)
+      }
     
       
       let sumCalories = 0;
@@ -961,6 +1158,93 @@ const GoalDashboard = ({setLoggedIn}) => {
       setDailyValue(false);
       setWeeklyValue(false);
       setMonthlyValue(true);
+
+      if (dailyValue === true && monthlyValue === false && checkValue === 1) {
+        setCaloriesLimit(caloriesLimit * 30)
+        setProteinLimit(proteinLimit * 30)
+        setTotalFatLimit(totalFatLimit * 30)
+        setCarbohydratesLimit(carbohydratesLimit * 30)
+        setDietaryFiberLimit(dietaryFiberLimit * 30)
+        setCalciumLimit(calciumLimit * 30)
+        setIronLimit(ironLimit * 30)
+        setMagnesiumLimit(magnesiumLimit * 30)
+        setPhosphorusLimit(phosphorusLimit * 30)
+        setPotassiumLimit(potassiumLimit * 30)
+        setSodiumLimit(sodiumLimit * 30)
+        setZincLimit(zincLimit * 30)
+        setCopperLimit(copperLimit * 30)
+        setSeleniumLimit(seleniumLimit * 30)
+        setVitaminALimit(vitaminALimit * 30)
+        setVitaminELimit(vitaminELimit * 30)
+        setVitaminDLimit(vitaminDLimit * 30)
+        setVitaminCLimit(vitaminCLimit * 30)
+        setThiaminLimit(thiaminLimit * 30)
+        setRiboflavinLimit(riboflavinLimit * 30)
+        setNiacinLimit(niacinLimit * 30)
+        setVitaminB6Limit(vitaminB6Limit * 30)
+        setVitaminB12Limit(vitaminB12Limit * 30)
+        setCholineLimit(cholineLimit * 30)
+        setVitaminKLimit(vitaminKLimit * 30)
+        setFolateLimit(folateLimit * 30)
+      }
+
+      else if (monthlyValue === true) {
+        setCaloriesLimit(caloriesLimit)
+        setProteinLimit(proteinLimit)
+        setTotalFatLimit(totalFatLimit)
+        setCarbohydratesLimit(carbohydratesLimit)
+        setDietaryFiberLimit(dietaryFiberLimit)
+        setCalciumLimit(calciumLimit)
+        setIronLimit(ironLimit)
+        setMagnesiumLimit(magnesiumLimit)
+        setPhosphorusLimit(phosphorusLimit)
+        setPotassiumLimit(potassiumLimit)
+        setSodiumLimit(sodiumLimit)
+        setZincLimit(zincLimit)
+        setCopperLimit(copperLimit)
+        setSeleniumLimit(seleniumLimit)
+        setVitaminALimit(vitaminALimit)
+        setVitaminELimit(vitaminELimit)
+        setVitaminDLimit(vitaminDLimit)
+        setVitaminCLimit(vitaminCLimit)
+        setThiaminLimit(thiaminLimit)
+        setRiboflavinLimit(riboflavinLimit)
+        setNiacinLimit(niacinLimit)
+        setVitaminB6Limit(vitaminB6Limit)
+        setVitaminB12Limit(vitaminB12Limit)
+        setCholineLimit(cholineLimit)
+        setVitaminKLimit(vitaminKLimit)
+        setFolateLimit(folateLimit)
+      }
+
+      else if (weeklyValue === true && monthlyValue === false) {
+        setCaloriesLimit((caloriesLimit / 7) * 30)
+        setProteinLimit((proteinLimit / 7) * 30)
+        setTotalFatLimit((totalFatLimit / 7) * 30)
+        setCarbohydratesLimit((carbohydratesLimit / 7) * 30)
+        setDietaryFiberLimit((dietaryFiberLimit / 7) * 30)
+        setCalciumLimit((calciumLimit / 7) * 30)
+        setIronLimit((ironLimit / 7) * 30)
+        setMagnesiumLimit((magnesiumLimit / 7) * 30)
+        setPhosphorusLimit((phosphorusLimit / 7) * 30)
+        setPotassiumLimit((potassiumLimit / 7) * 30)
+        setSodiumLimit((sodiumLimit / 7) * 30)
+        setZincLimit((zincLimit / 7) * 30)
+        setCopperLimit((copperLimit / 7) * 30)
+        setSeleniumLimit((seleniumLimit / 7) * 30)
+        setVitaminALimit((vitaminALimit / 7) * 30)
+        setVitaminELimit((vitaminELimit / 7) * 30)
+        setVitaminDLimit((vitaminDLimit / 7) * 30)
+        setVitaminCLimit((vitaminCLimit / 7) * 30)
+        setThiaminLimit((thiaminLimit / 7) * 30)
+        setRiboflavinLimit((riboflavinLimit / 7) * 30)
+        setNiacinLimit((niacinLimit / 7) * 30)
+        setVitaminB6Limit((vitaminB6Limit / 7) * 30)
+        setVitaminB12Limit((vitaminB12Limit / 7) * 30)
+        setCholineLimit((cholineLimit / 7) * 30)
+        setVitaminKLimit((vitaminKLimit / 7) * 30)
+        setFolateLimit((folateLimit / 7) * 30)
+      }
 
       let sumCalories = 0;
       let sumProtein = 0;
