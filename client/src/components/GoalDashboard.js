@@ -798,6 +798,34 @@ const GoalDashboard = ({setLoggedIn}) => {
           setFolate(sumFolate.toFixed(2))
         
         }
+        else {
+          setCalories(0);
+          setProtein(0);
+          setTotalFat(0);
+          setCarbohydrates(0);
+          setDietaryFiber(0);
+          setCalcium(0);
+          setIron(0);
+          setMagnesium(0);
+          setPhosphorus(0);
+          setPotassium(0);
+          setSodium(0);
+          setZinc(0);
+          setCopper(0);
+          setSelenium(0);
+          setVitaminA(0);
+          setVitaminE(0);
+          setVitaminD(0);
+          setVitaminC(0);
+          setThiamin(0);
+          setRiboflavin(0);
+          setNiacin(0);
+          setVitaminB6(0);
+          setVitaminB12(0);
+          setCholine(0);
+          setVitaminK(0);
+          setFolate(0);
+        }
 
       })
       
