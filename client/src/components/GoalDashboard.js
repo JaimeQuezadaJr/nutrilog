@@ -11,14 +11,9 @@ import Col from 'react-bootstrap/Col';
 import { motion } from 'framer-motion';
 
 const GoalDashboard = ({setLoggedIn}) => {
-  const [checked, setChecked] = useState(false);
-  const [radioValue, setRadioValue] = useState('1');
   const [dailyValue, setDailyValue] = useState(false);
   const [weeklyValue, setWeeklyValue] = useState(false);
   const [monthlyValue, setMonthlyValue] = useState(false);
-  const [checkValue, setCheckValue] = useState(0);
-  const [weeklyView, setWeeklyView] = useState(2);
-  const [monthlyView, setMonthlyView] = useState(3);
 
     const navigate = useNavigate();
     const [btnLink, setBtnLink] = useState([]);
@@ -106,7 +101,6 @@ const GoalDashboard = ({setLoggedIn}) => {
           setUser(res.data.firstName);
           setLoggedIn(true);
           setDailyValue(true);
-          setCheckValue(1);
 
           axios.get(`http://localhost:8000/api/nutrition/user/${res.data._id}`, { withCredentials: true})
           .then(res => {
@@ -586,7 +580,7 @@ const GoalDashboard = ({setLoggedIn}) => {
       setWeeklyValue(false);
       setMonthlyValue(false);
 
-      if (dailyValue === false && weeklyValue === true && checkValue === 1) {
+      if (dailyValue === false && weeklyValue === true) {
         setCaloriesLimit(caloriesLimit/7)
         setProteinLimit(proteinLimit / 7)
         setTotalFatLimit(totalFatLimit / 7)
@@ -817,8 +811,7 @@ const GoalDashboard = ({setLoggedIn}) => {
       setDailyValue(false);
       setWeeklyValue(true);
       setMonthlyValue(false);
-      setCheckValue(1);
-      if (dailyValue === true && weeklyValue === false && checkValue === 1) {
+      if (dailyValue === true && weeklyValue === false) {
         setCaloriesLimit(caloriesLimit * 7)
         setProteinLimit(proteinLimit * 7)
         setTotalFatLimit(totalFatLimit * 7)
@@ -847,34 +840,6 @@ const GoalDashboard = ({setLoggedIn}) => {
         setFolateLimit(folateLimit * 7)
       }
 
-      else if (monthlyValue === false) {
-        setCaloriesLimit(caloriesLimit)
-        setProteinLimit(proteinLimit )
-        setTotalFatLimit(totalFatLimit )
-        setCarbohydratesLimit(carbohydratesLimit )
-        setDietaryFiberLimit(dietaryFiberLimit )
-        setCalciumLimit(calciumLimit )
-        setIronLimit(ironLimit )
-        setMagnesiumLimit(magnesiumLimit )
-        setPhosphorusLimit(phosphorusLimit )
-        setPotassiumLimit(potassiumLimit )
-        setSodiumLimit(sodiumLimit )
-        setZincLimit(zincLimit )
-        setCopperLimit(copperLimit )
-        setSeleniumLimit(seleniumLimit )
-        setVitaminALimit(vitaminALimit )
-        setVitaminELimit(vitaminELimit )
-        setVitaminDLimit(vitaminDLimit )
-        setVitaminCLimit(vitaminCLimit )
-        setThiaminLimit(thiaminLimit )
-        setRiboflavinLimit(riboflavinLimit )
-        setNiacinLimit(niacinLimit )
-        setVitaminB6Limit(vitaminB6Limit )
-        setVitaminB12Limit(vitaminB12Limit )
-        setCholineLimit(cholineLimit )
-        setVitaminKLimit(vitaminKLimit )
-        setFolateLimit(folateLimit )
-      }
       else if (monthlyValue === true) {
         setCaloriesLimit((caloriesLimit / 30) * 7)
         setProteinLimit((proteinLimit/30) * 7)
@@ -1053,7 +1018,7 @@ const GoalDashboard = ({setLoggedIn}) => {
       setWeeklyValue(false);
       setMonthlyValue(true);
 
-      if (dailyValue === true && monthlyValue === false && checkValue === 1) {
+      if (dailyValue === true && monthlyValue === false) {
         setCaloriesLimit(caloriesLimit * 30)
         setProteinLimit(proteinLimit * 30)
         setTotalFatLimit(totalFatLimit * 30)
@@ -1339,8 +1304,8 @@ const GoalDashboard = ({setLoggedIn}) => {
                     <ProgressBar variant="warning" now={folate/folateLimit*100} label={`${(folate/folateLimit*100).toFixed(2)} %`} />
                   </div>
                   <Button size="sm" variant="outline-primary" className="me-2">Update Goals</Button>
-                  <Button size="sm" variant="outline-primary" className="me-2" onClick={() => navigate('/viewFood')}>All Foods</Button>
-                  <Button size="sm" variant="outline-primary" className="me-2" onClick={() => navigate('/nutrition')}>Add Foods</Button>
+                  <Button size="sm" variant="outline-primary" className="me-2" onClick={() => navigate('/viewFood')}>All Nutrition</Button>
+                  <Button size="sm" variant="outline-primary" className="me-2" onClick={() => navigate('/nutrition')}>Add Nutrition</Button>
                 </Card.Body>
             </Card>
           </Col>
