@@ -67,7 +67,7 @@ const ViewFood = ({setLoggedIn}) => {
                                 <div className='foodScroll mb-3'>
                                 <Card.Text className="mb-0 nutrientName">Calories</Card.Text>
                                 <p className="m-0 small-date">{`Calories: ${foods.calories} kCal`}</p>
-                                <ProgressBar className="" variant="primary" now={foods.calories} label={`${foods.calories} %`} />
+                                <ProgressBar className="" variant="primary" now={100} label={`${foods.calories} kCal`} />
 
                                 <Card.Text className="mb-0 nutrientName">Macronutrients</Card.Text>
                                 <p className="m-0 small-date">{`Protein: ${foods.protein} g`}</p>

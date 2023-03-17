@@ -1303,7 +1303,7 @@ const GoalDashboard = ({setLoggedIn}) => {
                     <p className="m-0 small-date">{`Folate ${folate} ug out of ${folateLimit} ug`}</p>
                     <ProgressBar variant="warning" now={folate/folateLimit*100} label={`${(folate/folateLimit*100).toFixed(2)} %`} />
                   </div>
-                  <Button size="sm" variant="outline-primary" className="me-2">Update Goals</Button>
+                  <Button size="sm" variant="outline-primary" className="me-2">Nutritionist Chat</Button>
                   <Button size="sm" variant="outline-primary" className="me-2" onClick={() => navigate('/viewFood')}>All Nutrition</Button>
                   <Button size="sm" variant="outline-primary" className="me-2" onClick={() => navigate('/nutrition')}>Add Nutrition</Button>
                 </Card.Body>
