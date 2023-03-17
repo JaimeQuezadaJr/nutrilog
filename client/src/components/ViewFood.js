@@ -71,8 +71,8 @@ const ViewFood = ({setLoggedIn}) => {
                                 <ProgressBar className="" variant="primary" now={100} label={`${foods.calories} kCal`} />
 
                                 <Card.Text className="mb-0 nutrientName">Water</Card.Text>
-                                <p className="m-0 small-date">{`Calories: ${foods.water} kCal`}</p>
-                                <ProgressBar className="" variant="primary" now={100} label={`${foods.water} kCal`} />
+                                <p className="m-0 small-date">{`Water: ${foods.water} g`}</p>
+                                <ProgressBar className="" variant="primary" now={((foods.water)/(foods.portionSize))*100} label={`${(((foods.water)/(foods.portionSize))*100).toFixed(0)} %`} />
 
                                 <Card.Text className="mb-0 nutrientName">Macronutrients</Card.Text>
                                 <p className="m-0 small-date">{`Protein: ${foods.protein} g`}</p>
@@ -86,49 +86,49 @@ const ViewFood = ({setLoggedIn}) => {
 
                                 <Card.Text className="mb-0 nutrientName">Minerals</Card.Text>
                                 <p className="m-0 small-date">{`Calcium: ${foods.calcium} mg`}</p>
-                                <ProgressBar variant="danger" now={(((foods.calcium)/(foods.portionSize))*100)/1000} label={`${(((foods.calcium)/(foods.portionSize))*100)/1000} %`}/>
+                                <ProgressBar variant="danger" now={(((foods.calcium)/(foods.portionSize))*100)/1000} label={`${((((foods.calcium)/(foods.portionSize))*100)/1000).toFixed(1)} %`}/>
                                 <p className="m-0 small-date">{`Iron: ${foods.iron} mg`}</p>
-                                <ProgressBar variant="warning" now={foods.iron} label={`${foods.iron} %`} />
+                                <ProgressBar variant="warning" now={(((foods.iron)/(foods.portionSize))*100)/1000} label={`${((((foods.iron)/(foods.portionSize))*100)/1000).toFixed(1)} %`} />
                                 <p className="m-0 small-date">{`Magnesium: ${foods.magnesium} mg`}</p>
-                                <ProgressBar variant="info" now={foods.magnesium} label={`${foods.magnesium} %`} />
+                                <ProgressBar variant="info" now={(((foods.magnesium)/(foods.portionSize))*100)/1000} label={`${((((foods.magnesium)/(foods.portionSize))*100)/1000).toFixed(1)} %`} />
                                 <p className="m-0 small-date">{`Phosphorus ${foods.phosphorus} mg`}</p>
-                                <ProgressBar variant="primary" now={foods.phosphorus} label={`${foods.phosphorus} %`} />
+                                <ProgressBar variant="primary" now={(((foods.phosphorus)/(foods.portionSize))*100)/1000} label={`${((((foods.phosphorus)/(foods.portionSize))*100)/1000).toFixed(1)} %`} />
                                 <p className="m-0 small-date">{`Potassium: ${foods.potassium} mg`}</p>
-                                <ProgressBar variant="success" now={foods.potassium} label={`${foods.potassium} %`} />
+                                <ProgressBar variant="success" now={(((foods.potassium)/(foods.portionSize))*100)/1000} label={`${((((foods.potassium)/(foods.portionSize))*100)/1000).toFixed(1)} %`} />
                                 <p className="m-0 small-date">{`Sodium ${foods.sodium} mg`}</p>
-                                <ProgressBar variant="danger" now={foods.sodium} label={`${foods.sodium} %`} />
+                                <ProgressBar variant="danger" now={(((foods.sodium)/(foods.portionSize))*100)/1000} label={`${((((foods.sodium)/(foods.portionSize))*100)/1000).toFixed(1)} %`} />
                                 <p className="m-0 small-date">{`Zinc: ${foods.zinc} mg`}</p>
-                                <ProgressBar variant="warning" now={foods.zinc} label={`${foods.zinc} %`} />
+                                <ProgressBar variant="warning" now={(((foods.zinc)/(foods.portionSize))*100)/1000} label={`${((((foods.zinc)/(foods.portionSize))*100)/1000).toFixed(1)}  %`} />
                                 <p className="m-0 small-date">{`Copper: ${foods.copper} mg`}</p>
-                                <ProgressBar variant="info" now={foods.copper} label={`${foods.copper} %`} />
+                                <ProgressBar variant="info" now={(((foods.copper)/(foods.portionSize))*100)/1000} label={`${((((foods.copper)/(foods.portionSize))*100)/1000).toFixed(1)} %`} />
                                 <p className="m-0 small-date">{`Selenium: ${foods.selenium} ug`}</p>
-                                <ProgressBar variant="primary" now={foods.selenium} label={`${foods.selenium} %`} />
+                                <ProgressBar variant="primary" now={(((foods.selenium)/(foods.portionSize))*100)/1000000} label={`${((((foods.selenium)/(foods.portionSize))*100)/1000000).toFixed(6)} %`} />
 
                                 <Card.Text className="mb-0 nutrientName">Vitamins</Card.Text>
                                 <p className="m-0 small-date">{`Vitamin A: ${foods.vitaminA} ug`}</p>
-                                <ProgressBar variant="danger" now={foods.vitaminA} label={`${foods.vitaminA} %`} />
+                                <ProgressBar variant="danger" now={((((foods.vitaminA)/(foods.portionSize))*100)/1000000)} label={`${((((foods.vitaminA)/(foods.portionSize))*100)/1000000).toFixed(6)} %`} />
                                 <p className="m-0 small-date">{`Vitamin E: ${foods.vitaminE} mg`}</p>
-                                <ProgressBar variant="warning" now={foods.vitaminE} label={`${foods.vitaminE} %`} />
+                                <ProgressBar variant="warning" now={(((foods.vitaminE)/(foods.portionSize))*100)/1000} label={`${((((foods.vitaminE)/(foods.portionSize))*100)/1000).toFixed(1)} %`} />
                                 <p className="m-0 small-date">{`Vitamin D: ${foods.vitaminD} ug`}</p>
-                                <ProgressBar variant="info" now={foods.vitaminD} label={`${foods.vitaminD} %`} />
+                                <ProgressBar variant="info" now={((((foods.vitaminD)/(foods.portionSize))*100)/1000000)} label={`${((((foods.vitaminD)/(foods.portionSize))*100)/1000000).toFixed(6)} %`} />
                                 <p className="m-0 small-date">{`Vitamin C: ${foods.vitaminC} mg`}</p>
-                                <ProgressBar variant="primary" now={foods.vitaminC} label={`${foods.vitaminC} %`} />
+                                <ProgressBar variant="primary" now={((((foods.vitaminC)/(foods.portionSize))*100)/1000)} label={`${((((foods.vitaminC)/(foods.portionSize))*100)/1000).toFixed(1)} %`} />
                                 <p className="m-0 small-date">{`Thiamin: ${foods.thiamin} mg`}</p>
-                                <ProgressBar variant="success" now={foods.thiamin} label={`${foods.thiamin} %`} />
+                                <ProgressBar variant="success" now={((((foods.thiamin)/(foods.portionSize))*100)/1000)} label={`${((((foods.thiamin)/(foods.portionSize))*100)/1000).toFixed(1)} %`} />
                                 <p className="m-0 small-date">{`Riboflavin: ${foods.riboflavin} mg`}</p>
-                                <ProgressBar variant="danger" now={foods.riboflavin} label={`${foods.riboflavin} %`} />
+                                <ProgressBar variant="danger" now={((((foods.riboflavin)/(foods.portionSize))*100)/1000)} label={`${((((foods.riboflavin)/(foods.portionSize))*100)/1000).toFixed(1)} %`} />
                                 <p className="m-0 small-date">{`Niacin: ${foods.niacin} mg`}</p>
-                                <ProgressBar variant="warning" now={foods.niacin} label={`${foods.niacin} %`} />
+                                <ProgressBar variant="warning" now={((((foods.niacin)/(foods.portionSize))*100)/1000)} label={`${((((foods.niacin)/(foods.portionSize))*100)/1000).toFixed(1)} %`} />
                                 <p className="m-0 small-date">{`Vitamin B-6: ${foods.vitaminB6} mg`}</p>
-                                <ProgressBar variant="info" now={foods.vitaminB6} label={`${foods.vitaminB6} %`} />
+                                <ProgressBar variant="info" now={((((foods.vitaminB6)/(foods.portionSize))*100)/1000)} label={`${((((foods.vitaminB6)/(foods.portionSize))*100)/1000).toFixed(1)} %`} />
                                 <p className="m-0 small-date">{`Vitamin B-12: ${foods.vitaminB12} ug`}</p>
-                                <ProgressBar variant="primary" now={foods.vitaminB12} label={`${foods.vitaminB12} %`} />
+                                <ProgressBar variant="primary" now={(((foods.vitaminB12)/(foods.portionSize))*100)/1000000} label={`${((((foods.vitaminB12)/(foods.portionSize))*100)/1000000).toFixed(6)} %`} />
                                 <p className="m-0 small-date">{`Choline: ${foods.choline} mg`}</p>
-                                <ProgressBar variant="success" now={foods.choline} label={`${foods.choline} %`} />
+                                <ProgressBar variant="success" now={((((foods.choline)/(foods.portionSize))*100)/1000)} label={`${((((foods.choline)/(foods.portionSize))*100)/1000).toFixed(1)} %`} />
                                 <p className="m-0 small-date">{`Vitamin K: ${foods.vitaminK} ug`}</p>
-                                <ProgressBar variant="danger" now={foods.vitaminK} label={`${foods.vitaminK} %`} />
+                                <ProgressBar variant="danger" now={(((foods.vitaminK)/(foods.portionSize))*100)/1000000} label={`${((((foods.vitaminK)/(foods.portionSize))*100)/1000000).toFixed(6)} %`} />
                                 <p className="m-0 small-date">{`Folate ${foods.folate} ug`}</p>
-                                <ProgressBar variant="warning" now={foods.folate} label={`${foods.folate} %`} />
+                                <ProgressBar variant="warning" now={(((foods.folate)/(foods.portionSize))*100)/1000000} label={`${((((foods.folate)/(foods.portionSize))*100)/1000000).toFixed(6)} %`} />
 
                                 
                                 </div>
