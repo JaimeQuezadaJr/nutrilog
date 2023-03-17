@@ -13,7 +13,12 @@ const NutritionSchema = mongoose.Schema(
         calories: {
             type: Number,
             required: [true, 'Please enter food calories'],
-            min: [1, 'More than zero'],
+            
+        },
+        water: {
+            type: Number,
+            required: [true, 'Please enter water amount'],
+            
         },
         protein: {
             type: Number,

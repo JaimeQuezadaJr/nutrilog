@@ -28,6 +28,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
         {
             portionSize:0,
             calories:0,
+            water:0,
             foodTitle:'',
             protein:0,
             totalFat:0,
@@ -133,6 +134,9 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, carbohydrates: e.target[i].value }));
                 console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Energy') {
+                setNutritionFacts(previousInputs => ({ ...previousInputs, calories: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
+              } else if (e.target[i].name === 'Water') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, calories: e.target[i].value }));
                 console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Fiber, total dietary') {

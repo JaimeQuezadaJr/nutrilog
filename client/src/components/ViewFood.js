@@ -10,6 +10,7 @@ import { motion } from 'framer-motion';
 const ViewFood = ({setLoggedIn}) => {
     const [user, setUser] = useState("");
     const [food, setFood] = useState([]);
+    const [portion, setPortion] = useState(100);
 
 
     const navigate = useNavigate();
@@ -69,19 +70,23 @@ const ViewFood = ({setLoggedIn}) => {
                                 <p className="m-0 small-date">{`Calories: ${foods.calories} kCal`}</p>
                                 <ProgressBar className="" variant="primary" now={100} label={`${foods.calories} kCal`} />
 
+                                <Card.Text className="mb-0 nutrientName">Water</Card.Text>
+                                <p className="m-0 small-date">{`Calories: ${foods.water} kCal`}</p>
+                                <ProgressBar className="" variant="primary" now={100} label={`${foods.water} kCal`} />
+
                                 <Card.Text className="mb-0 nutrientName">Macronutrients</Card.Text>
                                 <p className="m-0 small-date">{`Protein: ${foods.protein} g`}</p>
-                                <ProgressBar className="" variant="primary" now={foods.protein} label={`${foods.protein} %`} />
+                                <ProgressBar className="" variant="primary" now={((foods.protein)/(foods.portionSize))*100} label={`${(((foods.protein)/(foods.portionSize))*100).toFixed(1)} %`} />
                                 <p className="m-0 small-date">{`Total Fat: ${foods.totalFat} g`}</p>
-                                <ProgressBar variant="primary" now={foods.totalFat} label={`${foods.totalFat} %`} />
+                                <ProgressBar variant="primary" now={((foods.totalFat)/(foods.portionSize))*100} label={`${(((foods.totalFat)/(foods.portionSize))*100).toFixed(1)} %`} />
                                 <p className="m-0 small-date">{`Carbohydrates: ${foods.carbohydrates}g`}</p>
-                                <ProgressBar variant="info" now={foods.carbohydrates} label={`${foods.carbohydrates} %`} />
+                                <ProgressBar variant="info" now={((foods.carbohydrates)/(foods.portionSize))*100} label={`${(((foods.carbohydrates)/(foods.portionSize))*100).toFixed(1)} %`} />
                                 <p className="m-0 small-date">{`Fiber: ${foods.dietaryFiber} g`}</p>
-                                <ProgressBar variant="primary" now={foods.dietaryFiber} label={`${foods.dietaryFiber} %`} />
+                                <ProgressBar variant="primary" now={((foods.dietaryFiber)/(foods.portionSize))*100} label={`${(((foods.dietaryFiber)/(foods.portionSize))*100).toFixed(1)} %`} />
 
                                 <Card.Text className="mb-0 nutrientName">Minerals</Card.Text>
                                 <p className="m-0 small-date">{`Calcium: ${foods.calcium} mg`}</p>
-                                <ProgressBar variant="danger" now={foods.calcium} label={`${foods.calcium} %`}/>
+                                <ProgressBar variant="danger" now={(((foods.calcium)/(foods.portionSize))*100)/1000} label={`${(((foods.calcium)/(foods.portionSize))*100)/1000} %`}/>
                                 <p className="m-0 small-date">{`Iron: ${foods.iron} mg`}</p>
                                 <ProgressBar variant="warning" now={foods.iron} label={`${foods.iron} %`} />
                                 <p className="m-0 small-date">{`Magnesium: ${foods.magnesium} mg`}</p>
