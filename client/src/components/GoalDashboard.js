@@ -926,7 +926,6 @@ const GoalDashboard = ({setLoggedIn}) => {
       let sumVitaminK = 0;
       let sumFolate = 0;
       current.setDate(current.getDate() - 7)
-      console.log(dateParse(current.toDateString()))
       nutrition.map((nutrients) => {
         if (dateParse(nutrients.createdAt) >= dateParse(current.toDateString())){
           
