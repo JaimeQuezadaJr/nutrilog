@@ -170,7 +170,7 @@ const UpdatePortion = ({setLoggedIn}) => {
 
     useEffect(() => {
         axios
-        .post('http://localhost:8000/api/nutrition', nutritionFacts, {withCredentials:true}) 
+        .put(`http://localhost:8000/api/nutrition/${id}`, nutritionFacts, {withCredentials:true}) 
         .then((res) => {
           console.log(res.data);
           navigate('/dashboard');
@@ -186,6 +186,7 @@ const UpdatePortion = ({setLoggedIn}) => {
                      
 
                 <Card className='page-bottom' border="light" style={{ width: '18rem' }}>
+                <Form onSubmit={handleSubmit}>
                     <Card.Header className='nutrientName'>{food.foodTitle}</Card.Header>
                         <Card.Body>
                             <Card.Text className='mb-2'>Added on: {dateParse(food.createdAt)}</Card.Text>
@@ -257,10 +258,11 @@ const UpdatePortion = ({setLoggedIn}) => {
 
                                 
                                 </div>
-                                <Button variant="outline-primary"  size='sm' >Update Portion</Button>
+                                <Button variant="outline-primary"  size='sm' type='submit' >Update</Button>
                                 <Button variant="outline-danger" className='ms-1' size='sm' onClick = {(e) => {deleteMovie(food._id)}}>Delete</Button>
                                 <Button variant="outline-primary" size='sm' className='ms-1' onClick={() => navigate('/dashboard')} >Home</Button>
                         </Card.Body>
+                        </Form>
                 </Card>
                     
                   
