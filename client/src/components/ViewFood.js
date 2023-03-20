@@ -132,7 +132,7 @@ const ViewFood = ({setLoggedIn}) => {
 
                                 
                                 </div>
-                                <Button variant="outline-primary"  size='sm' >Update Portion</Button>
+                                <Button variant="outline-primary"  size='sm' onClick={() => navigate(`/updatePortion/${foods._id}`)} >Update Portion</Button>
                                 <Button variant="outline-danger" className='ms-1' size='sm' onClick = {(e) => {deleteMovie(foods._id)}}>Delete</Button>
                                 <Button variant="outline-primary" size='sm' className='ms-1' onClick={() => navigate('/dashboard')} >Home</Button>
                         </Card.Body>

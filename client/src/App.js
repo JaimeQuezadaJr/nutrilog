@@ -9,6 +9,7 @@ import NutritionSearch from './components/NutritionSearch';
 import GoalDashboard from './components/GoalDashboard';
 import ViewFood from './components/ViewFood';
 import { AnimatePresence } from 'framer-motion';
+import UpdatePortion from './components/UpdatePortion';
 
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
           <Route path={'/register'} element={<UserRegistration setLoggedIn={setLoggedIn} />}/>
           <Route path={'/dashboard'} element={<GoalDashboard setLoggedIn={setLoggedIn} />} />
           <Route path={'/viewFood'} element={<ViewFood setLoggedIn={setLoggedIn} />} />
+          <Route path={'/updatePortion/:id'} element={<UpdatePortion setLoggedIn={setLoggedIn} />} />
+          
         </Routes>
         </AnimatePresence>
       
