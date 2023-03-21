@@ -1285,9 +1285,9 @@ const GoalDashboard = ({setLoggedIn}) => {
                     <ProgressBar variant="info" now={vitaminD/vitaminDLimit*100} label={`${(vitaminD/vitaminDLimit*100).toFixed(2)} %`} />
                     <p className="m-0 small-date">{`Vitamin C: ${vitaminC} mg out of ${vitaminCLimit} mg`}</p>
                     <ProgressBar variant="primary" now={vitaminC/vitaminCLimit*100} label={`${(vitaminC/vitaminCLimit*100).toFixed(2)} %`} />
-                    <p className="m-0 small-date">{`Thiamin: ${thiamin} mg out of ${thiaminLimit} mg`}</p>
+                    <p className="m-0 small-date">{`Thiamin: ${thiamin} mg out of ${(thiaminLimit).toFixed(1)} mg`}</p>
                     <ProgressBar variant="success" now={thiamin/thiaminLimit*100} label={`${(thiamin/thiaminLimit*100).toFixed(2)} %`} />
-                    <p className="m-0 small-date">{`Riboflavin: ${riboflavin} mg out of ${riboflavinLimit} mg`}</p>
+                    <p className="m-0 small-date">{`Riboflavin: ${riboflavin} mg out of ${(riboflavinLimit).toFixed(1)} mg`}</p>
                     <ProgressBar variant="danger" now={riboflavin/riboflavinLimit*100} label={`${(riboflavin/riboflavinLimit*100).toFixed(2)} %`} />
                     <p className="m-0 small-date">{`Niacin: ${niacin} mg out of ${niacinLimit} mg`}</p>
                     <ProgressBar variant="warning" now={niacin/niacinLimit*100} label={`${(niacin/niacinLimit*100).toFixed(2)} %`} />

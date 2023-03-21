@@ -69,6 +69,8 @@ const UpdatePortion = ({setLoggedIn}) => {
             .then(res => {
                 console.log(res.data)
               setFood(res.data)
+              setPortion(res.data.portionSize)
+              console.log(food)
             })
             .catch(err => console.log(err));
             
@@ -190,70 +192,97 @@ const UpdatePortion = ({setLoggedIn}) => {
                     <Card.Header className='nutrientName'>{food.foodTitle}</Card.Header>
                         <Card.Body>
                             <Card.Text className='mb-2'>Added on: {dateParse(food.createdAt)}</Card.Text>
-                            <Card.Text className='mb-2'>Portion: {food.portionSize} g</Card.Text>
+                            <Card.Text className='mb-2'>Portion: <span><input type='text' value={portion} onChange = {(e) => (setPortion(e.target.value))}></input></span> g</Card.Text>
                                 <div className='foodScroll mb-3'>
                                 <Card.Text className="mb-0 nutrientName">Calories</Card.Text>
-                                <p className="m-0 small-date">{`Calories: ${food.calories} kCal`}</p>
-                                <ProgressBar className="" variant="primary" now={100} label={`${food.calories} kCal`} />
+                                <p className="m-0 small-date">{`Calories: ${((food.calories)*(portion/food.portionSize)).toFixed(2)} kCal`}</p>
+                                <input hidden readOnly name='Energy' value={((food.calories)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
+                                <ProgressBar className="" variant="primary" now={100} label={`${((food.calories)*(portion/food.portionSize)).toFixed(2)} kCal`} />
 
                                 <Card.Text className="mb-0 nutrientName">Water</Card.Text>
-                                <p className="m-0 small-date">{`Water: ${food.water} g`}</p>
-                                <ProgressBar className="" variant="primary" now={((food.water)/(food.portionSize))*100} label={`${(((food.water)/(food.portionSize))*100).toFixed(0)} %`} />
+                                <p className="m-0 small-date">{`Water: ${((food.water)*(portion/food.portionSize)).toFixed(2)} g`}</p>
+                                <input hidden readOnly name='Water' value={((food.water)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
+                                <ProgressBar className="" variant="primary" now={((food.water)/(food.portionSize))*100} label={`${(((food.water)/(food.portionSize))*100).toFixed(1)} %`} />
 
                                 <Card.Text className="mb-0 nutrientName">Macronutrients</Card.Text>
-                                <p className="m-0 small-date">{`Protein: ${food.protein} g`}</p>
+                                <p className="m-0 small-date">{`Protein: ${((food.protein)*(portion/food.portionSize)).toFixed(2)} g`}</p>
+                                <input hidden readOnly name='Protein' value={((food.protein)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar className="" variant="primary" now={((food.protein)/(food.portionSize))*100} label={`${(((food.protein)/(food.portionSize))*100).toFixed(1)} %`} />
-                                <p className="m-0 small-date">{`Total Fat: ${food.totalFat} g`}</p>
+                                <p className="m-0 small-date">{`Total Fat: ${((food.totalFat)*(portion/food.portionSize)).toFixed(2)} g`}</p>
+                                <input hidden readOnly name='Total lipid (fat)' value={((food.totalFat)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="primary" now={((food.totalFat)/(food.portionSize))*100} label={`${(((food.totalFat)/(food.portionSize))*100).toFixed(1)} %`} />
-                                <p className="m-0 small-date">{`Carbohydrates: ${food.carbohydrates}g`}</p>
+                                <p className="m-0 small-date">{`Carbohydrates: ${((food.carbohydrates)*(portion/food.portionSize)).toFixed(2)}g`}</p>
+                                <input hidden readOnly name='Carbohydrate, by difference' value={((food.carbohydrates)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="info" now={((food.carbohydrates)/(food.portionSize))*100} label={`${(((food.carbohydrates)/(food.portionSize))*100).toFixed(1)} %`} />
-                                <p className="m-0 small-date">{`Fiber: ${food.dietaryFiber} g`}</p>
+                                <p className="m-0 small-date">{`Fiber: ${((food.dietaryFiber)*(portion/food.portionSize)).toFixed(2)} g`}</p>
+                                <input hidden readOnly name='Fiber, total dietary' value={((food.dietaryFiber)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="primary" now={((food.dietaryFiber)/(food.portionSize))*100} label={`${(((food.dietaryFiber)/(food.portionSize))*100).toFixed(1)} %`} />
 
                                 <Card.Text className="mb-0 nutrientName">Minerals</Card.Text>
-                                <p className="m-0 small-date">{`Calcium: ${food.calcium} mg`}</p>
+                                <p className="m-0 small-date">{`Calcium: ${((food.calcium)*(portion/food.portionSize)).toFixed(2)} mg`}</p>
+                                <input hidden readOnly name='Calcium, Ca' value={((food.calcium)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="danger" now={(((food.calcium)/(food.portionSize))*100)/1000} label={`${((((food.calcium)/(food.portionSize))*100)/1000).toFixed(1)} %`}/>
-                                <p className="m-0 small-date">{`Iron: ${food.iron} mg`}</p>
+                                <p className="m-0 small-date">{`Iron: ${((food.iron)*(portion/food.portionSize)).toFixed(2)} mg`}</p>
+                                <input hidden readOnly name='Iron, Fe' value={((food.iron)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="warning" now={(((food.iron)/(food.portionSize))*100)/1000} label={`${((((food.iron)/(food.portionSize))*100)/1000).toFixed(1)} %`} />
-                                <p className="m-0 small-date">{`Magnesium: ${food.magnesium} mg`}</p>
+                                <p className="m-0 small-date">{`Magnesium: ${((food.magnesium)*(portion/food.portionSize)).toFixed(2)} mg`}</p>
+                                <input hidden readOnly name='Magnesium, Mg' value={((food.magnesium)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="info" now={(((food.magnesium)/(food.portionSize))*100)/1000} label={`${((((food.magnesium)/(food.portionSize))*100)/1000).toFixed(1)} %`} />
-                                <p className="m-0 small-date">{`Phosphorus ${food.phosphorus} mg`}</p>
+                                <p className="m-0 small-date">{`Phosphorus ${((food.phosphorus)*(portion/food.portionSize)).toFixed(2)} mg`}</p>
+                                <input hidden readOnly name='Phosphorus, P' value={((food.phosphorus)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="primary" now={(((food.phosphorus)/(food.portionSize))*100)/1000} label={`${((((food.phosphorus)/(food.portionSize))*100)/1000).toFixed(1)} %`} />
-                                <p className="m-0 small-date">{`Potassium: ${food.potassium} mg`}</p>
+                                <p className="m-0 small-date">{`Potassium: ${((food.potassium)*(portion/food.portionSize)).toFixed(2)} mg`}</p>
+                                <input hidden readOnly name='Potassium, K' value={((food.potassium)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="success" now={(((food.potassium)/(food.portionSize))*100)/1000} label={`${((((food.potassium)/(food.portionSize))*100)/1000).toFixed(1)} %`} />
-                                <p className="m-0 small-date">{`Sodium ${food.sodium} mg`}</p>
+                                <p className="m-0 small-date">{`Sodium ${((food.sodium)*(portion/food.portionSize)).toFixed(2)} mg`}</p>
+                                <input hidden readOnly name='Sodium, Na' value={((food.sodium)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="danger" now={(((food.sodium)/(food.portionSize))*100)/1000} label={`${((((food.sodium)/(food.portionSize))*100)/1000).toFixed(1)} %`} />
-                                <p className="m-0 small-date">{`Zinc: ${food.zinc} mg`}</p>
+                                <p className="m-0 small-date">{`Zinc: ${((food.zinc)*(portion/food.portionSize)).toFixed(2)} mg`}</p>
+                                <input hidden readOnly name='Zinc, Zn' value={((food.zinc)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="warning" now={(((food.zinc)/(food.portionSize))*100)/1000} label={`${((((food.zinc)/(food.portionSize))*100)/1000).toFixed(1)}  %`} />
-                                <p className="m-0 small-date">{`Copper: ${food.copper} mg`}</p>
+                                <p className="m-0 small-date">{`Copper: ${((food.copper)*(portion/food.portionSize)).toFixed(2)} mg`}</p>
+                                <input hidden readOnly name='Copper, Cu' value={((food.copper)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="info" now={(((food.copper)/(food.portionSize))*100)/1000} label={`${((((food.copper)/(food.portionSize))*100)/1000).toFixed(1)} %`} />
-                                <p className="m-0 small-date">{`Selenium: ${food.selenium} ug`}</p>
+                                <p className="m-0 small-date">{`Selenium: ${((food.selenium)*(portion/food.portionSize)).toFixed(2)} ug`}</p>
+                                <input hidden readOnly name='Selenium, Se' value={((food.selenium)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="primary" now={(((food.selenium)/(food.portionSize))*100)/1000000} label={`${((((food.selenium)/(food.portionSize))*100)/1000000).toFixed(6)} %`} />
 
                                 <Card.Text className="mb-0 nutrientName">Vitamins</Card.Text>
-                                <p className="m-0 small-date">{`Vitamin A: ${food.vitaminA} ug`}</p>
+                                <p className="m-0 small-date">{`Vitamin A: ${((food.vitaminA)*(portion/food.portionSize)).toFixed(2)} ug`}</p>
+                                <input hidden readOnly name='Vitamin A, RAE' value={((food.vitaminA)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="danger" now={((((food.vitaminA)/(food.portionSize))*100)/1000000)} label={`${((((food.vitaminA)/(food.portionSize))*100)/1000000).toFixed(6)} %`} />
-                                <p className="m-0 small-date">{`Vitamin E: ${food.vitaminE} mg`}</p>
+                                <p className="m-0 small-date">{`Vitamin E: ${((food.vitaminE)*(portion/food.portionSize)).toFixed(2)} mg`}</p>
+                                <input hidden readOnly name='Vitamin E (alpha-tocopherol)' value={((food.vitaminE)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="warning" now={(((food.vitaminE)/(food.portionSize))*100)/1000} label={`${((((food.vitaminE)/(food.portionSize))*100)/1000).toFixed(1)} %`} />
-                                <p className="m-0 small-date">{`Vitamin D: ${food.vitaminD} ug`}</p>
+                                <p className="m-0 small-date">{`Vitamin D: ${((food.vitaminD)*(portion/food.portionSize)).toFixed(2)} ug`}</p>
+                                <input hidden readOnly name='Vitamin D (D2 + D3)' value={((food.vitaminD)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="info" now={((((food.vitaminD)/(food.portionSize))*100)/1000000)} label={`${((((food.vitaminD)/(food.portionSize))*100)/1000000).toFixed(6)} %`} />
-                                <p className="m-0 small-date">{`Vitamin C: ${food.vitaminC} mg`}</p>
+                                <p className="m-0 small-date">{`Vitamin C: ${((food.vitaminC)*(portion/food.portionSize)).toFixed(2)} mg`}</p>
+                                <input hidden readOnly name='Vitamin C, total ascorbic acid' value={((food.vitaminC)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="primary" now={((((food.vitaminC)/(food.portionSize))*100)/1000)} label={`${((((food.vitaminC)/(food.portionSize))*100)/1000).toFixed(1)} %`} />
-                                <p className="m-0 small-date">{`Thiamin: ${food.thiamin} mg`}</p>
+                                <p className="m-0 small-date">{`Thiamin: ${((food.thiamin)*(portion/food.portionSize)).toFixed(2)} mg`}</p>
+                                <input hidden readOnly name='Thiamin' value={((food.thiamin)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="success" now={((((food.thiamin)/(food.portionSize))*100)/1000)} label={`${((((food.thiamin)/(food.portionSize))*100)/1000).toFixed(1)} %`} />
-                                <p className="m-0 small-date">{`Riboflavin: ${food.riboflavin} mg`}</p>
+                                <p className="m-0 small-date">{`Riboflavin: ${((food.riboflavin)*(portion/food.portionSize)).toFixed(2)} mg`}</p>
+                                <input hidden readOnly name='Riboflavin' value={((food.riboflavin)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="danger" now={((((food.riboflavin)/(food.portionSize))*100)/1000)} label={`${((((food.riboflavin)/(food.portionSize))*100)/1000).toFixed(1)} %`} />
-                                <p className="m-0 small-date">{`Niacin: ${food.niacin} mg`}</p>
+                                <p className="m-0 small-date">{`Niacin: ${((food.niacin)*(portion/food.portionSize)).toFixed(2)} mg`}</p>
+                                <input hidden readOnly name='Niacin' value={((food.niacin)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="warning" now={((((food.niacin)/(food.portionSize))*100)/1000)} label={`${((((food.niacin)/(food.portionSize))*100)/1000).toFixed(1)} %`} />
-                                <p className="m-0 small-date">{`Vitamin B-6: ${food.vitaminB6} mg`}</p>
+                                <p className="m-0 small-date">{`Vitamin B-6: ${((food.vitaminB6)*(portion/food.portionSize)).toFixed(2)} mg`}</p>
+                                <input hidden readOnly name='Vitamin B-6' value={((food.vitaminB6)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="info" now={((((food.vitaminB6)/(food.portionSize))*100)/1000)} label={`${((((food.vitaminB6)/(food.portionSize))*100)/1000).toFixed(1)} %`} />
-                                <p className="m-0 small-date">{`Vitamin B-12: ${food.vitaminB12} ug`}</p>
+                                <p className="m-0 small-date">{`Vitamin B-12: ${((food.vitaminB12)*(portion/food.portionSize)).toFixed(2)} ug`}</p>
+                                <input hidden readOnly name='Vitamin B-12' value={((food.vitaminB12)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="primary" now={(((food.vitaminB12)/(food.portionSize))*100)/1000000} label={`${((((food.vitaminB12)/(food.portionSize))*100)/1000000).toFixed(6)} %`} />
-                                <p className="m-0 small-date">{`Choline: ${food.choline} mg`}</p>
+                                <p className="m-0 small-date">{`Choline: ${((food.choline)*(portion/food.portionSize)).toFixed(2)} mg`}</p>
+                                <input hidden readOnly name='Choline, total' value={((food.choline)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="success" now={((((food.choline)/(food.portionSize))*100)/1000)} label={`${((((food.choline)/(food.portionSize))*100)/1000).toFixed(1)} %`} />
-                                <p className="m-0 small-date">{`Vitamin K: ${food.vitaminK} ug`}</p>
+                                <p className="m-0 small-date">{`Vitamin K: ${((food.vitaminK)*(portion/food.portionSize)).toFixed(2)} ug`}</p>
+                                <input hidden readOnly name='Vitamin K (phylloquinone)' value={((food.vitaminK)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="danger" now={(((food.vitaminK)/(food.portionSize))*100)/1000000} label={`${((((food.vitaminK)/(food.portionSize))*100)/1000000).toFixed(6)} %`} />
                                 <p className="m-0 small-date">{`Folate ${food.folate} ug`}</p>
+                                <input hidden readOnly name='Folate, total' value={((food.folate)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="warning" now={(((food.folate)/(food.portionSize))*100)/1000000} label={`${((((food.folate)/(food.portionSize))*100)/1000000).toFixed(6)} %`} />
 
                                 
