@@ -101,7 +101,7 @@ const UpdatePortion = ({setLoggedIn}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        for(let i=0; i<67; i++) {
+        for(let i=0; i<29; i++) {
             if (e.target[i].name === 'Protein') {
                 setNutritionFacts(previousInputs =>({ ...previousInputs, protein: e.target[i].value }));
                 console.log(e.target[i].name, e.target[i].value)
@@ -122,52 +122,76 @@ const UpdatePortion = ({setLoggedIn}) => {
                 console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Calcium, Ca') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, calcium: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Iron, Fe') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, iron: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Magnesium, Mg') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, magnesium: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Phosphorus, P') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, phosphorus: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Potassium, K') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, potassium: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Sodium, Na') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, sodium: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Zinc, Zn') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, zinc: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Copper, Cu') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, copper: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Selenium, Se') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, selenium: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Vitamin A, RAE') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminA: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Vitamin E (alpha-tocopherol)') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminE: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Vitamin D (D2 + D3)') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminD: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Vitamin C, total ascorbic acid') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminC: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Thiamin') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, thiamin: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Riboflavin') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, riboflavin: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Niacin') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, niacin: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Vitamin B-6') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminB6: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Vitamin B-12') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminB12: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Choline, total') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, choline: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Vitamin K (phylloquinone)') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, vitaminK: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Folate, total') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, folate: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'foodName') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, foodTitle: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'portion') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, portionSize: e.target[i].value }));
+                console.log(e.target[i].name, e.target[i].value)
               }
           }
+          
     }
 
     useEffect(() => {
@@ -192,7 +216,7 @@ const UpdatePortion = ({setLoggedIn}) => {
                     <Card.Header className='nutrientName'>{food.foodTitle}</Card.Header>
                         <Card.Body>
                             <Card.Text className='mb-2'>Added on: {dateParse(food.createdAt)}</Card.Text>
-                            <Card.Text className='mb-2'>Portion: <span><input type='text' value={portion} onChange = {(e) => (setPortion(e.target.value))}></input></span> g</Card.Text>
+                            <Card.Text className='mb-2'>Portion: <span><input type='text' name='portion' value={portion} onChange = {(e) => (setPortion(e.target.value))}></input></span> g</Card.Text>
                                 <div className='foodScroll mb-3'>
                                 <Card.Text className="mb-0 nutrientName">Calories</Card.Text>
                                 <p className="m-0 small-date">{`Calories: ${((food.calories)*(portion/food.portionSize)).toFixed(2)} kCal`}</p>
@@ -281,11 +305,11 @@ const UpdatePortion = ({setLoggedIn}) => {
                                 <p className="m-0 small-date">{`Vitamin K: ${((food.vitaminK)*(portion/food.portionSize)).toFixed(2)} ug`}</p>
                                 <input hidden readOnly name='Vitamin K (phylloquinone)' value={((food.vitaminK)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="danger" now={(((food.vitaminK)/(food.portionSize))*100)/1000000} label={`${((((food.vitaminK)/(food.portionSize))*100)/1000000).toFixed(6)} %`} />
-                                <p className="m-0 small-date">{`Folate ${food.folate} ug`}</p>
+                                <p className="m-0 small-date">{`Folate ${((food.folate)*(portion/food.portionSize)).toFixed(2)} ug`}</p>
                                 <input hidden readOnly name='Folate, total' value={((food.folate)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="warning" now={(((food.folate)/(food.portionSize))*100)/1000000} label={`${((((food.folate)/(food.portionSize))*100)/1000000).toFixed(6)} %`} />
 
-                                
+                                <input hidden readOnly name="foodName" value={food.foodTitle || ''}></input>
                                 </div>
                                 <Button variant="outline-primary"  size='sm' type='submit' >Update</Button>
                                 <Button variant="outline-danger" className='ms-1' size='sm' onClick = {(e) => {deleteMovie(food._id)}}>Delete</Button>
