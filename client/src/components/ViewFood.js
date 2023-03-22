@@ -10,7 +10,6 @@ import { motion } from 'framer-motion';
 const ViewFood = ({setLoggedIn}) => {
     const [user, setUser] = useState("");
     const [food, setFood] = useState([]);
-    const [portion, setPortion] = useState(100);
 
 
     const navigate = useNavigate();
