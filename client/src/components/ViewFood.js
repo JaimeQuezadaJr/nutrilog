@@ -78,7 +78,7 @@ const ViewFood = ({setLoggedIn}) => {
         
         <div className='flex mt-2'>
 
-          <Row>
+         
 
                      
                 {food.map((foods, index)=>
@@ -167,7 +167,7 @@ const ViewFood = ({setLoggedIn}) => {
           </div>         
     )}
                             
-                            </Row>    
+                              
             
         </div>
 
