@@ -44,7 +44,7 @@ const Home = ({loggedIn, setLoggedIn}) => {
             </Row>
             
             <Row>
-                <Col sm={{ span: 4, offset: 6 }} className='mb-3' >
+                <Col sm={{ span: 4, offset: 6 }} className='mb-1' >
                     <Card border="light" style={{ width: '18rem' }} >
                         <Card.Header>Nutrition Base</Card.Header>
                         <Card.Body>
@@ -66,11 +66,11 @@ const Home = ({loggedIn, setLoggedIn}) => {
             </Row>
             {!loggedIn ?
             <Row>
-                <Col sm={{ span: 4, offset: 6 }} className='mt-2'>
+                <Col sm={{ span: 4, offset: 6 }} className='mt-1'>
                     <div className='main'>
                         <Card.Header><span className='nutrientName'>Try it out!</span></Card.Header>
                         <Card.Body>
-                        <Card.Text className='submain'>Search the nutrition facts for some of your favorite foods!</Card.Text>
+                        <Card.Text className='submain'>Search nutrition facts for some of your favorite foods!</Card.Text>
                         <Card.Text>
                             <Button size='sm' type="submit" variant='outline-primary' className='page-bottom' onClick={() => navigate('/nutrition')}>Search</Button>
                         </Card.Text>

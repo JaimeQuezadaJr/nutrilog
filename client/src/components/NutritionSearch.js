@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/esm/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import ProgressBar from 'react-bootstrap/ProgressBar';
@@ -231,11 +231,8 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                         </Card.Text>
                         </>
                         }
-                        <Card.Text>
-                          * All information from the USDA food data central.
-                        </Card.Text>
-                        <Card.Text>
-                          * Data on 65 food components, including nutrients, and weights for foods and beverages reported in the What We Eat in America dietary survey component of the National Health and Nutrition Examination Survey.
+                        <Card.Text className='small-date'>
+                          * Data on 65 food components, including nutrients, and weights for foods and beverages reported in the What We Eat in America dietary survey component of the National Health and Nutrition Examination Survey. Visit <span><a href="https://www.ars.usda.gov/ARSUserFiles/80400530/pdf/fndds/2019_2020_FNDDS_Doc.pdf" target="_blank">here</a></span> for more information.
                         </Card.Text>
                         
                         <Form onSubmit = {foodHandler}>

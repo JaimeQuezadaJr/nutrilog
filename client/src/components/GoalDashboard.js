@@ -1230,7 +1230,7 @@ const GoalDashboard = ({setLoggedIn}) => {
             <Card>
               <Card.Header>Nutrition Summary</Card.Header>
                 <Card.Body>
-                  <p>* Nutrition goals set based off age and gender according to the USDA dietary guidelines for americans.</p>
+                  <p className="small-date">* Hello {user}, your nutrition goals are set based off age and gender according to the USDA Dietary Guidelines Recommendations for Americans. Visit <span><a href="https://www.dietaryguidelines.gov/sites/default/files/2019-05/2015-2020_Dietary_Guidelines.pdf" target="_blank">here</a></span> for more information.</p>
                   <ButtonGroup size="sm" className="mb-2">
                     <Button variant="outline-primary" onClick={dailyChange} active={dailyValue}>Today</Button>
                     <Button variant="outline-primary" onClick={weeklyChange} active ={weeklyValue}>Last 7 Days</Button>

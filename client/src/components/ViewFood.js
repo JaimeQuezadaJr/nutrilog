@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react';
 import { useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import Button from 'react-bootstrap/esm/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import Container from 'react-bootstrap/esm/Container';
 import Card from 'react-bootstrap/Card';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { motion } from 'framer-motion';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const ViewFood = ({setLoggedIn}) => {
     const [user, setUser] = useState("");
@@ -53,8 +56,30 @@ const ViewFood = ({setLoggedIn}) => {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity:1 }} exit={{ opacity: 0}} transition={{duration:1}}>
     <Container>
+    <Row className='form'>
+            <Col>
+            <Card border="light" >
+                        <Card.Header>Nutrition Base</Card.Header>
+                        <Card.Body>
+             
+                        <Card.Title>All Nutriment <img className='rounded' src='/Buffer-Progress-Bar.jpg' alt="blueCircle" width={30} height={30} /></Card.Title>
+                        <Card.Text>
+                            View all foods consumed and their respective nutrition facts.
+                        </Card.Text>
+                            <ButtonGroup size="sm" className="mb-2">
+                              <Button variant="outline-primary" >Today</Button>
+                              <Button variant="outline-primary" >Last 7 Days</Button>
+                              <Button variant="outline-primary" >Last 30 Days</Button>
+                            </ButtonGroup>
+                      </Card.Body>
+                    </Card>
+            </Col>
+          </Row>
         
-        <div className='form flex'>
+        <div className='flex mt-2'>
+
+          <Row>
+
                      
                 {food.map((foods, index)=>
 
@@ -142,7 +167,7 @@ const ViewFood = ({setLoggedIn}) => {
           </div>         
     )}
                             
-               
+                            </Row>    
             
         </div>
 
