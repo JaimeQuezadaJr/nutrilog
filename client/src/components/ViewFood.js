@@ -13,6 +13,11 @@ import Col from 'react-bootstrap/Col';
 const ViewFood = ({setLoggedIn}) => {
     const [user, setUser] = useState("");
     const [food, setFood] = useState([]);
+    const [foodHolder, setFoodHolder] = useState([]);
+    const [dailyValue, setDailyValue] = useState(false);
+    const [weeklyValue, setWeeklyValue] = useState(false);
+    const [monthlyValue, setMonthlyValue] = useState(false);
+    const current = new Date();
 
 
     const navigate = useNavigate();
@@ -29,6 +34,7 @@ const ViewFood = ({setLoggedIn}) => {
             .then(res => {
                 console.log(res.data)
               setFood(res.data)
+              setFoodHolder(res.data)
             })
             .catch(err => console.log(err));
             
@@ -53,6 +59,54 @@ const ViewFood = ({setLoggedIn}) => {
         let month = `0${dateObj.getMonth() + 1}`.slice(-2);
         return `${month}/${day}/${dateObj.getFullYear()}`;
       }
+
+      const dailyChange = () => {
+        setDailyValue(true);
+        setWeeklyValue(false);
+        setMonthlyValue(false);
+        let arr = []
+        foodHolder.map((foods) => {
+          if (dateParse(foods.createdAt) === dateParse(new Date())){
+            console.log(foods.foodTitle)
+            arr = [foods, ...arr]
+          }
+          
+      })
+      setFood(arr)
+    }
+      
+      const weeklyChange = () => {
+        setDailyValue(false);
+        setWeeklyValue(true);
+        setMonthlyValue(false);
+        let arr = []
+        current.setDate(current.getDate() - 7)
+        foodHolder.map((foods) => {
+          if (dateParse(foods.createdAt) >= dateParse(current.toDateString())){
+            console.log(foods.foodTitle)
+            arr = [foods, ...arr]
+            
+          }
+      })
+      setFood(arr)
+      }
+
+      const monthlyChange = () => {
+        setDailyValue(false);
+        setWeeklyValue(false);
+        setMonthlyValue(true);
+        let arr = []
+        current.setDate(current.getDate() - 30)
+        foodHolder.map((foods) => {
+          if (dateParse(foods.createdAt) >= dateParse(current.toDateString())){
+            console.log(foods.foodTitle)
+            arr = [foods, ...arr]
+            
+          }
+          
+      })
+      setFood(arr)
+      }
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity:1 }} exit={{ opacity: 0}} transition={{duration:1}}>
     <Container>
@@ -67,9 +121,15 @@ const ViewFood = ({setLoggedIn}) => {
                             View all foods consumed and their respective nutrition facts.
                         </Card.Text>
                             <ButtonGroup size="sm" className="mb-2">
-                              <Button variant="outline-primary" >Today</Button>
-                              <Button variant="outline-primary" >Last 7 Days</Button>
-                              <Button variant="outline-primary" >Last 30 Days</Button>
+                              <Button variant="outline-primary" onClick={dailyChange} active={dailyValue}>Today</Button>
+                              <Button variant="outline-primary" onClick={weeklyChange} active ={weeklyValue}>Last 7 Days</Button>
+                              <Button variant="outline-primary" onClick={monthlyChange} active={monthlyValue}>Last 30 Days</Button>
+                            </ButtonGroup>
+                            <br></br>
+                            <ButtonGroup size="sm" className="mb-2">
+                              <Button variant="outline-primary" >Last 3 Months</Button>
+                              <Button variant="outline-primary" >Last 6 Months</Button>
+                              <Button variant="outline-primary" >Last 12 Months</Button>
                             </ButtonGroup>
                       </Card.Body>
                     </Card>

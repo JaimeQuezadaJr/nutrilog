@@ -811,6 +811,7 @@ const GoalDashboard = ({setLoggedIn}) => {
       setDailyValue(false);
       setWeeklyValue(true);
       setMonthlyValue(false);
+      console.log(nutrition)
       if (dailyValue === true && weeklyValue === false) {
         setCaloriesLimit(caloriesLimit * 7)
         setProteinLimit(proteinLimit * 7)
