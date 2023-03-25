@@ -17,6 +17,9 @@ const ViewFood = ({setLoggedIn}) => {
     const [dailyValue, setDailyValue] = useState(false);
     const [weeklyValue, setWeeklyValue] = useState(false);
     const [monthlyValue, setMonthlyValue] = useState(false);
+    const [allValue, setAllValue] = useState(false);
+
+    
     const current = new Date();
 
 
@@ -64,6 +67,9 @@ const ViewFood = ({setLoggedIn}) => {
         setDailyValue(true);
         setWeeklyValue(false);
         setMonthlyValue(false);
+        setAllValue(false);
+
+        
         let arr = []
         foodHolder.map((foods) => {
           if (dateParse(foods.createdAt) === dateParse(new Date())){
@@ -79,6 +85,8 @@ const ViewFood = ({setLoggedIn}) => {
         setDailyValue(false);
         setWeeklyValue(true);
         setMonthlyValue(false);
+        setAllValue(false);
+
         let arr = []
         current.setDate(current.getDate() - 7)
         foodHolder.map((foods) => {
@@ -95,6 +103,7 @@ const ViewFood = ({setLoggedIn}) => {
         setDailyValue(false);
         setWeeklyValue(false);
         setMonthlyValue(true);
+        setAllValue(false);
         let arr = []
         current.setDate(current.getDate() - 30)
         foodHolder.map((foods) => {
@@ -107,6 +116,19 @@ const ViewFood = ({setLoggedIn}) => {
       })
       setFood(arr)
       }
+
+
+      const allNutriment = () => {
+        setDailyValue(false);
+        setWeeklyValue(false);
+        setMonthlyValue(false);
+        setAllValue(true);
+      setFood(foodHolder)
+      }
+
+
+
+
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity:1 }} exit={{ opacity: 0}} transition={{duration:1}}>
     <Container>
@@ -127,9 +149,7 @@ const ViewFood = ({setLoggedIn}) => {
                             </ButtonGroup>
                             <br></br>
                             <ButtonGroup size="sm" className="mb-2">
-                              <Button variant="outline-primary" >Last 3 Months</Button>
-                              <Button variant="outline-primary" >Last 6 Months</Button>
-                              <Button variant="outline-primary" >Last 12 Months</Button>
+                              <Button variant="outline-primary" onClick={allNutriment} active={allValue} >All Nutriment</Button>
                             </ButtonGroup>
                       </Card.Body>
                     </Card>
