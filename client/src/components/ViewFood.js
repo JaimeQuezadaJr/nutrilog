@@ -38,6 +38,7 @@ const ViewFood = ({setLoggedIn}) => {
                 console.log(res.data)
               setFood(res.data)
               setFoodHolder(res.data)
+              setAllValue(true)
             })
             .catch(err => console.log(err));
             
@@ -142,15 +143,16 @@ const ViewFood = ({setLoggedIn}) => {
                         <Card.Text>
                             View all foods consumed and their respective nutrition facts.
                         </Card.Text>
+                        <ButtonGroup size="sm" className="mb-2">
+                              <Button variant="outline-primary" onClick={allNutriment} active={allValue} >All Nutriment</Button>
+                            </ButtonGroup>
+                            <br></br>
                             <ButtonGroup size="sm" className="mb-2">
                               <Button variant="outline-primary" onClick={dailyChange} active={dailyValue}>Today</Button>
                               <Button variant="outline-primary" onClick={weeklyChange} active ={weeklyValue}>Last 7 Days</Button>
                               <Button variant="outline-primary" onClick={monthlyChange} active={monthlyValue}>Last 30 Days</Button>
                             </ButtonGroup>
-                            <br></br>
-                            <ButtonGroup size="sm" className="mb-2">
-                              <Button variant="outline-primary" onClick={allNutriment} active={allValue} >All Nutriment</Button>
-                            </ButtonGroup>
+                           
                       </Card.Body>
                     </Card>
             </Col>
