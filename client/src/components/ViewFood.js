@@ -169,8 +169,9 @@ const ViewFood = ({setLoggedIn}) => {
                 <Card className='page-bottom' border="light" style={{ width: '18rem' }}>
                     <Card.Header className='nutrientName'>{foods.foodTitle}</Card.Header>
                         <Card.Body>
-                            <Card.Text className='mb-2'>Added on: {dateParse(foods.createdAt)}</Card.Text>
-                            <Card.Text className='mb-2'>Portion: {foods.portionSize} g</Card.Text>
+                            
+                            <Card.Text className="mb-0 nutrientName">Portion: {foods.portionSize} g</Card.Text>
+                            <Card.Text className="mb-2 small-date">* Nutrient percentages based on portion size.</Card.Text>
                                 <div className='foodScroll mb-3'>
                                 <Card.Text className="mb-0 nutrientName">Calories</Card.Text>
                                 <p className="m-0 small-date">{`Calories: ${foods.calories} kCal`}</p>
@@ -236,7 +237,7 @@ const ViewFood = ({setLoggedIn}) => {
                                 <p className="m-0 small-date">{`Folate ${foods.folate} ug`}</p>
                                 <ProgressBar variant="warning" now={(((foods.folate)/(foods.portionSize))*100)/1000000} label={`${((((foods.folate)/(foods.portionSize))*100)/1000000).toFixed(6)} %`} />
 
-                                
+                                <Card.Text className="mb-0 mt-2 nutrientName">Added on: {dateParse(foods.createdAt)}</Card.Text>
                                 </div>
                                 <Button variant="outline-primary"  size='sm' onClick={() => navigate(`/updatePortion/${foods._id}`)} >Update Portion</Button>
                                 <Button variant="outline-danger" className='ms-1' size='sm' onClick = {(e) => {deleteMovie(foods._id)}}>Delete</Button>

@@ -18,11 +18,8 @@ const UpdatePortion = ({setLoggedIn}) => {
     const [errors, setErrors] = useState({});
     const [btnLink, setBtnLink] = useState([]);
     const [food, setFood] = useState([]);
-    const[foodQuery, setFoodQuery] = useState("");
-    const [foodIndex, setFoodIndex] = useState(false);
-    const [nutrients, setNutrients] = useState([]);
-    const [foodMeasure, setFoodMeasure] = useState([]);
-    const [foodName, setFoodName] = useState('');
+    const [initialRender, setInitialRender] = useState(false);
+
     const [portion, setPortion] = useState(100);
     const [nutritionFacts, setNutritionFacts] = useState(
         {
@@ -191,17 +188,25 @@ const UpdatePortion = ({setLoggedIn}) => {
                 console.log(e.target[i].name, e.target[i].value)
               }
           }
+          setInitialRender(true)
           
     }
-
+  
     useEffect(() => {
+      if(initialRender === false) {
+        console.log(initialRender);
+      }
+      else{
         axios
         .put(`http://localhost:8000/api/nutrition/${id}`, nutritionFacts, {withCredentials:true}) 
         .then((res) => {
           console.log(res.data);
           navigate('/dashboard');
         })
-        .catch((err) => console.log(err));
+        .catch((err) => setErrors(err.response.data.error.errors))
+      }
+        
+        
       
       },[nutritionFacts]);
   return (
@@ -215,8 +220,12 @@ const UpdatePortion = ({setLoggedIn}) => {
                 <Form onSubmit={handleSubmit}>
                     <Card.Header className='nutrientName'>{food.foodTitle}</Card.Header>
                         <Card.Body>
-                            <Card.Text className='mb-2'>Added on: {dateParse(food.createdAt)}</Card.Text>
-                            <Card.Text className='mb-2'>Portion: <span><input type='text' name='portion' value={portion} onChange = {(e) => (setPortion(e.target.value))}></input></span> g</Card.Text>
+                            
+                            
+                           
+                            <Card.Text className='mb-0 nutrientName'>Portion: <span><input type='text' name='portion' value={portion} onChange = {(e) => (setPortion(e.target.value))}></input></span> g</Card.Text>
+                            <Card.Text className="mb-2 small-date">* Nutrient percentages based on portion size.</Card.Text>
+                            {errors.portionSize && <Form.Text className='text-danger'>{errors.portionSize.message}</Form.Text>}
                                 <div className='foodScroll mb-3'>
                                 <Card.Text className="mb-0 nutrientName">Calories</Card.Text>
                                 <p className="m-0 small-date">{`Calories: ${((food.calories)*(portion/food.portionSize)).toFixed(2)} kCal`}</p>
@@ -308,7 +317,7 @@ const UpdatePortion = ({setLoggedIn}) => {
                                 <p className="m-0 small-date">{`Folate ${((food.folate)*(portion/food.portionSize)).toFixed(2)} ug`}</p>
                                 <input hidden readOnly name='Folate, total' value={((food.folate)*(portion/food.portionSize)).toFixed(2) || 0} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>
                                 <ProgressBar variant="warning" now={(((food.folate)/(food.portionSize))*100)/1000000} label={`${((((food.folate)/(food.portionSize))*100)/1000000).toFixed(6)} %`} />
-
+                                <Card.Text className="mb-0 mt-2 nutrientName">Added on: {dateParse(food.createdAt)}</Card.Text>
                                 <input hidden readOnly name="foodName" value={food.foodTitle || ''}></input>
                                 </div>
                                 <Button variant="outline-primary"  size='sm' type='submit' >Update</Button>

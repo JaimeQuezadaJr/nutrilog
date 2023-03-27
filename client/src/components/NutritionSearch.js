@@ -6,16 +6,20 @@ import Container from 'react-bootstrap/esm/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { motion } from 'framer-motion';
 import Spinner from 'react-bootstrap/Spinner';
+import Accordion from 'react-bootstrap/Accordion';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Badge from 'react-bootstrap/Badge';
 
 
 const NutritionSearch = ({loggedIn, setLoggedIn}) => {
     const navigate = useNavigate();
+    const [initialRender, setInitialRender] = useState(false);
     const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState({});
     const [btnLink, setBtnLink] = useState([]);
@@ -182,16 +186,24 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, portionSize: e.target[i].value }));
               }
           }
+          setInitialRender(true);
     }
     
     useEffect(() => {
+      if(initialRender === false) {
+        console.log(initialRender);
+      }
+      else{
         axios
         .post('http://localhost:8000/api/nutrition', nutritionFacts, {withCredentials:true}) 
         .then((res) => {
           console.log(res.data);
           navigate('/dashboard');
         })
-        .catch((err) => console.log(err));
+        
+        .catch((err) => setErrors(err.response.data.errors))
+      }
+
       
       },[nutritionFacts]);
         
@@ -235,13 +247,22 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                         <Button size='sm' type="submit" variant='outline-primary' className='mb-3'>Search</Button>
                         </Form>
                         {loading ? <Spinner animation="border" variant='primary' /> : null}
-
-                        <div className='foodScroll'>
-                        {food.map((foods, index)=>
-                            <Button key={foods.fdcId} variant="outline-success" className='m-1' size='sm' onClick = {(e) => {nutrientHandler(index)}}>{foods.description}</Button>
-                        )}
-                        </div>
-
+                        <Accordion defaultActiveKey="0">
+                          <Accordion.Item eventKey="0">
+                            <Accordion.Header>Results <span className='ms-3'><Badge bg='primary' pill>{food.length}</Badge></span> </Accordion.Header>
+                            <Accordion.Body>
+                            <div className='foodScroll'>
+                              <ListGroup>
+                              {food.map((foods, index)=>
+                                                <ListGroup.Item action key={foods.fdcId} variant="outline-success" className='m-1' size='sm' onClick = {(e) => {nutrientHandler(index)}}>{foods.description}</ListGroup.Item>
+                                            )}
+                                            </ListGroup>
+                                            </div>
+                              
+                                            
+                            </Accordion.Body>
+                          </Accordion.Item>
+                          </Accordion>
                       </Card.Body>
                     </Card>
                 </Col>
@@ -267,6 +288,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                                 <Dropdown.Item className='mb-0' key = {index} onClick ={() => {setPortion(foodMeasures.gramWeight)}}><span className='nutrientName'>{foodMeasures.disseminationText}</span>: {foodMeasures.gramWeight} g</Dropdown.Item>
                             )}
                             </DropdownButton>
+                            {errors.portionSize && <Form.Text className='text-danger'>{errors.portionSize.message}</Form.Text>}
                     
                     <div className='scroll mt-3'>
                         <Form onSubmit={handleSubmit}>
