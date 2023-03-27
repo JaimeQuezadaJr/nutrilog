@@ -11,10 +11,12 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { motion } from 'framer-motion';
+import Spinner from 'react-bootstrap/Spinner';
 
 
 const NutritionSearch = ({loggedIn, setLoggedIn}) => {
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState({});
     const [btnLink, setBtnLink] = useState([]);
     const [food, setFood] = useState([]);
@@ -76,8 +78,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
 
     const foodHandler = (e) => {
         e.preventDefault();
-        console.log(foodQuery)
-        console.log(foodIndex)
+        setLoading(true);
         const params = {
             api_key: process.env.REACT_APP_FOOD_API_KEY,
             query: `${foodQuery}`,
@@ -91,6 +92,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                 setFoodQuery("")
                 setNutrients([])
                 setFoodIndex(false)
+                setLoading(false);
                 
                 setPortion(100)
                 console.log(res.data)
@@ -232,6 +234,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                         </Form.Group>
                         <Button size='sm' type="submit" variant='outline-primary' className='mb-3'>Search</Button>
                         </Form>
+                        {loading ? <Spinner animation="border" variant='primary' /> : null}
 
                         <div className='foodScroll'>
                         {food.map((foods, index)=>
