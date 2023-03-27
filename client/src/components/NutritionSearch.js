@@ -102,23 +102,13 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
             })
     }
     const nutrientHandler = (foodId) => {
-        console.log(food.description)
-        console.log(foodId)
-        console.log([food])
         setFoodMeasure(food[foodId].foodMeasures)
         setFoodName(food[foodId].description)
         setNutrients(food[foodId].foodNutrients)
         setFoodIndex(true)
-        console.log(portion)
-        console.log(food[foodId].foodNutrients)
     }
     const portionHandler = (e) => {
         e.preventDefault();
-        console.log("hello")
-        console.log(foodName)
-        console.log(portion)
-        console.log(nutrients[0].value)
-        console.log([nutrients])
         
     }
     const handleSubmit = (e) => {
