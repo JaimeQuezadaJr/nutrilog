@@ -79,7 +79,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
         console.log(foodQuery)
         console.log(foodIndex)
         const params = {
-            api_key: 'ma4EHu5hkEyGjQ5cwZeB9BjYd9iMg6XxzzmXqkMV',
+            api_key: process.env.REACT_APP_FOOD_API_KEY,
             query: `${foodQuery}`,
             dataType: ['Survey (FNDDS)'],
             pagesize: 100,
