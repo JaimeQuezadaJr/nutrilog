@@ -105,7 +105,6 @@ const GoalDashboard = ({setLoggedIn}) => {
           axios.get(`http://localhost:8000/api/nutrition/user/${res.data._id}`, { withCredentials: true})
           .then(res => {
             setNutrition(res.data)
-            console.log(nutrition)
 
           })
           .catch(err => console.log(err));
@@ -811,7 +810,6 @@ const GoalDashboard = ({setLoggedIn}) => {
       setDailyValue(false);
       setWeeklyValue(true);
       setMonthlyValue(false);
-      console.log(nutrition)
       if (dailyValue === true && weeklyValue === false) {
         setCaloriesLimit(caloriesLimit * 7)
         setProteinLimit(proteinLimit * 7)

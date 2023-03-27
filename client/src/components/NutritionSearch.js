@@ -97,11 +97,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                 setNutrients([])
                 setFoodIndex(false)
                 setLoading(false);
-                
                 setPortion(100)
-                console.log(res.data)
-                console.log(res.data.foods)
-                console.log(res.data.foods[0].foodNutrients)
             })
             .catch((err) => {
                 console.log('Something went wrong', err)
@@ -122,22 +118,16 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
         for(let i=0; i<67; i++) {
             if (e.target[i].name === 'Protein') {
                 setNutritionFacts(previousInputs =>({ ...previousInputs, protein: e.target[i].value }));
-                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Total lipid (fat)') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, totalFat: e.target[i].value }));
-                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Carbohydrate, by difference') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, carbohydrates: e.target[i].value }));
-                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Energy') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, calories: e.target[i].value }));
-                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Water') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, water: e.target[i].value }));
-                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Fiber, total dietary') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, dietaryFiber: e.target[i].value }));
-                console.log(e.target[i].name, e.target[i].value)
               } else if (e.target[i].name === 'Calcium, Ca') {
                 setNutritionFacts(previousInputs => ({ ...previousInputs, calcium: e.target[i].value }));
               } else if (e.target[i].name === 'Iron, Fe') {
@@ -190,14 +180,10 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
     }
     
     useEffect(() => {
-      if(initialRender === false) {
-        console.log(initialRender);
-      }
-      else{
+      if(initialRender === true) {
         axios
         .post('http://localhost:8000/api/nutrition', nutritionFacts, {withCredentials:true}) 
         .then((res) => {
-          console.log(res.data);
           navigate('/dashboard');
         })
         

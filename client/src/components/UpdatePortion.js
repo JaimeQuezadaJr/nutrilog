@@ -58,22 +58,17 @@ const UpdatePortion = ({setLoggedIn}) => {
         axios
           .get('http://localhost:8000/api/current-user', { withCredentials: true })
           .then((res) => {
-            console.log(res.data)
-
             setLoggedIn(true);
             
             axios.get(`http://localhost:8000/api/nutrition/${id}`, { withCredentials: true})
             .then(res => {
-                console.log(res.data)
               setFood(res.data)
               setPortion(res.data.portionSize)
-              console.log(food)
             })
             .catch(err => console.log(err));
             
           })
           .catch((err) => {
-            console.log(err)
             navigate('/');
           }
           ); 
@@ -193,20 +188,15 @@ const UpdatePortion = ({setLoggedIn}) => {
     }
   
     useEffect(() => {
-      if(initialRender === false) {
-        console.log(initialRender);
-      }
-      else{
+      if(initialRender === true) {
         axios
         .put(`http://localhost:8000/api/nutrition/${id}`, nutritionFacts, {withCredentials:true}) 
         .then((res) => {
-          console.log(res.data);
           navigate('/dashboard');
         })
         .catch((err) => setErrors(err.response.data.error.errors))
       }
-        
-        
+
       
       },[nutritionFacts]);
   return (

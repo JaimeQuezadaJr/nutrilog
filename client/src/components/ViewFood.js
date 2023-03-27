@@ -29,13 +29,11 @@ const ViewFood = ({setLoggedIn}) => {
         axios
           .get('http://localhost:8000/api/current-user', { withCredentials: true })
           .then((res) => {
-            console.log(res.data)
             setUser(res.data);
             setLoggedIn(true);
             
             axios.get(`http://localhost:8000/api/nutrition/user/${res.data._id}`, { withCredentials: true})
             .then(res => {
-                console.log(res.data)
               setFood(res.data)
               setFoodHolder(res.data)
               setAllValue(true)
@@ -74,7 +72,6 @@ const ViewFood = ({setLoggedIn}) => {
         let arr = []
         foodHolder.map((foods) => {
           if (dateParse(foods.createdAt) === dateParse(new Date())){
-            console.log(foods.foodTitle)
             arr = [foods, ...arr]
           }
           
@@ -92,7 +89,6 @@ const ViewFood = ({setLoggedIn}) => {
         current.setDate(current.getDate() - 7)
         foodHolder.map((foods) => {
           if (dateParse(foods.createdAt) >= dateParse(current.toDateString())){
-            console.log(foods.foodTitle)
             arr = [foods, ...arr]
             
           }
@@ -109,7 +105,6 @@ const ViewFood = ({setLoggedIn}) => {
         current.setDate(current.getDate() - 30)
         foodHolder.map((foods) => {
           if (dateParse(foods.createdAt) >= dateParse(current.toDateString())){
-            console.log(foods.foodTitle)
             arr = [foods, ...arr]
             
           }
@@ -124,7 +119,7 @@ const ViewFood = ({setLoggedIn}) => {
         setWeeklyValue(false);
         setMonthlyValue(false);
         setAllValue(true);
-      setFood(foodHolder)
+        setFood(foodHolder)
       }
 
 
