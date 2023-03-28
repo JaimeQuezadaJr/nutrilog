@@ -111,7 +111,6 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
     }
     const portionHandler = (e) => {
         e.preventDefault();
-        
     }
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -268,7 +267,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                                     </Form.Group>
                                 </Form>
                             </Card.Title>
-
+                            <Card.Text className="mb-2 small-date">* Nutrient percentages based on portion size.</Card.Text>
                             <DropdownButton size='sm' variant='outline-primary' id="dropdown-basic-button" title="Portion Size">
                             {foodMeasure.map((foodMeasures, index) =>
                                 <Dropdown.Item className='mb-0' key = {index} onClick ={() => {setPortion(foodMeasures.gramWeight)}}><span className='nutrientName'>{foodMeasures.disseminationText}</span>: {foodMeasures.gramWeight} g</Dropdown.Item>
@@ -284,17 +283,26 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                         {foodNutrients.unitName === 'G'?
                         <>
                         <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly name={foodNutrients.nutrientName} value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
-                        <ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(100/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(100/portion)).toFixed(2)} %`}/>
+                        {!portion?
+                        <ProgressBar variant="primary" now={0}  label={`${0} %`}/>
+                        :<ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(100/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(100/portion)).toFixed(2)} %`}/>
+                        }
                         </>
                         :foodNutrients.unitName === 'MG'?
                         <>
                         <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly name={foodNutrients.nutrientName} value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
-                        <ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(.1/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(.1/portion)).toFixed(2)} %`}/>
+                        {!portion?
+                        <ProgressBar variant="primary" now={0}  label={`${0} %`}/>
+                        :<ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(.1/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(.1/portion)).toFixed(2)} %`}/>
+                        }
                         </>
                     :foodNutrients.unitName === 'UG'?
                       <>
                         <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly name={foodNutrients.nutrientName} value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
-                        <ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(.0001/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(.0001/portion)).toFixed(2)} %`}/>
+                        {!portion?
+                        <ProgressBar variant="primary" now={0}  label={`${0} %`}/>
+                        :<ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(.0001/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(.0001/portion)).toFixed(2)} %`}/>
+                        }
                         </>
                       :<>
                     <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly name={foodNutrients.nutrientName} value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
