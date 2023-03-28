@@ -24,7 +24,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
     const [errors, setErrors] = useState({});
     const [btnLink, setBtnLink] = useState([]);
     const [food, setFood] = useState([]);
-    const[foodQuery, setFoodQuery] = useState("");
+    const [foodQuery, setFoodQuery] = useState("");
     const [foodIndex, setFoodIndex] = useState(false);
     const [nutrients, setNutrients] = useState([]);
     const [foodMeasure, setFoodMeasure] = useState([]);
@@ -239,7 +239,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                             <div className='foodScroll'>
                               <ListGroup>
                               {food.map((foods, index)=>
-                                                <ListGroup.Item action key={foods.fdcId} variant="outline-success" className='m-1' size='sm' onClick = {(e) => {nutrientHandler(index)}}>{foods.description}</ListGroup.Item>
+                              <ListGroup.Item action key={foods.fdcId} variant="outline-success" className='m-1' size='sm' onClick = {(e) => {nutrientHandler(index)}}>{foods.description}</ListGroup.Item>
                                             )}
                                             </ListGroup>
                                             </div>
@@ -285,7 +285,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                         <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly name={foodNutrients.nutrientName} value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
                         {!portion?
                         <ProgressBar variant="primary" now={0}  label={`${0} %`}/>
-                        :<ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(100/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(100/portion)).toFixed(2)} %`}/>
+                        :<ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(100/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(100/portion)).toFixed(0)} %`}/>
                         }
                         </>
                         :foodNutrients.unitName === 'MG'?
@@ -293,7 +293,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                         <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly name={foodNutrients.nutrientName} value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
                         {!portion?
                         <ProgressBar variant="primary" now={0}  label={`${0} %`}/>
-                        :<ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(.1/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(.1/portion)).toFixed(2)} %`}/>
+                        :<ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(.1/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(.1/portion)).toFixed(0)} %`}/>
                         }
                         </>
                     :foodNutrients.unitName === 'UG'?
@@ -301,11 +301,11 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                         <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly name={foodNutrients.nutrientName} value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
                         {!portion?
                         <ProgressBar variant="primary" now={0}  label={`${0} %`}/>
-                        :<ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(.0001/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(.0001/portion)).toFixed(2)} %`}/>
+                        :<ProgressBar variant="primary" now={(((portion/100)*foodNutrients.value)*(.0001/portion)).toFixed(2)}  label={`${(((portion/100)*foodNutrients.value)*(.0001/portion)).toFixed(0)} %`}/>
                         }
                         </>
                       :<>
-                    <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly name={foodNutrients.nutrientName} value={((portion/100)*foodNutrients.value).toFixed(2)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
+                    <p className='mb-0'> <span className='nutrientName'>{foodNutrients.nutrientName}</span>:<span><input readOnly name={foodNutrients.nutrientName} value={((portion/100)*foodNutrients.value).toFixed(0)} style={{border:'none', backgroundColor: 'transparent', width:'45px', textAlign:'end'}}></input>{(foodNutrients.unitName).toLowerCase()}</span></p>
                     <ProgressBar variant="primary" now={0}/>
                     </>
                     }

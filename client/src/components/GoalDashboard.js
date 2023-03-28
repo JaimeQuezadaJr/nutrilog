@@ -78,7 +78,7 @@ const GoalDashboard = ({setLoggedIn}) => {
     const [errors, setErrors] = useState({});
     const [user, setUser] = useState("");
     const [age, setAge] = useState(0);
-    const [gender, setGender] = useState('');
+    const [sex, setSex] = useState('');
 
     const current = new Date();
 
@@ -97,7 +97,7 @@ const GoalDashboard = ({setLoggedIn}) => {
         .get('http://localhost:8000/api/current-user', { withCredentials: true })
         .then((res) => {
           setAge(res.data.age)
-          setGender(res.data.gender)
+          setSex(res.data.sex)
           setUser(res.data.firstName);
           setLoggedIn(true);
           setDailyValue(true);
@@ -117,7 +117,7 @@ const GoalDashboard = ({setLoggedIn}) => {
 
     useEffect(() => {
 
-          if(age<= 8  && age >= 4 && gender === 'Female'){
+          if(age<= 8  && age >= 4 && sex === 'Female'){
             setCaloriesLimit(1200)
             setProteinLimit(19)
             setTotalFatLimit(33)
@@ -145,7 +145,7 @@ const GoalDashboard = ({setLoggedIn}) => {
             setVitaminKLimit(55)
             setFolateLimit(200)
           }
-          else if(age<= 8  && age >= 4 && gender === 'Male'){
+          else if(age<= 8  && age >= 4 && sex === 'Male'){
             setCaloriesLimit(1400)
             setProteinLimit(19)
             setTotalFatLimit(39)
@@ -173,7 +173,7 @@ const GoalDashboard = ({setLoggedIn}) => {
             setVitaminKLimit(55)
             setFolateLimit(200)
           }
-          else if(age<= 13  && age >= 9 && gender === 'Female'){
+          else if(age<= 13  && age >= 9 && sex === 'Female'){
             setCaloriesLimit(1600)
             setProteinLimit(34)
             setTotalFatLimit(44)
@@ -201,7 +201,7 @@ const GoalDashboard = ({setLoggedIn}) => {
             setVitaminKLimit(60)
             setFolateLimit(300)
           }
-          else if(age<= 13  && age >= 9 && gender === 'Male'){
+          else if(age<= 13  && age >= 9 && sex === 'Male'){
             setCaloriesLimit(1800)
             setProteinLimit(34)
             setTotalFatLimit(50)
@@ -229,7 +229,7 @@ const GoalDashboard = ({setLoggedIn}) => {
             setVitaminKLimit(60)
             setFolateLimit(300)
           }
-          else if(age<= 18  && age >= 14 && gender === 'Female'){
+          else if(age<= 18  && age >= 14 && sex === 'Female'){
             setCaloriesLimit(1800)
             setProteinLimit(46)
             setTotalFatLimit(50)
@@ -257,7 +257,7 @@ const GoalDashboard = ({setLoggedIn}) => {
             setVitaminKLimit(75)
             setFolateLimit(400)
           }
-          else if(age<= 18  && age >= 14 && gender === 'Male'){
+          else if(age<= 18  && age >= 14 && sex === 'Male'){
             setCaloriesLimit(2200)
             setProteinLimit(52)
             setTotalFatLimit(61)
@@ -285,7 +285,7 @@ const GoalDashboard = ({setLoggedIn}) => {
             setVitaminKLimit(75)
             setFolateLimit(400)
           }
-          else if(age<= 30  && age >= 19 && gender === 'Female'){
+          else if(age<= 30  && age >= 19 && sex === 'Female'){
             setCaloriesLimit(2000)
             setProteinLimit(46)
             setTotalFatLimit(44)
@@ -313,7 +313,7 @@ const GoalDashboard = ({setLoggedIn}) => {
             setVitaminKLimit(90)
             setFolateLimit(400)
           }
-          else if(age<= 30  && age >= 19 && gender === 'Male'){
+          else if(age<= 30  && age >= 19 && sex === 'Male'){
             setCaloriesLimit(2400)
             setProteinLimit(56)
             setTotalFatLimit(53)
@@ -341,7 +341,7 @@ const GoalDashboard = ({setLoggedIn}) => {
             setVitaminKLimit(120)
             setFolateLimit(400)
           }
-          else if(age<= 50  && age >= 31 && gender === 'Female'){
+          else if(age<= 50  && age >= 31 && sex === 'Female'){
             setCaloriesLimit(1800)
             setProteinLimit(46)
             setTotalFatLimit(40)
@@ -369,7 +369,7 @@ const GoalDashboard = ({setLoggedIn}) => {
             setVitaminKLimit(90)
             setFolateLimit(400)
           }
-          else if(age<= 50  && age >= 31 && gender === 'Male'){
+          else if(age<= 50  && age >= 31 && sex === 'Male'){
             setCaloriesLimit(2200)
             setProteinLimit(56)
             setTotalFatLimit(49)
@@ -397,7 +397,7 @@ const GoalDashboard = ({setLoggedIn}) => {
             setVitaminKLimit(120)
             setFolateLimit(400)
           }
-          else if(age >= 51 && gender === 'Female'){
+          else if(age >= 51 && sex === 'Female'){
             setCaloriesLimit(1600)
             setProteinLimit(34)
             setTotalFatLimit(44)
@@ -425,7 +425,7 @@ const GoalDashboard = ({setLoggedIn}) => {
             setVitaminKLimit(120)
             setFolateLimit(400)
           }
-          else if(age >= 51 && gender === 'Male'){
+          else if(age >= 51 && sex === 'Male'){
             setCaloriesLimit(2000)
             setProteinLimit(56)
             setTotalFatLimit(44)
@@ -1229,7 +1229,7 @@ const GoalDashboard = ({setLoggedIn}) => {
             <Card>
               <Card.Header>Nutrition Summary</Card.Header>
                 <Card.Body>
-                  <p className="small-date">* Hello {user}, your nutrition goals are set based off age and gender according to the USDA Dietary Guidelines Recommendations for Americans. Visit <span><a href="https://www.dietaryguidelines.gov/sites/default/files/2019-05/2015-2020_Dietary_Guidelines.pdf" target="_blank">here</a></span> for more information.</p>
+                  <p className="small-date">* Hello {user}, your nutrition goals are set based off age and sex according to the USDA Dietary Guidelines Recommendations for Americans. Visit <span><a href="https://www.dietaryguidelines.gov/sites/default/files/2019-05/2015-2020_Dietary_Guidelines.pdf" target="_blank">here</a></span> for more information.</p>
                   <ButtonGroup size="sm" className="mb-2">
                     <Button variant="outline-primary" onClick={dailyChange} active={dailyValue}>Today</Button>
                     <Button variant="outline-primary" onClick={weeklyChange} active ={weeklyValue}>Last 7 Days</Button>
@@ -1240,66 +1240,66 @@ const GoalDashboard = ({setLoggedIn}) => {
                   <div className="mb-1">
                     <Card.Text className="mb-0 nutrientName">Calories</Card.Text>
                     <p className="m-0 small-date">{`Calories: ${calories} kCal out of ${caloriesLimit} kCal`}</p>
-                    <ProgressBar variant="primary" now={calories/caloriesLimit*100} label={`${(calories/caloriesLimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="primary" now={calories/caloriesLimit*100} label={`${(calories/caloriesLimit*100).toFixed(0)} %`} />
                   </div>
                   <div className="mb-1">
                     <Card.Text className="mb-0 nutrientName">Macronutrients</Card.Text>
                     <p className="m-0 small-date">{`Protein: ${protein} g out of ${proteinLimit} g`}</p>
-                    <ProgressBar className="" variant="danger" now={protein/proteinLimit*100} label={`${(protein/proteinLimit *100).toFixed(2)} %`} />
+                    <ProgressBar className="" variant="danger" now={protein/proteinLimit*100} label={`${(protein/proteinLimit *100).toFixed(0)} %`} />
                     <p className="m-0 small-date">{`Total Fat: ${totalFat} g out of ${totalFatLimit} g`}</p>
-                    <ProgressBar variant="warning" now={totalFat/totalFatLimit*100} label={`${(totalFat/totalFatLimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="warning" now={totalFat/totalFatLimit*100} label={`${(totalFat/totalFatLimit*100).toFixed(0)} %`} />
                     <p className="m-0 small-date">{`Carbohydrates: ${carbohydrates} g out of ${carbohydratesLimit} g`}</p>
-                    <ProgressBar variant="info" now={carbohydrates/carbohydratesLimit*100} label={`${(carbohydrates/carbohydratesLimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="info" now={carbohydrates/carbohydratesLimit*100} label={`${(carbohydrates/carbohydratesLimit*100).toFixed(0)} %`} />
                     <p className="m-0 small-date">{`Fiber: ${dietaryFiber} g out of ${dietaryFiberLimit} g`}</p>
-                    <ProgressBar variant="primary" now={dietaryFiber/dietaryFiberLimit*100} label={`${(dietaryFiber/dietaryFiberLimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="primary" now={dietaryFiber/dietaryFiberLimit*100} label={`${(dietaryFiber/dietaryFiberLimit*100).toFixed(0)} %`} />
                   </div>
                   <div className="mb-1">
                   <Card.Text className="mb-0 nutrientName">Minerals</Card.Text>
                     <p className="m-0 small-date">{`Calcium: ${calcium} mg out of ${calciumLimit} mg`}</p>
-                    <ProgressBar variant="danger" now={calcium/calciumLimit*100} label={`${(calcium/calciumLimit*100).toFixed(2)} %`}/>
+                    <ProgressBar variant="danger" now={calcium/calciumLimit*100} label={`${(calcium/calciumLimit*100).toFixed(0)} %`}/>
                     <p className="m-0 small-date">{`Iron: ${iron} mg out of ${ironLimit} mg`}</p>
-                    <ProgressBar variant="warning" now={iron/ironLimit*100} label={`${(iron/ironLimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="warning" now={iron/ironLimit*100} label={`${(iron/ironLimit*100).toFixed(0)} %`} />
                     <p className="m-0 small-date">{`Magnesium: ${magnesium} mg out of ${magnesiumLimit} mg`}</p>
-                    <ProgressBar variant="info" now={magnesium/magnesiumLimit*100} label={`${(magnesium/magnesiumLimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="info" now={magnesium/magnesiumLimit*100} label={`${(magnesium/magnesiumLimit*100).toFixed(0)} %`} />
                     <p className="m-0 small-date">{`Phosphorus ${phosphorus} mg out of ${phosphorusLimit} mg`}</p>
-                    <ProgressBar variant="primary" now={phosphorus/phosphorusLimit*100} label={`${(phosphorus/phosphorusLimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="primary" now={phosphorus/phosphorusLimit*100} label={`${(phosphorus/phosphorusLimit*100).toFixed(0)} %`} />
                     <p className="m-0 small-date">{`Potassium: ${potassium} mg out of ${potassiumLimit} mg`}</p>
-                    <ProgressBar variant="success" now={potassium/potassiumLimit*100} label={`${(potassium/potassiumLimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="success" now={potassium/potassiumLimit*100} label={`${(potassium/potassiumLimit*100).toFixed(0)} %`} />
                     <p className="m-0 small-date">{`Sodium ${sodium} mg out of ${sodiumLimit} mg`}</p>
-                    <ProgressBar variant="danger" now={sodium/sodiumLimit*100} label={`${(sodium/sodiumLimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="danger" now={sodium/sodiumLimit*100} label={`${(sodium/sodiumLimit*100).toFixed(0)} %`} />
                     <p className="m-0 small-date">{`Zinc: ${zinc} mg out of ${zincLimit} mg`}</p>
-                    <ProgressBar variant="warning" now={zinc/zincLimit*100} label={`${(zinc/zincLimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="warning" now={zinc/zincLimit*100} label={`${(zinc/zincLimit*100).toFixed(0)} %`} />
                     <p className="m-0 small-date">{`Copper: ${copper} mg out of ${copperLimit} mg`}</p>
-                    <ProgressBar variant="info" now={copper/copperLimit*100} label={`${(copper/copperLimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="info" now={copper/copperLimit*100} label={`${(copper/copperLimit*100).toFixed(0)} %`} />
                     <p className="m-0 small-date">{`Selenium: ${selenium} ug out of ${seleniumLimit} ug`}</p>
-                    <ProgressBar variant="primary" now={selenium/seleniumLimit*100} label={`${(selenium/seleniumLimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="primary" now={selenium/seleniumLimit*100} label={`${(selenium/seleniumLimit*100).toFixed(0)} %`} />
                   </div>
                   <div className="mb-2">
                   <Card.Text className="mb-0 nutrientName">Vitamins</Card.Text>
                     <p className="m-0 small-date">{`Vitamin A: ${vitaminA} ug out of ${vitaminALimit} ug`}</p>
-                    <ProgressBar variant="danger" now={vitaminA/vitaminALimit*100} label={`${(vitaminA/vitaminALimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="danger" now={vitaminA/vitaminALimit*100} label={`${(vitaminA/vitaminALimit*100).toFixed(0)} %`} />
                     <p className="m-0 small-date">{`Vitamin E: ${vitaminE} mg out of ${vitaminELimit} mg`}</p>
-                    <ProgressBar variant="warning" now={vitaminE/vitaminELimit*100} label={`${(vitaminE/vitaminELimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="warning" now={vitaminE/vitaminELimit*100} label={`${(vitaminE/vitaminELimit*100).toFixed(0)} %`} />
                     <p className="m-0 small-date">{`Vitamin D: ${vitaminD} ug out of ${vitaminDLimit} ug`}</p>
-                    <ProgressBar variant="info" now={vitaminD/vitaminDLimit*100} label={`${(vitaminD/vitaminDLimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="info" now={vitaminD/vitaminDLimit*100} label={`${(vitaminD/vitaminDLimit*100).toFixed(0)} %`} />
                     <p className="m-0 small-date">{`Vitamin C: ${vitaminC} mg out of ${vitaminCLimit} mg`}</p>
-                    <ProgressBar variant="primary" now={vitaminC/vitaminCLimit*100} label={`${(vitaminC/vitaminCLimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="primary" now={vitaminC/vitaminCLimit*100} label={`${(vitaminC/vitaminCLimit*100).toFixed(0)} %`} />
                     <p className="m-0 small-date">{`Thiamin: ${thiamin} mg out of ${(thiaminLimit).toFixed(1)} mg`}</p>
-                    <ProgressBar variant="success" now={thiamin/thiaminLimit*100} label={`${(thiamin/thiaminLimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="success" now={thiamin/thiaminLimit*100} label={`${(thiamin/thiaminLimit*100).toFixed(0)} %`} />
                     <p className="m-0 small-date">{`Riboflavin: ${riboflavin} mg out of ${(riboflavinLimit).toFixed(1)} mg`}</p>
-                    <ProgressBar variant="danger" now={riboflavin/riboflavinLimit*100} label={`${(riboflavin/riboflavinLimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="danger" now={riboflavin/riboflavinLimit*100} label={`${(riboflavin/riboflavinLimit*100).toFixed(0)} %`} />
                     <p className="m-0 small-date">{`Niacin: ${niacin} mg out of ${niacinLimit} mg`}</p>
-                    <ProgressBar variant="warning" now={niacin/niacinLimit*100} label={`${(niacin/niacinLimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="warning" now={niacin/niacinLimit*100} label={`${(niacin/niacinLimit*100).toFixed(0)} %`} />
                     <p className="m-0 small-date">{`Vitamin B-6: ${vitaminB6} mg out of ${vitaminB6Limit} mg`}</p>
-                    <ProgressBar variant="info" now={vitaminB6/vitaminB6Limit*100} label={`${(vitaminB6/vitaminB6Limit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="info" now={vitaminB6/vitaminB6Limit*100} label={`${(vitaminB6/vitaminB6Limit*100).toFixed(0)} %`} />
                     <p className="m-0 small-date">{`Vitamin B-12: ${vitaminB12} ug out of ${vitaminB12Limit} ug`}</p>
-                    <ProgressBar variant="primary" now={vitaminB12/vitaminB12Limit*100} label={`${(vitaminB12/vitaminB12Limit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="primary" now={vitaminB12/vitaminB12Limit*100} label={`${(vitaminB12/vitaminB12Limit*100).toFixed(0)} %`} />
                     <p className="m-0 small-date">{`Choline: ${choline} mg out of ${cholineLimit} mg`}</p>
-                    <ProgressBar variant="success" now={choline/cholineLimit*100} label={`${(choline/cholineLimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="success" now={choline/cholineLimit*100} label={`${(choline/cholineLimit*100).toFixed(0)} %`} />
                     <p className="m-0 small-date">{`Vitamin K: ${vitaminK} ug out of ${vitaminKLimit} ug`}</p>
-                    <ProgressBar variant="danger" now={vitaminK/vitaminKLimit*100} label={`${(vitaminK/vitaminKLimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="danger" now={vitaminK/vitaminKLimit*100} label={`${(vitaminK/vitaminKLimit*100).toFixed(0)} %`} />
                     <p className="m-0 small-date">{`Folate ${folate} ug out of ${folateLimit} ug`}</p>
-                    <ProgressBar variant="warning" now={folate/folateLimit*100} label={`${(folate/folateLimit*100).toFixed(2)} %`} />
+                    <ProgressBar variant="warning" now={folate/folateLimit*100} label={`${(folate/folateLimit*100).toFixed(0)} %`} />
                   </div>
                   <Button size="sm" variant="outline-primary" className="me-2" onClick={() => navigate('/chat')}>Nutritionist Chat</Button>
                   <Button size="sm" variant="outline-primary" className="me-2" onClick={() => navigate('/viewFood')}>All Nutrition</Button>

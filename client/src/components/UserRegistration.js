@@ -14,7 +14,7 @@ const UserRegistration = ({ setLoggedIn }) => {
       firstName: '',
       lastName: '',
       age: 0,
-      gender:'',
+      sex:'',
       email: '',
       password: '',
       confirmPassword: '',
@@ -56,21 +56,21 @@ const UserRegistration = ({ setLoggedIn }) => {
                 <Form.Label>Age</Form.Label>
                 <Form.Control type="number" name='age' placeholder="Enter age" value={user.age} onChange={handleChange} required />
                 <Form.Text className="text-muted">
-                  Nutritional goals for each age/gender group used in assessing adequacy of USDA Food Patterns at various calorie levels.
+                  Nutritional goals for each age/sex group used in assessing adequacy of USDA Food Patterns at various calorie levels.
                 </Form.Text>
                 {errors.age && <Form.Text className='text-danger'>{errors.age.message}</Form.Text>}
               </Form.Group>
-              <Form.Group className="mb-3 col-md-4" controlId="gender">
-                <Form.Label>Gender</Form.Label>
-                <Form.Select type="string" name='gender' placeholder="Enter gender" value={user.gender} onChange={handleChange} required>
-                  <option>Select Gender</option>
+              <Form.Group className="mb-3 col-md-4" controlId="sex">
+                <Form.Label>Sex</Form.Label>
+                <Form.Select type="string" name='sex' placeholder="Enter sex" value={user.sex} onChange={handleChange} required>
+                  <option>Select Sex</option>
                   <option value='Male'>Male</option>
                   <option value='Female'>Female</option>
                   </Form.Select>
                   <Form.Text className="text-muted">
-                  Daily nutritional goals for age-gender groups based on dietary reference intakes & dietary guidelines recommendations.
+                  Daily nutritional goals for age-sex groups based on dietary reference intakes & dietary guidelines recommendations.
                 </Form.Text>
-                {errors.age && <Form.Text className='text-danger'>{errors.gender.message}</Form.Text>}
+                {errors.sex && <Form.Text className='text-danger'>{errors.sex.message}</Form.Text>}
               </Form.Group>
               <Form.Group className="mb-3 col-md-4" controlId="formBasicEmail">
                 <Form.Label>Email</Form.Label>
