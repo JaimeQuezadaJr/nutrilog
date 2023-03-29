@@ -71,12 +71,24 @@ const findAllUsers = (req, res) => {
         .catch((err) => {
             res.status(400).json({ message: 'Something went wrong', error: err })
         })
-}
+};
+
+const deleteUser = (req, res) => {
+    User.deleteOne({ _id: req.params.id })
+      .then((user) => {
+        res.json(user);
+      })
+      .catch((err) => {
+        console.log('ERROR IN delete nutrition', err);
+        res.status(400).json({ message: 'something went wrong in delete nutrition', error: err });
+      });
+  };
 
 module.exports = {
     register,
     login,
     logout,
     getLoggedInUser,
-    findAllUsers
+    findAllUsers,
+    deleteUser,
 };
