@@ -4,7 +4,6 @@ import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import styles from './Header.module.css';
 import { motion } from 'framer-motion';
 
 
@@ -65,7 +64,7 @@ const Header = ({loggedIn, setLoggedIn}) => {
         </Container>
       </Navbar>
       </motion.div>
-      <div className={`${styles.footer} fixed-bottom`}></div>
+      <div className="footer fixed-bottom"></div>
       </>
       
     );

@@ -82,3 +82,8 @@ p {
 .small-date {
   font-size: x-small;
 }
+
+.footer {
+  background-color: #f0e6ee;
+  height: 1.5rem;
+}
