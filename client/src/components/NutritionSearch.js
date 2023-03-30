@@ -75,7 +75,6 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
         .catch((err) => {
           setLoggedIn(false);
           setBtnLink(['/register', 'Get Started']);
-          console.log(err)
         });
     
       },[])

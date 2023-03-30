@@ -25,7 +25,6 @@ const Home = ({loggedIn, setLoggedIn}) => {
         .catch((err) => {
           setLoggedIn(false);
           setBtnLink(['/login', 'Login']);
-          console.log(err)
         });
       },[loggedIn])
           

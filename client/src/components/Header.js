@@ -16,10 +16,9 @@ const Header = ({loggedIn, setLoggedIn}) => {
         .get('http://localhost:8000/api/current-user', { withCredentials: true })
         .then((res) => {
           setUser(res.data);
-          console.log(res.data)
           setLoggedIn(true);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.log());
     }, [loggedIn])
   
     const onLogOut = () => {
