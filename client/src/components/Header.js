@@ -16,6 +16,7 @@ const Header = ({loggedIn, setLoggedIn}) => {
         .get('http://localhost:8000/api/current-user', { withCredentials: true })
         .then((res) => {
           setUser(res.data);
+          console.log(res.data)
           setLoggedIn(true);
         })
         .catch((err) => console.log(err));
@@ -46,7 +47,7 @@ const Header = ({loggedIn, setLoggedIn}) => {
               />{' '}nutribase</Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
-            {user ? (
+            {loggedIn ? (
                 <Nav className=" justify-contend-end">
                   <Nav.Link as={Link} to="/dashboard">Home</Nav.Link>
                   <Nav.Link as={Link} to="/nutrition">Search</Nav.Link>

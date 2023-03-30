@@ -79,8 +79,8 @@ const deleteUser = (req, res) => {
         res.json(user);
       })
       .catch((err) => {
-        console.log('ERROR IN delete nutrition', err);
-        res.status(400).json({ message: 'something went wrong in delete nutrition', error: err });
+        console.log('ERROR IN delete user', err);
+        res.status(400).json({ message: 'something went wrong in delete user', error: err });
       });
   };
 

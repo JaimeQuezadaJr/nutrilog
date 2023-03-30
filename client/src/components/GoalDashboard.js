@@ -10,7 +10,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { motion } from 'framer-motion';
 
-const GoalDashboard = ({setLoggedIn}) => {
+const GoalDashboard = ({loggedIn, setLoggedIn}) => {
   const [dailyValue, setDailyValue] = useState(false);
   const [weeklyValue, setWeeklyValue] = useState(false);
   const [monthlyValue, setMonthlyValue] = useState(false);
@@ -98,7 +98,7 @@ const GoalDashboard = ({setLoggedIn}) => {
         .then((res) => {
           setAge(res.data.age)
           setSex(res.data.sex)
-          setUser(res.data.firstName);
+          setUser(res.data);
           setLoggedIn(true);
           setDailyValue(true);
 
@@ -1214,10 +1214,22 @@ const GoalDashboard = ({setLoggedIn}) => {
         }
 
       })
-      
-
     }
 
+    const deleteUser = (id) => {
+      axios
+        .delete(`http://localhost:8000/api/user/${id}`,{}, { withCredentials: true})
+        .then((res) => {
+          setLoggedIn(false);
+        })
+        .catch((err) => console.log(err));
+        axios
+        .post('http://localhost:8000/logout',{}, { withCredentials: true })
+        .then((res) => {
+            navigate('/')
+        })
+        .catch((err) => console.log(err));
+    };
 
     
     return (
@@ -1229,7 +1241,7 @@ const GoalDashboard = ({setLoggedIn}) => {
             <Card>
               <Card.Header>Nutrition Summary</Card.Header>
                 <Card.Body>
-                  <p className="small-date">* Hello {user}, your nutrition goals are set based off age and sex according to the USDA Dietary Guidelines Recommendations for Americans. Visit <span><a href="https://www.dietaryguidelines.gov/sites/default/files/2019-05/2015-2020_Dietary_Guidelines.pdf" target="_blank">here</a></span> for more information.</p>
+                  <p className="small-date">* Hello {user.firstName}, your nutrition goals are set based off age and sex according to the USDA Dietary Guidelines Recommendations for Americans. Visit <span><a href="https://www.dietaryguidelines.gov/sites/default/files/2019-05/2015-2020_Dietary_Guidelines.pdf" target="_blank">here</a></span> for more information.</p>
                   <ButtonGroup size="sm" className="mb-2">
                     <Button variant="outline-primary" onClick={dailyChange} active={dailyValue}>Today</Button>
                     <Button variant="outline-primary" onClick={weeklyChange} active ={weeklyValue}>Last 7 Days</Button>
@@ -1301,7 +1313,7 @@ const GoalDashboard = ({setLoggedIn}) => {
                     <p className="m-0 small-date">{`Folate ${folate} ug out of ${folateLimit} ug`}</p>
                     <ProgressBar variant="warning" now={folate/folateLimit*100} label={`${(folate/folateLimit*100).toFixed(0)} %`} />
                   </div>
-                  <Button size="sm" variant="outline-primary" className="me-2" onClick={() => navigate('/chat')}>Nutritionist Chat</Button>
+                  <Button size="sm" variant="outline-danger" className="me-2" onClick={(e) => {deleteUser(user._id)}}>Delete Profile</Button>
                   <Button size="sm" variant="outline-primary" className="me-2" onClick={() => navigate('/viewFood')}>All Nutrition</Button>
                   <Button size="sm" variant="outline-primary" className="me-2" onClick={() => navigate('/nutrition')}>Add Nutrition</Button>
                 </Card.Body>
