@@ -221,7 +221,7 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                         </>
                         }
                         <Card.Text className='small-date'>
-                          * Data on 65 food components, including nutrients, and weights for foods and beverages reported in the What We Eat in America dietary survey component of the National Health and Nutrition Examination Survey. Visit <span><a href="https://www.ars.usda.gov/ARSUserFiles/80400530/pdf/fndds/2019_2020_FNDDS_Doc.pdf" target="_blank">here</a></span> for more information.
+                          * Survey Foods (FNDDS) from the USDA FoodData Central. Data on 65 food components, including nutrients, and weights for foods and beverages reported in the What We Eat in America dietary survey component of the National Health and Nutrition Examination Survey. Visit <span><a href="https://www.ars.usda.gov/ARSUserFiles/80400530/pdf/fndds/2019_2020_FNDDS_Doc.pdf" target="_blank">here</a></span> for more information.
                         </Card.Text>
                         
                         <Form onSubmit = {foodHandler}>
