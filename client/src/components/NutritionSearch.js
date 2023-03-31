@@ -207,9 +207,6 @@ const NutritionSearch = ({loggedIn, setLoggedIn}) => {
                             {loggedIn ?
                             <>
                         <Card.Title>Add Nutrition <img className='rounded' src='/Buffer-Progress-Bar.jpg' alt="blueCircle" width={30} height={30} /></Card.Title>
-                        {/* <Card.Text>
-                            Add nutrition facts to your nutrition base to better understand your diet.
-                        </Card.Text> */}
                         </>
                         :
                         <>

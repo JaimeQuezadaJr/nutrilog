@@ -43,7 +43,7 @@ const Header = ({loggedIn, setLoggedIn}) => {
                 width="30"
                 height="30"
                 className="d-inline-block align-top"
-              />{' '}nutribase</Navbar.Brand>
+              />{' '}nutrilog</Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             {loggedIn ? (

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios' 
 import { useNavigate } from 'react-router-dom'
 import Form from 'react-bootstrap/Form';
@@ -35,6 +35,10 @@ const UserRegistration = ({ setLoggedIn }) => {
         })
         .catch((err) => setErrors(err.response.data.errors));
     };
+
+    useEffect(() => {
+      window.scrollTo(0,0)
+    },[])
   
     return (
       <motion.div initial={{ opacity: 0 }} animate={{ opacity:1 }} exit={{ opacity: 0}} transition={{duration:1}}>
