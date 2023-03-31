@@ -19,10 +19,7 @@ const ViewFood = ({setLoggedIn}) => {
     const [monthlyValue, setMonthlyValue] = useState(false);
     const [allValue, setAllValue] = useState(false);
 
-    
     const current = new Date();
-
-
     const navigate = useNavigate();
 
     useEffect(() => {
