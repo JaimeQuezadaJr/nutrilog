@@ -12,3 +12,4 @@
 * Integrated the USDA FoodData Central API to incorporate nutrition data.
 
 ### Project Demo
+![Main](file:///Users/jaimequezada/Downloads/Screen_Recording_2023-03-30_at_3_19_08_PM_AdobeExpress.gif)
