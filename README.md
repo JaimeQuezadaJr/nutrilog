@@ -13,4 +13,5 @@
 
 ### Project Demo
 
-![Screen_Recording_2023-03-30_at_3_19_08_PM_AdobeExpress](https://user-images.githubusercontent.com/99376655/231328747-da0a37f9-3e34-47b4-ae10-c95b8c3b7d3f.gif)
+
+![Untitled design](https://user-images.githubusercontent.com/99376655/231333370-6b061fa5-2800-467b-9f18-99fe5ffe815f.gif)
