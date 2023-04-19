@@ -10,7 +10,6 @@ import GoalDashboard from './components/GoalDashboard';
 import ViewFood from './components/ViewFood';
 import { AnimatePresence } from 'framer-motion';
 import UpdatePortion from './components/UpdatePortion';
-import Chat from './components/Chat';
 
 
 function App() {
@@ -32,7 +31,6 @@ function App() {
           <Route path={'/dashboard'} element={<GoalDashboard setLoggedIn={setLoggedIn} />} />
           <Route path={'/viewFood'} element={<ViewFood setLoggedIn={setLoggedIn} />} />
           <Route path={'/updatePortion/:id'} element={<UpdatePortion setLoggedIn={setLoggedIn} />} />
-          <Route path={'/chat'} element={<Chat setLoggedIn={setLoggedIn} />} />
           
         </Routes>
         </AnimatePresence>
