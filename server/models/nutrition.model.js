@@ -122,15 +122,6 @@ const NutritionSchema = mongoose.Schema(
             type: Number,
             required: [true, 'Please enter folate amount']
         },
-        // completedBy: {
-        //     type: Date,
-        //     required: [true, 'Please add goal completion date'],
-        //     min: [Date.now, 'Please give yourself at least one day to complete the goal']
-        // },
-        // complete: {
-        //     type: Boolean,
-        //     default: false
-        // },
         createdBy: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User'
